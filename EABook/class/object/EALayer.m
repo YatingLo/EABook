@@ -204,7 +204,7 @@
     tempObject = [EAAnimSprite spriteWithFile:@"pushbutton_return.png"];
     tempObject.soundName = @"push.mp3";
     tempObject.tag = 20;
-    tempObject.position = ccp(55, 65);
+    tempObject.position = ccp(60, 70);
     [self addChild:tempObject];
 }
 
