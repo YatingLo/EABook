@@ -10,6 +10,14 @@
 
 @implementation SoundManager
 
+-(id) init
+{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
 -(void) playLoopSound:(NSString*) soundName
 {
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
@@ -17,7 +25,7 @@
     NSLog(@"play loop");
     audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
     if (audioPlayer) {
-        audioPlayer.numberOfLoops = -1;
+        audioPlayer.numberOfLoops = 1;
         [audioPlayer play];
     }
 }
@@ -58,6 +66,7 @@
 
 -(void) stopSound
 {
+    [audioPlayer stop];
     if (audioPlayer && audioPlayer.isPlaying) {
         [audioPlayer stop];
     }

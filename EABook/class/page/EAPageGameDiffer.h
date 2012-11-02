@@ -11,7 +11,10 @@
 
 #import "EALayer.h"
 #import "EAPageGameZone.h"
-@interface EAPageGameDiffer : EALayer {
+#import "GameOoverMenu.h"
+#import "EALayerGame.h"
+
+@interface EAPageGameDiffer : EALayerGame {
     
 }
 +(CCScene *) scene;

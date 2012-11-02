@@ -1,5 +1,5 @@
 //
-//  GameBoard.h
+//  GameBoardDiffer.h
 //  EABook
 //
 //  Created by Mac06 on 12/11/2.
@@ -8,14 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "GameBoard.h"
 
-@interface GameBoard : CCNode {
-    
-    CCArray *tapObjectArray;
+@interface GameBoardDiffer : GameBoard {
+    int questNum;
+    int answerNum;
 }
--(void) gameInit;
--(void) gameStart;
--(void) gamePause;
--(void) gameStop;
--(void) gameOver;
+
 @end

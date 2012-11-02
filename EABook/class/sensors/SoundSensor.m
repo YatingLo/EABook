@@ -75,7 +75,6 @@
     
     if (differ > LIMIT_DIFFER) {
         //NSLog(@"soundEventSend");
-        
         if (enable) {
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
@@ -91,6 +90,7 @@
     else{
         if (!enable)
         {
+            
             enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation end");

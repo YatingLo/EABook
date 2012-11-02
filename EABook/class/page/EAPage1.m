@@ -153,7 +153,7 @@
 
 -(void) draw
 {
-    if (soundEnable && moveObjectArray.count > 1) {
+    if (soundEnable && moveObjectArray.count > 0) {
         [motionDetect update];
     }
 }

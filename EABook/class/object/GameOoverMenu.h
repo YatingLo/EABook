@@ -1,5 +1,5 @@
 //
-//  GameBoard.h
+//  GameOoverMenu.h
 //  EABook
 //
 //  Created by Mac06 on 12/11/2.
@@ -9,13 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GameBoard : CCNode {
-    
-    CCArray *tapObjectArray;
+@interface GameOoverMenu : CCNode {
+    CCArray *tapArray;
 }
--(void) gameInit;
--(void) gameStart;
--(void) gamePause;
--(void) gameStop;
--(void) gameOver;
+
+-(void) addThreeObject;
+-(void) addTwoObject;
 @end

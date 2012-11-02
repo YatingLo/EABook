@@ -29,7 +29,7 @@
     CCEaseInOut *ease2 = [CCEaseInOut actionWithAction:moveBy2 rate:0.5];//顺时针时摆动时先匀加速再匀减速运动
     CCSequence *seq1 = [CCSequence actions:ease1, ease2, nil];//将两个摆动合成为一个动画
     
-    [self runAction:[CCRepeatForever actionWithAction:[CCSpawn actionOne:[CCAnimate actionWithAnimation:pAnim] two:seq1]]];
+    [self runAction:[CCRepeat actionWithAction:[CCSpawn actionOne:[CCAnimate actionWithAnimation:pAnim] two:seq1] times:2]];
 }
 
 @end

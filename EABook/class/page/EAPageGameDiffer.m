@@ -53,6 +53,10 @@
     [self addChild:tempObject];
     [tapObjectArray insertObject:tempObject atIndex:0];
     
+    //GameOoverMenu *overMenu = [GameOoverMenu node];
+    //[overMenu addTwoObject];
+    //[self addChild:overMenu];
+    
     //加入array
     [tapObjectArray addObject:[self getChildByTag:20]];
 }

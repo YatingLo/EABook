@@ -174,16 +174,6 @@
 		B89D99B4163EBC26007AABFB /* P0-1_Jungle.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9917163EBC26007AABFB /* P0-1_Jungle.png */; };
 		B89D99B5163EBC26007AABFB /* P0-1_Map.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9918163EBC26007AABFB /* P0-1_Map.jpg */; };
 		B89D99B6163EBC26007AABFB /* P0-1_sea.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9919163EBC26007AABFB /* P0-1_sea.png */; };
-		B89D99B7163EBC26007AABFB /* GAME_different_0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D991D163EBC26007AABFB /* GAME_different_0.jpg */; };
-		B89D99B8163EBC26007AABFB /* GAME_different_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D991E163EBC26007AABFB /* GAME_different_1.jpg */; };
-		B89D99B9163EBC26007AABFB /* GAME_different_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D991F163EBC26007AABFB /* GAME_different_2.jpg */; };
-		B89D99BA163EBC26007AABFB /* GAME_different_3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9920163EBC26007AABFB /* GAME_different_3.jpg */; };
-		B89D99BB163EBC26007AABFB /* GAME_different_4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9921163EBC26007AABFB /* GAME_different_4.jpg */; };
-		B89D99BC163EBC26007AABFB /* GAME_different_5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9922163EBC26007AABFB /* GAME_different_5.jpg */; };
-		B89D99BD163EBC26007AABFB /* GAME_different_6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9923163EBC26007AABFB /* GAME_different_6.jpg */; };
-		B89D99BE163EBC26007AABFB /* GAME_different_7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9924163EBC26007AABFB /* GAME_different_7.jpg */; };
-		B89D99BF163EBC26007AABFB /* GAME_different_8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9925163EBC26007AABFB /* GAME_different_8.jpg */; };
-		B89D99C0163EBC26007AABFB /* GAME_different_9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9926163EBC26007AABFB /* GAME_different_9.jpg */; };
 		B89D99C1163EBC26007AABFB /* P0-2_game-different.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89D9927163EBC26007AABFB /* P0-2_game-different.jpg */; };
 		B89D99C2163EBC26007AABFB /* P0-2_game-different_time-bar1.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9928163EBC26007AABFB /* P0-2_game-different_time-bar1.png */; };
 		B89D99C3163EBC26007AABFB /* P0-2_game-different_time-bar2.png in Resources */ = {isa = PBXBuildFile; fileRef = B89D9929163EBC26007AABFB /* P0-2_game-different_time-bar2.png */; };
@@ -291,6 +281,20 @@
 		B89E436E16439DEB00B6F420 /* EAPageGameDiffer.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E436D16439DEB00B6F420 /* EAPageGameDiffer.m */; };
 		B89E437116439E0800B6F420 /* EAPageGameWho.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E437016439E0800B6F420 /* EAPageGameWho.m */; };
 		B89E437E1643CE4200B6F420 /* GameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E437D1643CE4200B6F420 /* GameBoard.m */; };
+		B89E43811643CF5000B6F420 /* GameBoardDiffer.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E43801643CF5000B6F420 /* GameBoardDiffer.m */; };
+		B89E43841643D0F600B6F420 /* EALayerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E43831643D0F600B6F420 /* EALayerGame.m */; };
+		B89E43871643E68200B6F420 /* GameOoverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B89E43861643E68100B6F420 /* GameOoverMenu.m */; };
+		B89E43931643FF9500B6F420 /* colider.txt in Resources */ = {isa = PBXBuildFile; fileRef = B89E43881643FF9500B6F420 /* colider.txt */; };
+		B89E43941643FF9500B6F420 /* GAME_different_map01A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E43891643FF9500B6F420 /* GAME_different_map01A.jpg */; };
+		B89E43951643FF9500B6F420 /* GAME_different_map01B.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E438A1643FF9500B6F420 /* GAME_different_map01B.jpg */; };
+		B89E43961643FF9500B6F420 /* GAME_different_map02A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E438B1643FF9500B6F420 /* GAME_different_map02A.jpg */; };
+		B89E43971643FF9500B6F420 /* GAME_different_map02B.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E438C1643FF9500B6F420 /* GAME_different_map02B.jpg */; };
+		B89E43981643FF9500B6F420 /* GAME_different_map03A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E438D1643FF9500B6F420 /* GAME_different_map03A.jpg */; };
+		B89E43991643FF9500B6F420 /* GAME_different_map03B.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E438E1643FF9500B6F420 /* GAME_different_map03B.jpg */; };
+		B89E439A1643FF9500B6F420 /* GAME_different_map04A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E438F1643FF9500B6F420 /* GAME_different_map04A.jpg */; };
+		B89E439B1643FF9500B6F420 /* GAME_different_map04B.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E43901643FF9500B6F420 /* GAME_different_map04B.jpg */; };
+		B89E439C1643FF9500B6F420 /* GAME_different_map05A.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E43911643FF9500B6F420 /* GAME_different_map05A.jpg */; };
+		B89E439D1643FF9500B6F420 /* GAME_different_map05B.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B89E43921643FF9500B6F420 /* GAME_different_map05B.jpg */; };
 		B8ADB9B2163FA1A900B4B9AC /* EAPage3-1.m in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */; };
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
 		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
@@ -619,16 +623,6 @@
 		B89D9917163EBC26007AABFB /* P0-1_Jungle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_Jungle.png"; sourceTree = "<group>"; };
 		B89D9918163EBC26007AABFB /* P0-1_Map.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-1_Map.jpg"; sourceTree = "<group>"; };
 		B89D9919163EBC26007AABFB /* P0-1_sea.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-1_sea.png"; sourceTree = "<group>"; };
-		B89D991D163EBC26007AABFB /* GAME_different_0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_0.jpg; sourceTree = "<group>"; };
-		B89D991E163EBC26007AABFB /* GAME_different_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_1.jpg; sourceTree = "<group>"; };
-		B89D991F163EBC26007AABFB /* GAME_different_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_2.jpg; sourceTree = "<group>"; };
-		B89D9920163EBC26007AABFB /* GAME_different_3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_3.jpg; sourceTree = "<group>"; };
-		B89D9921163EBC26007AABFB /* GAME_different_4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_4.jpg; sourceTree = "<group>"; };
-		B89D9922163EBC26007AABFB /* GAME_different_5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_5.jpg; sourceTree = "<group>"; };
-		B89D9923163EBC26007AABFB /* GAME_different_6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_6.jpg; sourceTree = "<group>"; };
-		B89D9924163EBC26007AABFB /* GAME_different_7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_7.jpg; sourceTree = "<group>"; };
-		B89D9925163EBC26007AABFB /* GAME_different_8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_8.jpg; sourceTree = "<group>"; };
-		B89D9926163EBC26007AABFB /* GAME_different_9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_9.jpg; sourceTree = "<group>"; };
 		B89D9927163EBC26007AABFB /* P0-2_game-different.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "P0-2_game-different.jpg"; sourceTree = "<group>"; };
 		B89D9928163EBC26007AABFB /* P0-2_game-different_time-bar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game-different_time-bar1.png"; sourceTree = "<group>"; };
 		B89D9929163EBC26007AABFB /* P0-2_game-different_time-bar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game-different_time-bar2.png"; sourceTree = "<group>"; };
@@ -740,6 +734,23 @@
 		B89E437016439E0800B6F420 /* EAPageGameWho.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageGameWho.m; sourceTree = "<group>"; };
 		B89E437C1643CE4100B6F420 /* GameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoard.h; sourceTree = "<group>"; };
 		B89E437D1643CE4200B6F420 /* GameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoard.m; sourceTree = "<group>"; };
+		B89E437F1643CF5000B6F420 /* GameBoardDiffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameBoardDiffer.h; sourceTree = "<group>"; };
+		B89E43801643CF5000B6F420 /* GameBoardDiffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameBoardDiffer.m; sourceTree = "<group>"; };
+		B89E43821643D0F600B6F420 /* EALayerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayerGame.h; sourceTree = "<group>"; };
+		B89E43831643D0F600B6F420 /* EALayerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALayerGame.m; sourceTree = "<group>"; };
+		B89E43851643E68100B6F420 /* GameOoverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOoverMenu.h; sourceTree = "<group>"; };
+		B89E43861643E68100B6F420 /* GameOoverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOoverMenu.m; sourceTree = "<group>"; };
+		B89E43881643FF9500B6F420 /* colider.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colider.txt; sourceTree = "<group>"; };
+		B89E43891643FF9500B6F420 /* GAME_different_map01A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map01A.jpg; sourceTree = "<group>"; };
+		B89E438A1643FF9500B6F420 /* GAME_different_map01B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map01B.jpg; sourceTree = "<group>"; };
+		B89E438B1643FF9500B6F420 /* GAME_different_map02A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map02A.jpg; sourceTree = "<group>"; };
+		B89E438C1643FF9500B6F420 /* GAME_different_map02B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map02B.jpg; sourceTree = "<group>"; };
+		B89E438D1643FF9500B6F420 /* GAME_different_map03A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map03A.jpg; sourceTree = "<group>"; };
+		B89E438E1643FF9500B6F420 /* GAME_different_map03B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map03B.jpg; sourceTree = "<group>"; };
+		B89E438F1643FF9500B6F420 /* GAME_different_map04A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map04A.jpg; sourceTree = "<group>"; };
+		B89E43901643FF9500B6F420 /* GAME_different_map04B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map04B.jpg; sourceTree = "<group>"; };
+		B89E43911643FF9500B6F420 /* GAME_different_map05A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map05A.jpg; sourceTree = "<group>"; };
+		B89E43921643FF9500B6F420 /* GAME_different_map05B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map05B.jpg; sourceTree = "<group>"; };
 		B8ADB9B0163FA1A900B4B9AC /* EAPage3-1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-1.h"; sourceTree = "<group>"; };
 		B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EAPage3-1.m"; sourceTree = "<group>"; };
 		B8F8518316423A6400C15A6E /* MotionSensorIce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSensorIce.h; sourceTree = "<group>"; };
@@ -1199,12 +1210,18 @@
 		84967020163EEDD4001F1A8E /* object */ = {
 			isa = PBXGroup;
 			children = (
-				B89E437C1643CE4100B6F420 /* GameBoard.h */,
-				B89E437D1643CE4200B6F420 /* GameBoard.m */,
-				84967021163EEDD4001F1A8E /* EAAnimSprite.h */,
-				84967022163EEDD4001F1A8E /* EAAnimSprite.m */,
 				84967023163EEDD4001F1A8E /* EALayer.h */,
 				84967024163EEDD4001F1A8E /* EALayer.m */,
+				B89E43821643D0F600B6F420 /* EALayerGame.h */,
+				B89E43831643D0F600B6F420 /* EALayerGame.m */,
+				B89E437C1643CE4100B6F420 /* GameBoard.h */,
+				B89E437D1643CE4200B6F420 /* GameBoard.m */,
+				B89E437F1643CF5000B6F420 /* GameBoardDiffer.h */,
+				B89E43801643CF5000B6F420 /* GameBoardDiffer.m */,
+				B89E43851643E68100B6F420 /* GameOoverMenu.h */,
+				B89E43861643E68100B6F420 /* GameOoverMenu.m */,
+				84967021163EEDD4001F1A8E /* EAAnimSprite.h */,
+				84967022163EEDD4001F1A8E /* EAAnimSprite.m */,
 				84967025163EEDD4001F1A8E /* GamePoint.h */,
 				84967026163EEDD4001F1A8E /* GamePoint.m */,
 				84967029163EEDD4001F1A8E /* SoundManager.h */,
@@ -1371,16 +1388,17 @@
 		B89D991C163EBC26007AABFB /* image */ = {
 			isa = PBXGroup;
 			children = (
-				B89D991D163EBC26007AABFB /* GAME_different_0.jpg */,
-				B89D991E163EBC26007AABFB /* GAME_different_1.jpg */,
-				B89D991F163EBC26007AABFB /* GAME_different_2.jpg */,
-				B89D9920163EBC26007AABFB /* GAME_different_3.jpg */,
-				B89D9921163EBC26007AABFB /* GAME_different_4.jpg */,
-				B89D9922163EBC26007AABFB /* GAME_different_5.jpg */,
-				B89D9923163EBC26007AABFB /* GAME_different_6.jpg */,
-				B89D9924163EBC26007AABFB /* GAME_different_7.jpg */,
-				B89D9925163EBC26007AABFB /* GAME_different_8.jpg */,
-				B89D9926163EBC26007AABFB /* GAME_different_9.jpg */,
+				B89E43881643FF9500B6F420 /* colider.txt */,
+				B89E43891643FF9500B6F420 /* GAME_different_map01A.jpg */,
+				B89E438A1643FF9500B6F420 /* GAME_different_map01B.jpg */,
+				B89E438B1643FF9500B6F420 /* GAME_different_map02A.jpg */,
+				B89E438C1643FF9500B6F420 /* GAME_different_map02B.jpg */,
+				B89E438D1643FF9500B6F420 /* GAME_different_map03A.jpg */,
+				B89E438E1643FF9500B6F420 /* GAME_different_map03B.jpg */,
+				B89E438F1643FF9500B6F420 /* GAME_different_map04A.jpg */,
+				B89E43901643FF9500B6F420 /* GAME_different_map04B.jpg */,
+				B89E43911643FF9500B6F420 /* GAME_different_map05A.jpg */,
+				B89E43921643FF9500B6F420 /* GAME_different_map05B.jpg */,
 			);
 			path = image;
 			sourceTree = "<group>";
@@ -1678,16 +1696,6 @@
 				B89D99B4163EBC26007AABFB /* P0-1_Jungle.png in Resources */,
 				B89D99B5163EBC26007AABFB /* P0-1_Map.jpg in Resources */,
 				B89D99B6163EBC26007AABFB /* P0-1_sea.png in Resources */,
-				B89D99B7163EBC26007AABFB /* GAME_different_0.jpg in Resources */,
-				B89D99B8163EBC26007AABFB /* GAME_different_1.jpg in Resources */,
-				B89D99B9163EBC26007AABFB /* GAME_different_2.jpg in Resources */,
-				B89D99BA163EBC26007AABFB /* GAME_different_3.jpg in Resources */,
-				B89D99BB163EBC26007AABFB /* GAME_different_4.jpg in Resources */,
-				B89D99BC163EBC26007AABFB /* GAME_different_5.jpg in Resources */,
-				B89D99BD163EBC26007AABFB /* GAME_different_6.jpg in Resources */,
-				B89D99BE163EBC26007AABFB /* GAME_different_7.jpg in Resources */,
-				B89D99BF163EBC26007AABFB /* GAME_different_8.jpg in Resources */,
-				B89D99C0163EBC26007AABFB /* GAME_different_9.jpg in Resources */,
 				B89D99C1163EBC26007AABFB /* P0-2_game-different.jpg in Resources */,
 				B89D99C2163EBC26007AABFB /* P0-2_game-different_time-bar1.png in Resources */,
 				B89D99C3163EBC26007AABFB /* P0-2_game-different_time-bar2.png in Resources */,
@@ -1794,6 +1802,17 @@
 				845491F8164021AE0036B09F /* P3-1_peacock_word.png in Resources */,
 				B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */,
 				B8F8518C164288AA00C15A6E /* pushbutton_return.png in Resources */,
+				B89E43931643FF9500B6F420 /* colider.txt in Resources */,
+				B89E43941643FF9500B6F420 /* GAME_different_map01A.jpg in Resources */,
+				B89E43951643FF9500B6F420 /* GAME_different_map01B.jpg in Resources */,
+				B89E43961643FF9500B6F420 /* GAME_different_map02A.jpg in Resources */,
+				B89E43971643FF9500B6F420 /* GAME_different_map02B.jpg in Resources */,
+				B89E43981643FF9500B6F420 /* GAME_different_map03A.jpg in Resources */,
+				B89E43991643FF9500B6F420 /* GAME_different_map03B.jpg in Resources */,
+				B89E439A1643FF9500B6F420 /* GAME_different_map04A.jpg in Resources */,
+				B89E439B1643FF9500B6F420 /* GAME_different_map04B.jpg in Resources */,
+				B89E439C1643FF9500B6F420 /* GAME_different_map05A.jpg in Resources */,
+				B89E439D1643FF9500B6F420 /* GAME_different_map05B.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1932,6 +1951,9 @@
 				B89E436E16439DEB00B6F420 /* EAPageGameDiffer.m in Sources */,
 				B89E437116439E0800B6F420 /* EAPageGameWho.m in Sources */,
 				B89E437E1643CE4200B6F420 /* GameBoard.m in Sources */,
+				B89E43811643CF5000B6F420 /* GameBoardDiffer.m in Sources */,
+				B89E43841643D0F600B6F420 /* EALayerGame.m in Sources */,
+				B89E43871643E68200B6F420 /* GameOoverMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
