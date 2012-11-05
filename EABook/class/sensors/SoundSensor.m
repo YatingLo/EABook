@@ -16,7 +16,7 @@
 {
     if (self = [super init]) {
         soundLimit = 0.06f;
-        enable = YES;
+        _enable = YES;
         _moveObjects = [[NSMutableArray alloc] init];
         NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
         
@@ -61,7 +61,7 @@
 	//NSLog(@"Sound differ: %f", differ);
     
     //Log 聲音內容
-    //NSLog(@"Average input: %f Peak input: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0]);
+    NSLog(@"Average input: %f Peak input: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0]);
     //NSLog(@"Average input: %f Peak input: %f", avgPoserForChannel, peakPowerForChannel);
     //NSLog(@"Differ: %f", differ);
     //NSLog(@"Average input: %d Peak input: %d", avgPoserForChannel, peakPowerForChannel);
@@ -74,24 +74,24 @@
     }*/
     
     if (differ > LIMIT_DIFFER) {
-        //NSLog(@"soundEventSend");
-        if (enable) {
-            enable = !enable;
+        NSLog(@"soundEventSend");
+        if (_enable) {
+            _enable = !_enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation start");
             for (sprite in _moveObjects) {
                 [sprite startLoopAnimation];
                 if (sprite.soundName && sManage) {
-                    [sManage playLoopSound:sprite.soundName];
+                    [sManage playSoundFile:sprite.soundName];
                 }
             }
         }
     }
+    /*
     else{
         if (!enable)
         {
             
-            enable = !enable;
             [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation end");
             for (sprite in _moveObjects) {
@@ -100,8 +100,10 @@
                     [sManage stopSound];
                 }
             }
+            
         }
     }
+     */
 }
 
 -(void) dealloc
@@ -118,6 +120,6 @@
 
 -(void) enableFlag
 {
-    enable = YES;
+    _enable = YES;
 }
 @end

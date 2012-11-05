@@ -66,7 +66,7 @@
 
 -(void) stopSound
 {
-    [audioPlayer stop];
+    //[audioPlayer stop];
     if (audioPlayer && audioPlayer.isPlaying) {
         [audioPlayer stop];
     }

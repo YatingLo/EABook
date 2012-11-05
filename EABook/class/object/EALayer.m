@@ -40,15 +40,24 @@
 
 -(void) switchInteraction
 {
+    
     if (touchEnable) {
         NSLog(@"witchInteraction OFF");
+        touchEnable = NO;
+        soundEnable = NO;
     }
     else{
         NSLog(@"witchInteraction ON");
         [self removeWordImage];
+        touchEnable = YES;
+        soundEnable = YES;
+        if (soundDetect.enable == NO) {
+            NSLog(@"soundDetect開啟");
+            soundDetect.enable = YES;
+        }
     }
-    touchEnable = !touchEnable;
-    soundEnable = !soundEnable;
+    //touchEnable = !touchEnable;
+    //soundEnable = !soundEnable;
 }
 
 -(void) switchTouchInteraction

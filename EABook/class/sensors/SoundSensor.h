@@ -17,7 +17,7 @@
 {
     float soundLimit,lowPassResults;
     AVAudioRecorder *recorder;
-    BOOL enable;
+    BOOL _enable;
     EAAnimSprite *sprite;
     SoundManager *sManage;
     
@@ -26,6 +26,8 @@
 @property (nonatomic, retain) EAAnimSprite *sprite;
 @property (nonatomic, retain) SoundManager *sManage;
 @property (nonatomic, retain) NSMutableArray *moveObjects;
+@property BOOL enable;
+
 -(id) init;
 -(void) update;
 -(void) updateSprite:(id)object;

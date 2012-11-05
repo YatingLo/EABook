@@ -47,6 +47,7 @@
     SoundManager *soundMgr;
 }
 @property (nonatomic,retain) GamePoint *gamepoint;
+@property BOOL touchEnable;
 //@property (nonatomic, retain) NSMutableArray *tapObjectArray, *swipeObjectArray;
 
 -(void) newStart:(ccTime)dt;

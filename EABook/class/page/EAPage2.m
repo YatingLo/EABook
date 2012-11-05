@@ -144,7 +144,7 @@
 
 -(void) draw
 {
-    if (soundEnable) {
+    if (touchEnable) {
         [soundDetect update];
     }
 }
