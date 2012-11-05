@@ -272,6 +272,7 @@
     touchEnable = NO;
     soundDetect = NO;
     [self stopAllActions];
+    //[self stopSpriteMove];
 }
 
 -(void) onExit//

@@ -8,14 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "EALayer.h"
+#import "EALayerGame.h"
 #import "EAPage3-1.h"
 #import "EAPage3-2.h"
 #import "EAPage3-3.h"
 #import "EAPage4.h"
+#import "GameBoardDiffer.h"
+#import "GameOoverMenu.h"
 
-@interface EAPageGame1 : EALayer {
+@interface EAPageGame1 : EALayerGame {
+    NSMutableArray *layerButtons;
+    GameBoardDiffer *differGame;
+    GameOoverMenu *overMenu;
     
+    NSMutableArray *stages;
+    int stage;
 }
 +(CCScene *) scene;
 @end

@@ -38,7 +38,9 @@
         
         [self addChild:soundMgr];
         [self addObjects];
-        [self gameStart];
+        
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(gameStart)]]];
+        //[self gameStart];
     }
     return self;
 }

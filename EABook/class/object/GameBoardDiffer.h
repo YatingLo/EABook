@@ -11,6 +11,7 @@
 #import "GameBoard.h"
 #define GAME_TIME 15 //遊戲進行時間
 #define CIRCLE_SCALE 0.5f //紅色圈圈的縮放比例
+#define DEBUG_BLACK NO
 
 @interface GameBoardDiffer : GameBoard {
     int questNum;

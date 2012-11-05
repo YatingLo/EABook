@@ -187,11 +187,13 @@
             switch (tempObject.tag) {
                 case 0:
                     //上一頁
+                    [self stopSpriteMove];
                     [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
+                    [self stopSpriteMove];
                     [soundMgr playSoundFile:@"push.mp3"];
                     //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];

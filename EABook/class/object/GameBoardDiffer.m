@@ -138,6 +138,9 @@
         [ob setTextureRect:CGRectMake(0, 0, [des[0] integerValue], [des[1] integerValue])];
         ob.position = ccp([des[2] integerValue], [des[3] integerValue]);
         ob.tag = 30 + i;
+        if (!DEBUG_BLACK) {
+            ob.visible = NO;
+        }
         [self addChild:ob];
         [tapObjectArray addObject:ob];
         
@@ -145,6 +148,9 @@
         ob2.textureRect = ob.textureRect;
         ob2.position = ccpAdd(ccp(447, 0), ob.position);
         ob2.tag = 40 + i;
+        if (!DEBUG_BLACK) {
+            ob2.visible = NO;
+        }
         [self addChild:ob2];
         [tapObjectArray addObject:ob2];
         //NSLog(@"%@",des.description);
