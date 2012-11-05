@@ -61,7 +61,7 @@
 	//NSLog(@"Sound differ: %f", differ);
     
     //Log 聲音內容
-    NSLog(@"Average input: %f Peak input: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0]);
+    //NSLog(@"Average input: %f Peak input: %f", [recorder averagePowerForChannel:0], [recorder peakPowerForChannel:0]);
     //NSLog(@"Average input: %f Peak input: %f", avgPoserForChannel, peakPowerForChannel);
     //NSLog(@"Differ: %f", differ);
     //NSLog(@"Average input: %d Peak input: %d", avgPoserForChannel, peakPowerForChannel);
