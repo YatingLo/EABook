@@ -10,8 +10,9 @@
 #import "cocos2d.h"
 
 @interface GameOoverMenu : CCNode {
-    CCArray *tapArray;
+    
 }
+@property (nonatomic, readonly) NSMutableArray *tapArray;
 
 -(void) addThreeObject;
 -(void) addTwoObject;

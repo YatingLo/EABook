@@ -10,6 +10,9 @@
 
 
 @implementation GameBoard
+@synthesize countDown;
+@synthesize tapObjectArray;
+
 -(id) init
 {
     if (self = [super init])

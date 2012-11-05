@@ -269,6 +269,8 @@
 -(void) onExitTransitionDidStart
 {
     delegate.EAGamePoint = gamepoint;
+    touchEnable = NO;
+    soundDetect = NO;
     [self stopAllActions];
 }
 

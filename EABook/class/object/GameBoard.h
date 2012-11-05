@@ -10,12 +10,12 @@
 #import "cocos2d.h"
 
 @interface GameBoard : CCNode {
+    //NSMutableArray *tapObjectArray;
     
-    CCArray *tapObjectArray;
+    int countDown;
 }
+@property int countDown;
+@property (nonatomic, readonly) NSMutableArray *tapObjectArray;
 -(void) gameInit;
 -(void) gameStart;
--(void) gamePause;
--(void) gameStop;
--(void) gameOver;
 @end

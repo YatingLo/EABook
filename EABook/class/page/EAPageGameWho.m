@@ -55,7 +55,7 @@
     
     
     //加入array
-    [tapObjectArray addObject:[self getChildByTag:20]];
+    //[tapObjectArray addObject:[self getChildByTag:20]];
 }
 
 #pragma 手勢處理

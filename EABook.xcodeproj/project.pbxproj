@@ -740,7 +740,7 @@
 		B89E43831643D0F600B6F420 /* EALayerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALayerGame.m; sourceTree = "<group>"; };
 		B89E43851643E68100B6F420 /* GameOoverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOoverMenu.h; sourceTree = "<group>"; };
 		B89E43861643E68100B6F420 /* GameOoverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOoverMenu.m; sourceTree = "<group>"; };
-		B89E43881643FF9500B6F420 /* colider.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = colider.txt; sourceTree = "<group>"; };
+		B89E43881643FF9500B6F420 /* colider.txt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text; path = colider.txt; sourceTree = "<group>"; };
 		B89E43891643FF9500B6F420 /* GAME_different_map01A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map01A.jpg; sourceTree = "<group>"; };
 		B89E438A1643FF9500B6F420 /* GAME_different_map01B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map01B.jpg; sourceTree = "<group>"; };
 		B89E438B1643FF9500B6F420 /* GAME_different_map02A.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map02A.jpg; sourceTree = "<group>"; };

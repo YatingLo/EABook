@@ -14,5 +14,8 @@
 @interface EALayerGame : EALayer {
     CCProgressTimer *progressBar;
 }
+-(void) gameStart;
+-(void) gameOver;
 -(void) exitGame;
+-(void) countDown;
 @end

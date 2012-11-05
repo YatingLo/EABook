@@ -13,9 +13,16 @@
 #import "EAPageGameZone.h"
 #import "GameOoverMenu.h"
 #import "EALayerGame.h"
+#import "GameBoardDiffer.h"
+#define STAGE_NUM 5
 
 @interface EAPageGameDiffer : EALayerGame {
+    NSMutableArray *layerButtons;
+    GameBoardDiffer *differGame;
+    GameOoverMenu *overMenu;
     
+    NSMutableArray *stages;
+    int stage;
 }
 +(CCScene *) scene;
 @end
