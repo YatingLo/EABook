@@ -12,7 +12,7 @@
 #import "EAAnimSprite.h"
 #import "SoundManager.h"
 
-#define LIMIT 0.2
+#define LIMIT 0.8
 
 @interface MotionSensor : CCNode
 {

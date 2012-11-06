@@ -129,6 +129,7 @@
     
     //觸碰區設定
     objects = [[[temp objectAtIndex:1] componentsSeparatedByString:@"*"] mutableCopy];
+    //刪除空白列
     [objects removeObjectAtIndex:4];
     int i = 0;
     for (NSString *string in objects) {
@@ -161,6 +162,7 @@
 
 -(void) gameStart
 {
+    //問題數目
     questNum = 4;
     answerNum = 0;
     countDown = GAME_TIME;

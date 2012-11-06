@@ -14,7 +14,6 @@
 #import "GameOoverMenu.h"
 #import "EALayerGame.h"
 #import "GameBoardDiffer.h"
-#define STAGE_NUM 5
 
 @interface EAPageGameDiffer : EALayerGame {
     NSMutableArray *layerButtons;
@@ -23,6 +22,10 @@
     
     NSMutableArray *stages;
     int stage;
+    
+    int endEnable; //只執行一次gameover的flag
 }
 +(CCScene *) scene;
+
+-(void) swapStages;
 @end

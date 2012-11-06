@@ -11,6 +11,7 @@
 #import "EALayer.h"
 #import "EAAnimSprite.h"
 #import "MotionSensor.h"
+#import "EASoundDectectSprite.h"
 
 #import "EAPageMenu.h"
 #import "EAPage1.h"

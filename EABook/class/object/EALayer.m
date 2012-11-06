@@ -225,7 +225,7 @@
     backGround.position = ccp(size.width/2, size.height/2);
     [self addChild:backGround];
 }
-
+/*
 -(void) addSprite:(CCSprite*) obj spriteType:(int)type
 {
     switch (type) {
@@ -265,7 +265,7 @@
             break;
     }
 }
-
+*/
 -(void) onExitTransitionDidStart
 {
     delegate.EAGamePoint = gamepoint;

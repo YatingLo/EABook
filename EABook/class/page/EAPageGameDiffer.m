@@ -60,11 +60,14 @@
 
 -(void) gameStart
 {
+    endEnable = YES; //只執行一次gameover的flag
+    
     differGame = [GameBoardDiffer node];
     [self addChild:differGame];
     
     differGame.stageNum = [[stages objectAtIndex:stage] intValue]; //設定關卡值
     [differGame gameStart]; //設定遊戲界面
+    differGame.countDown = DIFFER_PLAY_TIME;
     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:differGame.tapObjectArray] mutableCopy];
     
     progressBar.percentage = 100;
@@ -73,20 +76,23 @@
 
 -(void) gameOver
 {
-    [self unschedule:@selector(countDown)];
-    CCSprite *endImage;
-    if (differGame.answerNum == differGame.questNum) {
-        endImage = [CCSprite spriteWithFile:@"P0-2_game_win.png"];
+    if (endEnable) {
+        endEnable = NO;
+        [self unschedule:@selector(countDown)];
+        CCSprite *endImage;
+        if (differGame.answerNum == differGame.questNum) {
+            endImage = [CCSprite spriteWithFile:@"P0-2_game_win.png"];
+        }
+        else
+        {
+            endImage = [CCSprite spriteWithFile:@"P0-2_game_lose.png"];
+        }
+        endImage.tag = 2;
+        endImage.position = ccp(512, 384);
+        [self addChild:endImage];
+        
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
     }
-    else
-    {
-        endImage = [CCSprite spriteWithFile:@"P0-2_game_lose.png"];
-    }
-    endImage.tag = 2;
-    endImage.position = ccp(512, 384);
-    [self addChild:endImage];
-    
-    [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
 }
 
 -(void) addMenu
@@ -95,7 +101,7 @@
     [self removeChild:differGame cleanup:YES];//清結束得遊戲
     
     overMenu = [GameOoverMenu node];
-    if (stage == (STAGE_NUM-1)) {
+    if (stage == (DIFFER_STAGE_NUM-1)) {
         [overMenu addTwoObject];
     }
     else
@@ -112,7 +118,7 @@
     NSLog(@"countdown");
     if (differGame.countDown > -1) {
         differGame.countDown --;
-        progressBar.percentage -= 3;
+        progressBar.percentage -= DIFFER_SUB_BAR;
     }
     else
     {
@@ -174,7 +180,7 @@
                 case 23://下一關
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
-                    if (stage < (STAGE_NUM-1)) {
+                    if (stage < (DIFFER_STAGE_NUM-1)) {
                         stage ++;
                         [self gameStart];
                     }

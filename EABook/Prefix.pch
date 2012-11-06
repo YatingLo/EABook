@@ -24,7 +24,6 @@
 #define TURN_DELAY 0.8
 #define LOCATION(x,y) ccp(x,768-y)
 
-#define TAP 0
-#define SWIPE 1
-#define PAN 2
-#define MOVE 3
+#define DIFFER_STAGE_NUM 5
+#define DIFFER_PLAY_TIME 30 //遊戲進行時間
+#define DIFFER_SUB_BAR 100/DIFFER_PLAY_TIME //prograssbar 地件數值

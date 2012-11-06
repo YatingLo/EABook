@@ -86,7 +86,7 @@
     [self addNext];
     
     //加入互動物件
-    windmil = [EAAnimSprite spriteWithName:@"P2_Windmill"];
+    windmil = [EASoundDectectSprite spriteWithName:@"P2_Windmill"];
     windmil.tag = 5;
     windmil.imgNum = 6;
     windmil.delayTime = 0.1f;
@@ -103,7 +103,7 @@
     horse.tag = 6;
     horse.imgNum = 7;
     horse.delayTime = 0.1f;
-    //horse.repeatTime = 2;
+    horse.repeatTime = 2;
     [horse setPosition:LOCATION(775, 380)];
     [self addChild:horse];
     

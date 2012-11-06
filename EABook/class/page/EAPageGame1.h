@@ -13,8 +13,7 @@
 #import "EAPage3-2.h"
 #import "EAPage3-3.h"
 #import "EAPage4.h"
-#import "GameBoardDiffer.h"
-#import "GameOoverMenu.h"
+#import "EAPageGameDiffer.h"
 
 @interface EAPageGame1 : EALayerGame {
     NSMutableArray *layerButtons;
@@ -23,6 +22,8 @@
     
     NSMutableArray *stages;
     int stage;
+    
+    int endEnable; //只執行一次gameover的flag
 }
 +(CCScene *) scene;
 @end
