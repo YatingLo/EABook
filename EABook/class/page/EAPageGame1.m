@@ -66,6 +66,8 @@
 
 -(void) gameStart
 {
+    endEnable = YES;
+    
     differGame = [GameBoardDiffer node];
     [self addChild:differGame];
     
@@ -95,7 +97,7 @@
         endImage.position = ccp(512, 384);
         [self addChild:endImage];
         
-        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.3f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
     }
 }
 

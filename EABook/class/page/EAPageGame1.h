@@ -14,6 +14,7 @@
 #import "EAPage3-3.h"
 #import "EAPage4.h"
 #import "EAPageGameDiffer.h"
+#import "GameOoverMenu.h"
 
 @interface EAPageGame1 : EALayerGame {
     NSMutableArray *layerButtons;
