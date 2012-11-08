@@ -148,6 +148,12 @@
 		84967041163EEDD4001F1A8E /* EAPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967033163EEDD4001F1A8E /* EAPageMenu.m */; };
 		84967042163EEDD4001F1A8E /* MotionSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967036163EEDD4001F1A8E /* MotionSensor.m */; };
 		84967043163EEDD4001F1A8E /* SoundSensor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84967038163EEDD4001F1A8E /* SoundSensor.m */; };
+		B8096555164BDB2C00E2BE25 /* GAME_cementtrunk.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8096550164BDB2C00E2BE25 /* GAME_cementtrunk.jpg */; };
+		B8096556164BDB2C00E2BE25 /* GAME_helicopter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8096551164BDB2C00E2BE25 /* GAME_helicopter.jpg */; };
+		B8096557164BDB2C00E2BE25 /* GAME_jeep.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8096552164BDB2C00E2BE25 /* GAME_jeep.jpg */; };
+		B8096558164BDB2C00E2BE25 /* GAME_sailboat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8096553164BDB2C00E2BE25 /* GAME_sailboat.jpg */; };
+		B8096559164BDB2C00E2BE25 /* GAME_speedboat.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B8096554164BDB2C00E2BE25 /* GAME_speedboat.jpg */; };
+		B809655E164BDB5800E2BE25 /* EADraw.m in Sources */ = {isa = PBXBuildFile; fileRef = B809655D164BDB5800E2BE25 /* EADraw.m */; };
 		B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B850B6EA16414CB100092CEB /* EAUpDownSprite.m */; };
 		B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */; };
 		B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B86279FF1649031F00034354 /* EASoundDectectSprite.m */; };
@@ -593,6 +599,13 @@
 		84967036163EEDD4001F1A8E /* MotionSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensor.m; sourceTree = "<group>"; };
 		84967037163EEDD4001F1A8E /* SoundSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundSensor.h; sourceTree = "<group>"; };
 		84967038163EEDD4001F1A8E /* SoundSensor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundSensor.m; sourceTree = "<group>"; };
+		B8096550164BDB2C00E2BE25 /* GAME_cementtrunk.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_cementtrunk.jpg; sourceTree = "<group>"; };
+		B8096551164BDB2C00E2BE25 /* GAME_helicopter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_helicopter.jpg; sourceTree = "<group>"; };
+		B8096552164BDB2C00E2BE25 /* GAME_jeep.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_jeep.jpg; sourceTree = "<group>"; };
+		B8096553164BDB2C00E2BE25 /* GAME_sailboat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_sailboat.jpg; sourceTree = "<group>"; };
+		B8096554164BDB2C00E2BE25 /* GAME_speedboat.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_speedboat.jpg; sourceTree = "<group>"; };
+		B809655C164BDB5800E2BE25 /* EADraw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADraw.h; sourceTree = "<group>"; };
+		B809655D164BDB5800E2BE25 /* EADraw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EADraw.m; sourceTree = "<group>"; };
 		B816ADD1163BC1120018AC35 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		B850B6E916414CB100092CEB /* EAUpDownSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUpDownSprite.h; sourceTree = "<group>"; };
 		B850B6EA16414CB100092CEB /* EAUpDownSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUpDownSprite.m; sourceTree = "<group>"; };
@@ -1203,6 +1216,7 @@
 		8496701F163EEDD4001F1A8E /* class */ = {
 			isa = PBXGroup;
 			children = (
+				B809655B164BDB3B00E2BE25 /* drawing */,
 				84967020163EEDD4001F1A8E /* object */,
 				84967034163EEDD4001F1A8E /* sensors */,
 				8496702B163EEDD4001F1A8E /* page */,
@@ -1287,9 +1301,33 @@
 			path = sensors;
 			sourceTree = "<group>";
 		};
+		B809654F164BDB2C00E2BE25 /* DrawImage */ = {
+			isa = PBXGroup;
+			children = (
+				B8096550164BDB2C00E2BE25 /* GAME_cementtrunk.jpg */,
+				B8096551164BDB2C00E2BE25 /* GAME_helicopter.jpg */,
+				B8096552164BDB2C00E2BE25 /* GAME_jeep.jpg */,
+				B8096553164BDB2C00E2BE25 /* GAME_sailboat.jpg */,
+				B8096554164BDB2C00E2BE25 /* GAME_speedboat.jpg */,
+			);
+			name = DrawImage;
+			path = ../DrawImage;
+			sourceTree = "<group>";
+		};
+		B809655B164BDB3B00E2BE25 /* drawing */ = {
+			isa = PBXGroup;
+			children = (
+				B809655C164BDB5800E2BE25 /* EADraw.h */,
+				B809655D164BDB5800E2BE25 /* EADraw.m */,
+			);
+			name = drawing;
+			path = EABook/drawing;
+			sourceTree = SOURCE_ROOT;
+		};
 		B89D9900163EBC26007AABFB /* BookResources */ = {
 			isa = PBXGroup;
 			children = (
+				B809654F164BDB2C00E2BE25 /* DrawImage */,
 				B89D9901163EBC26007AABFB /* animation */,
 				B89D9910163EBC26007AABFB /* image */,
 				B89D9978163EBC26007AABFB /* sound */,
@@ -1818,6 +1856,11 @@
 				B89E439B1643FF9500B6F420 /* GAME_different_map04B.jpg in Resources */,
 				B89E439C1643FF9500B6F420 /* GAME_different_map05A.jpg in Resources */,
 				B89E439D1643FF9500B6F420 /* GAME_different_map05B.jpg in Resources */,
+				B8096555164BDB2C00E2BE25 /* GAME_cementtrunk.jpg in Resources */,
+				B8096556164BDB2C00E2BE25 /* GAME_helicopter.jpg in Resources */,
+				B8096557164BDB2C00E2BE25 /* GAME_jeep.jpg in Resources */,
+				B8096558164BDB2C00E2BE25 /* GAME_sailboat.jpg in Resources */,
+				B8096559164BDB2C00E2BE25 /* GAME_speedboat.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1960,6 +2003,7 @@
 				B89E43841643D0F600B6F420 /* EALayerGame.m in Sources */,
 				B89E43871643E68200B6F420 /* GameOoverMenu.m in Sources */,
 				B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */,
+				B809655E164BDB5800E2BE25 /* EADraw.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
