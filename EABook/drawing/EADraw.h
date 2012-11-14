@@ -13,9 +13,12 @@
 
 @interface EADraw : EALayer {
     CCSpriteFloodFill * sprite;
-	ccColor4B Colors[8];
-	NSUInteger SelectedCrayon;
-    CCArray *cavas;
+	ccColor4B Colors[9];
+    NSArray *cavas;
+    
+    BOOL drawAble;
+    NSInteger canvasImageNum;
+    NSUInteger SelectedCrayon;
 }
 +(CCScene *) scene;
 @end
