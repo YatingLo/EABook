@@ -76,8 +76,8 @@
     if (differ > LIMIT_DIFFER) {
         NSLog(@"soundEventSend");
         if (_enable) {
+            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
             _enable = !_enable;
-            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation start");
             for (sprite in _moveObjects) {
                 [sprite startLoopAnimation];

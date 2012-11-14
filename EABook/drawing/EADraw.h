@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "EALayer.h"
+#import "CCSpriteFloodFill.h"
 
 @interface EADraw : EALayer {
-    
+    CCSpriteFloodFill * sprite;
+	ccColor4B Colors[8];
+	NSUInteger SelectedCrayon;
+    CCArray *cavas;
 }
 +(CCScene *) scene;
-+(CGContextRef) createARGBBitmapContextFromImage:(CGImageRef) inImage;
 @end
