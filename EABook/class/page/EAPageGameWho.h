@@ -12,7 +12,18 @@
 #import "EALayer.h"
 #import "EAPageGameZone.h"
 @interface EAPageGameWho : EALayer {
-    
+    NSMutableArray *anims;
+    NSMutableArray *showanims;
+    CCSprite *animal;
+    CCSprite *WinImage;
+    CCSprite *ReturnBtn;
+    CCProgressTimer *progressBar;
+    int countTime;
+    int imgcountTime;
+    int showspritetag;
+    int startX;
+    int startY;
+    BOOL isWinImage;
 }
 +(CCScene *) scene;
 

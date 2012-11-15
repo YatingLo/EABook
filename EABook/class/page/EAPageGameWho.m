@@ -25,80 +25,216 @@
 	return scene;
 }
 
--(id) init
-{
-    if (self = [super init]) {
-        gamepoint = delegate.EAGamePoint;
-        tapObjectArray = [[NSMutableArray alloc] init];
+-(id) init{
+	if(self = [super init]){
+        //gamepoint = delegate.EAGamePoint;
         
-        delegate = (AppController*) [[UIApplication sharedApplication] delegate];
-        tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
+        tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapFrom:)] autorelease];
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
-        [self addChild:soundMgr];
+        countTime = 0;
+        imgcountTime=0;
+        showspritetag = 0;
+        startX = 690;
+        startY = 370;
+        isWinImage = TRUE;//答對答錯畫面是否消失，消失才能啟動場景出現隨機動物畫面和Touch功能
+        
+        anims =[[NSMutableArray alloc]init];
+        showanims = [[NSMutableArray alloc]init];
         [self addObjects];
+        
+        [self schedule:@selector(callEveryFrame:) interval:1];
     }
     return self;
 }
 
--(void) addObjects
-{
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"GameWho" fontName:@"Marker Felt" fontSize:64];
-    // ask director for the window size
-    CGSize size = [[CCDirector sharedDirector] winSize];
+-(void)addObjects{
+    [self addBackGround:@"P0-2_game-who.jpg"];
     
-    // position the label on the center of the screen
-    label.position =  ccp( size.width /2 , size.height/2 );
-    [self addChild:label];
+    ReturnBtn = [CCSprite spriteWithFile:@"P0-2_game-who_return-buttun.png"];
+    ReturnBtn.position = ccp(65, 60);
+    [self addChild:ReturnBtn];
     
+    //加入四個動物到陣列以便做Touch並加到場景中，設定tag值
+    NSString *tempName;
     
+    tempName = @"zebra";
+    CCSprite *anim = [CCSprite spriteWithFile:[NSString stringWithFormat:@"GAME_who_%@.jpg",tempName]];
+    anim.position = ccp(startX, startY);
+    anim.tag=3;
+    [self addChild:anim];
+    [showanims addObject:anim];
     
-    //加入array
-    //[tapObjectArray addObject:[self getChildByTag:20]];
+    tempName =@"peacock";
+    anim = [CCSprite spriteWithFile:[NSString stringWithFormat:@"GAME_who_%@.jpg",tempName]];
+    anim.position = ccp(startX,startY-180);
+    anim.tag=4;
+    [self addChild:anim];
+    [showanims addObject:anim];
+    
+    tempName =@"elephant";
+    anim = [CCSprite spriteWithFile:[NSString stringWithFormat:@"GAME_who_%@.jpg",tempName]];
+    anim.position = ccp(startX+150,startY);
+    anim.tag=5;
+    [self addChild:anim];
+    [showanims addObject:anim];
+    
+    tempName =@"crab";
+    anim = [CCSprite spriteWithFile:[NSString stringWithFormat:@"GAME_who_%@.jpg",tempName]];
+    anim.position = ccp(startX+150,startY-180);
+    anim.tag=6;
+    [self addChild:anim];
+    [showanims addObject:anim];
+    
+    //同樣將相同四種動物加入陣列中，以便隨機取出加到場景中，設定相同tag值做答案確認
+    NSArray *images = [NSArray arrayWithObjects:@"P2_zibber_0.png",@"P3-1_peacock_0.png",@"P3-2_elephant_0.png",@"P3-3_Crab_0.png", nil];
+    for (int i=0; i<images.count; i++) {
+        NSString *image = [images objectAtIndex:i];
+        CCSprite *sprite = [CCSprite spriteWithFile:image];
+        sprite.tag = i+3;
+        printf("sprite tag:%i\n",sprite.tag);
+        [sprite setOpacity:0];
+        [anims addObject:sprite];
+    }
+    
+    CCSprite *progressBackGround = [CCSprite spriteWithFile:@"P0-2_game-different_time-bar1.png"];
+    [progressBackGround setPosition:ccp(512, 690)];
+    //[progressBackGround setZOrder:1];
+    [self addChild:progressBackGround];
+    
+    CCSprite *progressBarSprite = [CCSprite spriteWithFile:@"P0-2_game-different_time-bar2.png"];
+    progressBar = [CCProgressTimer progressWithSprite:progressBarSprite];
+    [progressBar setPosition:ccp(564, 687)];
+    [progressBar setType:kCCProgressTimerTypeBar];
+    [progressBar setMidpoint:ccp(0, 0)];
+    [progressBar setBarChangeRate:ccp(1, 0)];
+    [progressBar setPercentage:100];
+    //[progressBar setZOrder:2];
+    [self addChild:progressBar];
 }
 
-#pragma 手勢處理
--(void) handleTap:(UITapGestureRecognizer *)recognizer {
+-(void) handleTapFrom:(UITapGestureRecognizer *)recognizer{
+    //NSLog(@"Tap");
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable && (tapObjectArray.count > 0)) {
-        [self tapSpriteMovement:touchLocation];
+    if (isWinImage) {
+        [self selectSpriteForTouch:touchLocation];
     }
+    
 }
 
--(void) tapSpriteMovement:(CGPoint)touchLocation
-{
-    NSLog(@"Tap! %d", tapObjectArray.count);
-    for (CCSprite* obj in tapObjectArray) {
-        if (CGRectContainsPoint(obj.boundingBox, touchLocation)) {
-            switch (obj.tag) {
-                case 20: //回到menu
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];
-                    break;
-                case 3: //differ
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameDiffer scene]]];
-                    break;
-                case 4: //who
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameWho scene]]];
-                    break;
-                default:
-                    break;
+-(void) selectSpriteForTouch:(CGPoint)touchLocation{
+    
+    if (CGRectContainsPoint(ReturnBtn.boundingBox, touchLocation)) {
+        [self unschedule:@selector(callEveryFrame:)];
+        [self removeAllChildrenWithCleanup:YES];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
+    }
+    for (CCSprite *sprite in showanims) {
+        
+        NSString *tempName;
+        
+        if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
+            NSLog(@"sprite tag -----%d",sprite.tag);
+            
+            //若出現在場景的圖片和選取圖片tag值相同則出現答對畫面，反之則否
+            if (sprite.tag ==showspritetag) {
+                
+                [animal stopAllActions];
+                [self removeChild:animal cleanup:YES];
+                tempName =@"P0-2_game_win.png";
+                [self checkAnswer:tempName];
+                
             }
-            break;
+            else if(sprite.tag != showspritetag){
+                
+                [animal stopAllActions];
+                [self removeChild:animal cleanup:YES];
+                tempName =@"P0-2_game_lose.png";
+                [self checkAnswer:tempName];
+                
+            }
+            
+            
         }
     }
 }
 
+//設置答對答錯畫面
+-(void) checkAnswer :(NSString *)WinImageName{
+    
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    isWinImage = FALSE;
+    WinImage = [CCSprite spriteWithFile:WinImageName];
+    WinImage.position = ccp(winSize.width/2, winSize.height/2);
+    [self addChild:WinImage];
+    [self schedule:@selector(showWinImage:) interval:1];
+}
+
+//設置答對答錯畫面出現時間
+-(void) showWinImage:(ccTime)dt{
+    
+    [self unschedule:@selector(callEveryFrame:)];
+    
+    if (imgcountTime<2) {
+        imgcountTime++;
+    }
+    else{
+        [self removeChild:WinImage cleanup:YES];
+        imgcountTime = 0;
+        [self unschedule:@selector(showWinImage:)];
+        isWinImage = TRUE;
+        countTime=0;
+        [self schedule:@selector(callEveryFrame:) interval:1];
+    }
+}
+
+//隨機選擇動物圖片到場景中
+-(void) setImageFromAnims{
+    
+    NSUInteger index =arc4random()%anims.count;
+    animal =[anims objectAtIndex:index];
+    animal.position =ccp(300, 350);
+    showspritetag = animal.tag;
+    NSLog(@"animal=%d",showspritetag);
+    CCFadeTo *fadeOut =[CCFadeTo actionWithDuration:10 opacity:255];
+    [self addChild:animal];
+    [animal runAction:fadeOut];
+    
+}
+
+//設置場景中動物圖片出現時間
+- (void) callEveryFrame:(ccTime)dt
+{
+    
+    countTime += 1;
+    //CCLOG(@"countTime : %i",countTime);
+    progressBar.percentage -=10;
+    
+    if (countTime==1) {
+        [progressBar setPercentage:100];
+        [self setImageFromAnims];
+        isWinImage = TRUE;
+    }
+    else if(countTime>10){
+        [progressBar setPercentage:0];
+        [animal stopAllActions];
+        [animal setOpacity:0];
+        [self removeChild:animal cleanup:YES];
+        isWinImage = FALSE;
+        countTime=0;
+        
+    }
+    
+}
+
 -(void) dealloc {
-    
+    printf("Guess Who dealloc");
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
-    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    
+    [anims removeAllObjects];
+    [showanims removeAllObjects];
+    [self removeAllChildrenWithCleanup:YES];
     [super dealloc];
 }
 @end

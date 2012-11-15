@@ -73,7 +73,7 @@
 -(void) makeTransition:(ccTime)dt
 {
 	//[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] withColor:ccWHITE]];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageMenu scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageMenu scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageMap scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage4 scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_1 scene] withColor:ccWHITE]];
@@ -81,6 +81,7 @@
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPage3_3 scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageEnd scene] withColor:ccWHITE]];
     //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageGameDiffer scene] withColor:ccWHITE]];
-    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageGameWho scene] withColor:ccWHITE]];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[EAPageGameWho scene] withColor:ccWHITE]];
+    //[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.5 scene:[GuessWho scene] withColor:ccWHITE]];
 }
 @end
