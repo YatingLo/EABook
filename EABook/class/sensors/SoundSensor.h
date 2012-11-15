@@ -32,5 +32,5 @@
 -(void) update;
 -(void) updateSprite:(id)object;
 //-(void) enableFlag;
-//-(void) stopDetect;
+-(void) stopDetect;
 @end

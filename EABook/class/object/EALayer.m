@@ -278,6 +278,9 @@
 -(void) onExit//
 {
     [self stopSpriteMove];
+    if (soundDetect) {
+        [soundDetect stopDetect];
+    }
 }
 
 -(void) dealloc
