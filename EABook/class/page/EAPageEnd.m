@@ -53,45 +53,6 @@
     label.position =  ccp( size.width /2 , size.height/2 );
     [self addChild:label];
     
-    /*
-     [self addBackGround:@"P0_Cover.jpg"];
-     //載入圖片
-     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
-     @"P0.plist"];
-     
-     spriteSheet = [CCSpriteBatchNode
-     batchNodeWithFile:@"P0.png"];
-     [self addChild:spriteSheet];
-     
-     NSLog(@"Tap! %d", tapObjectArray.count);
-     CCSprite *btnback;
-     btnback= [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_start.png"]];
-     
-     [btnback setTag:0];
-     [btnback setPosition:LOCATION(155 , 670)];
-     [spriteSheet addChild:btnback];
-     [tapObjectArray addObject:btnback];
-     NSLog(@"Tap! %d", tapObjectArray.count);
-     
-     btnback = [[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_map.png"]] autorelease];
-     [btnback setTag:1];
-     [btnback setPosition:LOCATION(400 , 670)];
-     [spriteSheet addChild:btnback];
-     [tapObjectArray addObject:btnback];
-     
-     btnback = [[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_game.png"]] autorelease];
-     [btnback setTag:2];
-     [btnback setPosition:LOCATION(640 , 670)];
-     [spriteSheet addChild:btnback];
-     [tapObjectArray addObject:btnback];
-     
-     btnback = [[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_option.png"]] autorelease];
-     [btnback setTag:3];
-     [btnback setPosition:LOCATION(870 , 670)];
-     [spriteSheet addChild:btnback];
-     [tapObjectArray addObject:btnback];
-     */
-    
     //加入上下頁按鈕
     [self addPre];
     [self addNext];

@@ -24,6 +24,7 @@
     int startX;
     int startY;
     BOOL isWinImage;
+    BOOL isReturn;
 }
 +(CCScene *) scene;
 

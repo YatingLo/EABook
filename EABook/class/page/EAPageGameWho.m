@@ -38,8 +38,8 @@
         showspritetag = 0;
         startX = 690;
         startY = 370;
-        isWinImage = TRUE;//答對答錯畫面是否消失，消失才能啟動場景出現隨機動物畫面和Touch功能
-        
+        isWinImage = FALSE;//答對答錯畫面是否消失，消失才能啟動場景出現隨機動物畫面和Touch功能
+        isReturn = TRUE;
         anims =[[NSMutableArray alloc]init];
         showanims = [[NSMutableArray alloc]init];
         [self addObjects];
@@ -118,45 +118,48 @@
     //NSLog(@"Tap");
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (isWinImage) {
-        [self selectSpriteForTouch:touchLocation];
-    }
-    
+    [self selectSpriteForTouch:touchLocation];
 }
 
 -(void) selectSpriteForTouch:(CGPoint)touchLocation{
     
-    if (CGRectContainsPoint(ReturnBtn.boundingBox, touchLocation)) {
+    if (CGRectContainsPoint(ReturnBtn.boundingBox, touchLocation)&&isReturn) {
         [self unschedule:@selector(callEveryFrame:)];
-        [self removeAllChildrenWithCleanup:YES];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
+        
+        [soundMgr playSoundFile:@"push.mp3"];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];
+        //[self removeAllChildrenWithCleanup:YES];
     }
-    for (CCSprite *sprite in showanims) {
-        
-        NSString *tempName;
-        
-        if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
-            NSLog(@"sprite tag -----%d",sprite.tag);
+    else if (isWinImage){
+        for (CCSprite *sprite in showanims) {
             
-            //若出現在場景的圖片和選取圖片tag值相同則出現答對畫面，反之則否
-            if (sprite.tag ==showspritetag) {
+            NSString *tempName;
+            
+            if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
+                NSLog(@"sprite tag -----%d",sprite.tag);
                 
-                [animal stopAllActions];
-                [self removeChild:animal cleanup:YES];
-                tempName =@"P0-2_game_win.png";
-                [self checkAnswer:tempName];
+                //若出現在場景的圖片和選取圖片tag值相同則出現答對畫面，反之則否
+                if (sprite.tag ==showspritetag) {
+                    isWinImage = FALSE;
+                    isReturn = FALSE;
+                    [animal stopAllActions];
+                    [self removeChild:animal cleanup:YES];
+                    tempName =@"P0-2_game_win.png";
+                    [self checkAnswer:tempName];
+                    
+                }
+                else if(sprite.tag != showspritetag){
+                    isWinImage = FALSE;
+                    isReturn = FALSE;
+                    [animal stopAllActions];
+                    [self removeChild:animal cleanup:YES];
+                    tempName =@"P0-2_game_lose.png";
+                    [self checkAnswer:tempName];
+                    
+                }
+                
                 
             }
-            else if(sprite.tag != showspritetag){
-                
-                [animal stopAllActions];
-                [self removeChild:animal cleanup:YES];
-                tempName =@"P0-2_game_lose.png";
-                [self checkAnswer:tempName];
-                
-            }
-            
-            
         }
     }
 }
@@ -165,7 +168,6 @@
 -(void) checkAnswer :(NSString *)WinImageName{
     
     CGSize winSize = [[CCDirector sharedDirector] winSize];
-    isWinImage = FALSE;
     WinImage = [CCSprite spriteWithFile:WinImageName];
     WinImage.position = ccp(winSize.width/2, winSize.height/2);
     [self addChild:WinImage];
@@ -184,7 +186,7 @@
         [self removeChild:WinImage cleanup:YES];
         imgcountTime = 0;
         [self unschedule:@selector(showWinImage:)];
-        isWinImage = TRUE;
+        isReturn = TRUE;
         countTime=0;
         [self schedule:@selector(callEveryFrame:) interval:1];
     }
@@ -215,6 +217,10 @@
     if (countTime==1) {
         [progressBar setPercentage:100];
         [self setImageFromAnims];
+        //isWinImage = TRUE;
+        
+    }
+    else if (countTime==2) {
         isWinImage = TRUE;
     }
     else if(countTime>10){
@@ -228,8 +234,7 @@
     }
     
 }
-
--(void) dealloc {
+-(void)dealloc{
     printf("Guess Who dealloc");
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
     [anims removeAllObjects];

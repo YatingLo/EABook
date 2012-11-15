@@ -110,7 +110,8 @@
     }
     [self addChild:overMenu];
     
-    tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
+    //tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
+    tapObjectArray = overMenu.tapArray;
 }
 
 -(void) countDown
@@ -178,6 +179,7 @@
                     }
                     break;
                 case 23://下一關
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
                     if (stage < (DIFFER_STAGE_NUM-1)) {
@@ -186,13 +188,15 @@
                     }
                     break;
                 case 24://再來一次
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
                     
                     [self gameStart];
                     break;
                 case 25://離開
-                    [self removeChild:overMenu cleanup:NO];
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    [self removeChild:overMenu cleanup:YES];
                     tapObjectArray = layerButtons;
                     
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];

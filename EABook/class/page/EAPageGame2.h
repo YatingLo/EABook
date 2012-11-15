@@ -13,7 +13,22 @@
 #import "EAPageEnd.h"
 
 @interface EAPageGame2 : EALayer {
-    
+    NSMutableArray *anims;
+    NSMutableArray *showanims;
+    CCSprite *animal;
+    CCSprite *WinImage;
+    CCSprite *ReturnBtn;
+    CCSprite *MenuImage;
+    CCSprite *ExitBtn;
+    CCProgressTimer *progressBar;
+    NSString *tempName;
+    int countTime;
+    int imgcountTime;
+    int showspritetag;
+    int startX;
+    int startY;
+    BOOL isWinImage;
+    BOOL isEixt;
 }
 +(CCScene *) scene;
 @end
