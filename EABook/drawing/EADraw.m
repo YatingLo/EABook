@@ -176,6 +176,7 @@
             switch (obj.tag) {
                 case 3: //離開
                     //[soundMgr playSoundFile:@"push.mp3"];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];
                     break;
                 case 4: //瀏覽畫作
                     //[soundMgr playSoundFile:@"push.mp3"];
@@ -217,10 +218,11 @@
                 SelectedCrayon = obj.tag - 8;
                 obj.position = ccpAdd(obj.position, ccp(0, gapY));
                 
+                /*
                 if (obj.tag == 10) {
                     [self switchInteraction];
                     [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:2.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];
-                }
+                }*/
                 
             }
             break;

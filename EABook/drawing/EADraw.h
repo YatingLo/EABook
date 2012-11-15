@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "EALayer.h"
 #import "CCSpriteFloodFill.h"
+#import "EAPageGameZone.h"
 
 @interface EADraw : EALayer {
     CCSpriteFloodFill * sprite;
