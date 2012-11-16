@@ -8,10 +8,6 @@
 
 #import "EADraw.h"
 
-#define BLACK ccc4(3, 3, 3, 255)
-#define GRAY ccc4(129, 129, 129, 255)
-#define CLEAR ccc4(0, 0, 0, 0)
-#define WHITE ccc4(254, 254, 254, 255)
 #define gapY 25
 
 @implementation EADraw
@@ -35,6 +31,7 @@
     if (self = [super init]) {
         gamepoint = delegate.EAGamePoint;
         tapObjectArray = [[NSMutableArray alloc] init];
+        tapArray = [[NSMutableArray alloc] init];
         SelectedCrayon = -1;
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
@@ -102,6 +99,7 @@
         [self addChild:tempObject];
         [tapObjectArray addObject:tempObject];
     }
+    tapArray = tapObjectArray;
     
     //蠟筆顏色8個由左到右
     Colors[0] = ccc4(255, 0, 0, 255);       //red
@@ -112,14 +110,11 @@
     Colors[5] = ccc4(139, 0, 255, 255);     //violet
     Colors[6] = ccc4(255, 0, 255, 255);    //magneta
     Colors[7] = ccc4(0, 0, 255, 255);    //blue
-    Colors[8] = ccc4(255, 255, 255, 255);    //white
+    Colors[8] = ccc4(254, 254, 254, 255);    //white
     
     //加入著色的圖
     canvasImageNum = 7;
     [self addDrawCanvas:canvasImageNum];
-    
-    //加入array
-    //[tapObjectArray addObject:image];
 }
 
 -(void) addDrawCanvas:(int) canvasNum
@@ -152,15 +147,16 @@
     if (touchEnable && (tapObjectArray.count > 0)) {
         //著色辨識
         ccColor4B pcolor = [sprite.mutableTexture pixelAt:[recognizer locationInView:recognizer.view]];
-        //CCLOG(@"A:%d R:%d G:%d B:%d",pcolor.a, pcolor.r, pcolor.g, pcolor.b);
-        drawAble = YES;
-        if (ccc4FEqual(ccc4FFromccc4B(pcolor), ccc4FFromccc4B(BLACK))   ||
-            ccc4FEqual(ccc4FFromccc4B(pcolor), ccc4FFromccc4B(GRAY))    ||
-            ccc4FEqual(ccc4FFromccc4B(pcolor), ccc4FFromccc4B(CLEAR)))
-        {
-            drawAble = NO;
+        CCLOG(@"A:%d R:%d G:%d B:%d",pcolor.a, pcolor.r, pcolor.g, pcolor.b);
+        drawAble = NO;
+        for (int i = 0; i < 9; i++) {
+            if (ccc4FEqual(ccc4FFromccc4B(pcolor), ccc4FFromccc4B(Colors[i]))) {
+                NSLog(@"可以Draw");
+                drawAble = YES;
+                break;
+            }
         }
-    
+        
         //cocos2d 物件
         CGPoint touchLocation = [recognizer locationInView:recognizer.view];
         touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
@@ -175,14 +171,20 @@
             NSLog(@"Tap! %d", obj.tag);
             switch (obj.tag) {
                 case 3: //離開
-                    //[soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];
                     break;
                 case 4: //瀏覽畫作
-                    //[soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    gallery = [[[DrawGallery alloc] init] autorelease];
+                    gallery.zOrder = 3;
+                    [self addChild:gallery];
+                    tapObjectArray = gallery.tapArray;
                     break;
                 case 5: //存檔
-                    //[soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    FileOps *fileMgr = [[[FileOps alloc] init] autorelease];
+                    [fileMgr saveSpriteToPNG:(CCSprite*)[self getChildByTag:50]];
                     break;
                 case 6: //橡皮擦
                     //[soundMgr playSoundFile:@"push.mp3"];
@@ -193,7 +195,7 @@
                     SelectedCrayon = 8;
                     break;
                 case 7: //清空，重新載圖
-                    //[soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:@"push.mp3"];
                     [self addDrawCanvas:canvasImageNum];
                     break;
                 case 50:
@@ -205,6 +207,14 @@
                             [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:0.5] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];
                         }
                     }
+                    break;
+                case 16: //gallery  關閉
+                    [self removeChild:gallery cleanup:YES];
+                    tapObjectArray = tapArray;
+                    break;
+                case 17: //showImage 返回
+                    break;
+                case 18: //showImage 刪除圖片
                     break;
                 default:
                     break;
@@ -223,6 +233,11 @@
                     [self switchInteraction];
                     [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:2.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];
                 }*/
+                
+            }
+            //gallery 可點擊的圖片
+            else if (obj.tag < 37 & obj.tag > 30)
+            {
                 
             }
             break;

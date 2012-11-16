@@ -11,6 +11,9 @@
 #import "EALayer.h"
 #import "CCSpriteFloodFill.h"
 #import "EAPageGameZone.h"
+#import "DrawGallery.h"
+#import "ShowImg.h"
+#import "FileOps.h"
 
 @interface EADraw : EALayer {
     CCSpriteFloodFill * sprite;
@@ -20,6 +23,10 @@
     BOOL drawAble;
     NSInteger canvasImageNum;
     NSUInteger SelectedCrayon;
+    
+    DrawGallery *gallery;
+    ShowImg *imageShow;
+    NSMutableArray *tapArray;
 }
 +(CCScene *) scene;
 @end
