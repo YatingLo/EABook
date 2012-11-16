@@ -46,6 +46,17 @@
         soundDetect = [[SoundSensor alloc] init];
         [soundDetect stopDetect];
         
+        //音效狀態設定
+        if (!delegate.BookSoundState) {
+            delegate.BookSoundState = [[SoundState alloc] init];
+            
+            NSMutableDictionary *configContent = [self readConfig];//讀取原本的設定
+            
+            [delegate.BookSoundState setSoundState:[[configContent objectForKey:KEY_WORD] boolValue]
+                                            effect:[[configContent objectForKey:KEY_VOLUME] boolValue]];
+        }
+        NSLog(@"effect:%d word:%d",[delegate.BookSoundState getEffectState], [delegate.BookSoundState getWordState]);
+        
         [self addChild:soundMgr];
         [self addObjects];
     }
@@ -133,6 +144,31 @@
             break;
         }
     }
+}
+
+- (NSMutableDictionary*) readConfig
+{
+    NSMutableDictionary *temp;
+    NSFileManager *fMgr = [[NSFileManager alloc] init];
+    
+    if ([fMgr fileExistsAtPath:HOME_PATH]) {
+        temp = [[NSMutableDictionary alloc] initWithContentsOfFile:HOME_PATH];
+        CCLOG(@"有設定檔:%@", temp.description);
+    }
+    else
+    {
+        CCLOG(@"未取得文件");
+        NSArray *content = [[NSArray alloc] initWithObjects:[NSNumber numberWithBool:YES], [NSNumber numberWithBool:YES], nil];
+        NSArray *keys = [[NSArray alloc] initWithObjects:KEY_WORD, KEY_VOLUME, nil];
+        temp = [[NSMutableDictionary alloc] initWithObjects:content forKeys:keys];
+        
+        [temp writeToFile:HOME_PATH atomically:YES];
+        [content release];
+        [keys release];
+    }
+    
+    //[fMgr release];
+    return temp;
 }
 
 -(void) dealloc {

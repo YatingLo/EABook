@@ -86,20 +86,24 @@
 {
     if (endEnable) {
         endEnable = NO;
+        tapObjectArray = nil;
         [self unschedule:@selector(countDown)];
         CCSprite *endImage;
         if (differGame.answerNum == differGame.questNum) {
+            //成功
+            [soundMgr playSoundFile:@"gamesuccess.mp3"];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_win.png"];
         }
         else
         {
+            //失敗
             endImage = [CCSprite spriteWithFile:@"P0-2_game_lose.png"];
         }
         endImage.tag = 2;
         endImage.position = ccp(512, 384);
         [self addChild:endImage];
         
-        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.3f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:2.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
     }
 }
 
@@ -113,7 +117,8 @@
 
     [self addChild:overMenu];
     
-    tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
+    //tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
+    tapObjectArray = overMenu.tapArray;
 }
 
 -(void) countDown

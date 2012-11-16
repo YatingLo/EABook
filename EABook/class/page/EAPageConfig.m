@@ -14,22 +14,6 @@ CCSpriteBatchNode *spriteSheet;
 @implementation EAPageConfig
 @synthesize configContent;
 
-+ (BOOL) getVolumeState
-{
-    NSDictionary *tempDic = [[NSDictionary alloc] initWithContentsOfFile:HOME_PATH];
-    BOOL state = [[tempDic objectForKey:KEY_VOLUME] boolValue];
-    [tempDic release];
-    return state;
-}
-
-+ (BOOL) getWordState
-{
-    NSDictionary *tempDic = [[NSDictionary alloc] initWithContentsOfFile:HOME_PATH];
-    BOOL state = [[tempDic objectForKey:KEY_WORD] boolValue];
-    [tempDic release];
-    return state;
-}
-
 +(CCScene *) scene
 {
     // 'scene' is an autorelease object.
@@ -53,9 +37,10 @@ CCSpriteBatchNode *spriteSheet;
         
         tapObjectArray = [[NSMutableArray alloc] init];
         configContent = [self readConfig];//讀取原本的設定
-        if (configContent) {
-            NSLog(@"有設定檔");
-        }
+        
+        [delegate.BookSoundState setSoundState:[[configContent objectForKey:KEY_WORD] boolValue]
+                                        effect:[[configContent objectForKey:KEY_VOLUME] boolValue]];
+        NSLog(@"effect:%d word:%d",[delegate.BookSoundState getEffectState], [delegate.BookSoundState getWordState]);
         
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
@@ -194,7 +179,6 @@ CCSpriteBatchNode *spriteSheet;
 {
     if (configContent) {
         
-        
         bool state = [[configContent objectForKey:KEY_VOLUME] boolValue];
         //bool state = YES;
         CCSprite *on = (CCSprite*)[spriteSheet getChildByTag:1];
@@ -206,6 +190,9 @@ CCSpriteBatchNode *spriteSheet;
         off.visible = !state;
         [configContent setObject:[NSNumber numberWithBool:state] forKey:KEY_VOLUME];
         
+        [delegate.BookSoundState setSoundState:[[configContent objectForKey:KEY_WORD] boolValue]
+                                        effect:[[configContent objectForKey:KEY_VOLUME] boolValue]];
+        NSLog(@"effect:%d word:%d",[delegate.BookSoundState getEffectState], [delegate.BookSoundState getWordState]);
     }
 }
 
@@ -226,6 +213,9 @@ CCSpriteBatchNode *spriteSheet;
         off.visible = !state;
         [configContent setObject:[NSNumber numberWithBool:state] forKey:KEY_WORD];
         
+        [delegate.BookSoundState setSoundState:[[configContent objectForKey:KEY_WORD] boolValue]
+                                        effect:[[configContent objectForKey:KEY_VOLUME] boolValue]];
+        NSLog(@"effect:%d word:%d",[delegate.BookSoundState getEffectState], [delegate.BookSoundState getWordState]);
     }
 }
 
