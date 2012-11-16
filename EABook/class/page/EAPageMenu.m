@@ -42,6 +42,11 @@
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
+        //音量不能刪 刪了沒聲音
+        soundDetect = [[SoundSensor alloc] init];
+        [soundDetect stopDetect];
+        
+        [self addChild:soundMgr];
         [self addObjects];
     }
     return self;
@@ -57,7 +62,6 @@
     spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P0.png"];
     [self addChild:spriteSheet];
     
-    NSLog(@"Tap! %d", tapObjectArray.count);
     CCSprite *btnback;
     btnback= [CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"P0_start.png"]];
     
@@ -99,27 +103,28 @@
     //NSLog(@"Tap! %d", tapObjectArray.count);
     for (CCSprite* obj in tapObjectArray) {
         if (CGRectContainsPoint(obj.boundingBox, touchLocation)) {
+            [soundMgr playSoundFile:@"push.mp3"];
             switch (obj.tag) {
                 case 0:
                     NSLog(@"開始");
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    
                     delegate.EAGamePoint = gamepoint;
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
                     break;
                 case 1:
                     NSLog(@"地圖");
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    //[soundMgr playSoundFile:@"push.mp3"];
                     delegate.EAGamePoint = gamepoint;
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene]]];
                     break;
                 case 2:
                     NSLog(@"遊戲");
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    //[soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
                     break;
                 case 3:
                     NSLog(@"設定");
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    //[soundMgr playSoundFile:@"push.mp3"];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene]]];
                     break;
                 default:

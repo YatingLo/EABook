@@ -54,7 +54,6 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
-        //[self handlePanAndSwipe];
         
         //音量
         soundDetect = [[SoundSensor alloc] init];

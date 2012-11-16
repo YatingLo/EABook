@@ -62,9 +62,10 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
         //音量
-        //soundDetect = [[SoundSensor alloc] init];
-        //soundDetect.sManage = soundMgr;
-        //[self addChild:soundDetect];
+        if (soundDetect)
+        {
+            [soundDetect stopDetect];
+        }
         
         //重力
         motionDetect = [[MotionSensor alloc] init];

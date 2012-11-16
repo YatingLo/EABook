@@ -43,6 +43,8 @@
         [self swapStages];
         NSLog(@"%@",stages.description);
         
+        [soundDetect stopDetect];
+        
         [self addChild:soundMgr];
         [self addObjects];
         

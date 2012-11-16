@@ -79,69 +79,6 @@
     [soundMgr stopSound];
 }
 
--(void) addTapToLayer
-{
-    tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
-    tapgestureRecognizer.numberOfTapsRequired = 1; //new add
-    
-    [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
-}
--(void) removeTapFromLayer
-{
-    [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-}
-
--(void) addPanToLayer
-{
-    pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
-    [delegate.navController.view addGestureRecognizer:pangestureRecognizer];
-}
--(void) removePanFromLayer
-{
-    [delegate.navController.view removeGestureRecognizer:pangestureRecognizer];
-}
-
--(void) addSwipeToLayer
-{
-    swipegestureRecognizerRight = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
-    [swipegestureRecognizerRight setDirection:UISwipeGestureRecognizerDirectionRight];
-    
-    swipegestureRecognizerLeft = [[[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)]autorelease];
-    [swipegestureRecognizerLeft setDirection:UISwipeGestureRecognizerDirectionLeft];
-    
-    [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
-    [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
-}
--(void) removeSwipeFromLayer
-{
-    [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
-    [delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
-}
-
--(void) handlePanAndSwipe
-{
-    [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerLeft];
-    [pangestureRecognizer requireGestureRecognizerToFail:swipegestureRecognizerRight];
-}
-/*
--(void) handleTap:(UITapGestureRecognizer*) recognizer
-{
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
-        [self tapSpriteMovement:touchLocation];
-    }
-}
-
--(void) handleSwipe:(UISwipeGestureRecognizer *)recognizer
-{
-    CGPoint touchLocation = [recognizer locationInView:recognizer.view];
-    touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
-        [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
-    }
-}
-*/
 //來回swipe動作
 -(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection) direction
 {
@@ -280,6 +217,7 @@
     [self stopSpriteMove];
     if (soundDetect) {
         [soundDetect stopDetect];
+        soundDetect = Nil;
     }
 }
 
@@ -293,6 +231,10 @@
     tapObjectArray = Nil;
     swipeObjectArray = Nil;
     moveObjectArray = Nil;
+    if (soundDetect) {
+        [soundDetect stopDetect];
+        soundDetect = Nil;
+    }
 }
 
 @end

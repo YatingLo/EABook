@@ -42,6 +42,9 @@
         isEixt = FALSE;
         anims =[[NSMutableArray alloc]init];
         showanims = [[NSMutableArray alloc]init];
+        
+        [soundDetect stopDetect];
+        
         [self addObjects];
         
         [self schedule:@selector(callEveryFrame:) interval:1];

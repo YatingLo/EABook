@@ -50,6 +50,8 @@
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerRight];
         [delegate.navController.view addGestureRecognizer:swipegestureRecognizerLeft];
         
+        [soundDetect stopDetect];
+        
         [self addChild:soundMgr];
         [self addObjects];
     }
