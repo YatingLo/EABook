@@ -13,4 +13,6 @@
     CCSprite *tempObject;
 }
 @property (nonatomic, retain) NSMutableArray *tapArray;
+
+- (id) initWithImage:(NSString*)imageName;
 @end

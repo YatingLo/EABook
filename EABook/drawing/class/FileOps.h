@@ -15,4 +15,5 @@
 }
 -(NSArray*) getDirList;
 -(BOOL) saveSpriteToPNG:(CCSprite*)sprite;
+-(BOOL) deleteImage:(NSString*)fileName;
 @end

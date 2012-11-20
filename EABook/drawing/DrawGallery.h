@@ -12,6 +12,13 @@
 @interface DrawGallery : CCLayer {
     CCSprite *tempObject;
     CGPoint imagePosition[6];
+    float imagScal;
+    
 }
 @property (nonatomic, retain) NSMutableArray *tapArray;
+@property (nonatomic, retain) NSString *selectedImageName;
+
+-(void) addObject:(NSArray*)fileList;
+
+
 @end

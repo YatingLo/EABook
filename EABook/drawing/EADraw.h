@@ -27,6 +27,7 @@
     DrawGallery *gallery;
     ShowImg *imageShow;
     NSMutableArray *tapArray;
+    FileOps *fileMgr;
 }
 +(CCScene *) scene;
 @end

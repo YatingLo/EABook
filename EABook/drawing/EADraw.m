@@ -75,14 +75,14 @@
     tempObject = [CCSprite spriteWithFile:@"P0-1_game-drawcolor_eraserbuttun.png"]; //橡皮擦
     tempObject.tag = tagNum++;
     tempObject.position = ccp(948, 480);
-    tempObject.zOrder = 2;
+    //tempObject.zOrder = 2;
     [self addChild:tempObject];
     [tapObjectArray addObject:tempObject];
     
     tempObject = [CCSprite spriteWithFile:@"P0-1_game-drawcolor_clearbuttun.png"]; //清空
     tempObject.tag = tagNum++;
     tempObject.position = ccp(948, 340);
-    tempObject.zOrder = 2;
+    //tempObject.zOrder = 2;
     [self addChild:tempObject];
     [tapObjectArray addObject:tempObject];
     
@@ -145,17 +145,20 @@
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     if (touchEnable && (tapObjectArray.count > 0)) {
-        //著色辨識
-        ccColor4B pcolor = [sprite.mutableTexture pixelAt:[recognizer locationInView:recognizer.view]];
-        CCLOG(@"A:%d R:%d G:%d B:%d",pcolor.a, pcolor.r, pcolor.g, pcolor.b);
-        drawAble = NO;
-        for (int i = 0; i < 9; i++) {
-            if (ccc4FEqual(ccc4FFromccc4B(pcolor), ccc4FFromccc4B(Colors[i]))) {
-                NSLog(@"可以Draw");
-                drawAble = YES;
-                break;
+        //if (drawAble)
+        //{
+            //著色辨識
+            ccColor4B pcolor = [sprite.mutableTexture pixelAt:[recognizer locationInView:recognizer.view]];
+            CCLOG(@"A:%d R:%d G:%d B:%d",pcolor.a, pcolor.r, pcolor.g, pcolor.b);
+            drawAble = NO;
+            for (int i = 0; i < 9; i++) {
+                if (ccc4FEqual(ccc4FFromccc4B(pcolor), ccc4FFromccc4B(Colors[i]))) {
+                    NSLog(@"可以Draw");
+                    drawAble = YES;
+                    break;
+                }
             }
-        }
+        //}
         
         //cocos2d 物件
         CGPoint touchLocation = [recognizer locationInView:recognizer.view];
@@ -175,15 +178,21 @@
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];
                     break;
                 case 4: //瀏覽畫作
+                    drawAble = NO;
                     [soundMgr playSoundFile:@"push.mp3"];
                     gallery = [[[DrawGallery alloc] init] autorelease];
                     gallery.zOrder = 3;
-                    [self addChild:gallery];
+                    
+                    //讀取檔案列表加入遊覽
+                    fileMgr = [[[FileOps alloc] init] autorelease];
+                    [gallery addObject:[fileMgr getDirList]];
                     tapObjectArray = gallery.tapArray;
+                    
+                    [self addChild:gallery];
                     break;
                 case 5: //存檔
                     [soundMgr playSoundFile:@"push.mp3"];
-                    FileOps *fileMgr = [[[FileOps alloc] init] autorelease];
+                    fileMgr = [[[FileOps alloc] init] autorelease];
                     [fileMgr saveSpriteToPNG:(CCSprite*)[self getChildByTag:50]];
                     break;
                 case 6: //橡皮擦
@@ -209,12 +218,28 @@
                     }
                     break;
                 case 16: //gallery  關閉
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    drawAble = YES;
                     [self removeChild:gallery cleanup:YES];
                     tapObjectArray = tapArray;
                     break;
                 case 17: //showImage 返回
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    [self removeChild:imageShow cleanup:YES];
+                    tapObjectArray = gallery.tapArray;
                     break;
                 case 18: //showImage 刪除圖片
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    fileMgr = [[[FileOps alloc] init] autorelease];
+                    [fileMgr deleteImage:gallery.selectedImageName];
+                    [self removeChild:imageShow cleanup:YES];
+                    
+                    //讀取檔案列表加入遊覽
+                    fileMgr = [[[FileOps alloc] init] autorelease];
+                    gallery.zOrder = 3;
+                    [gallery init];
+                    [gallery addObject:[fileMgr getDirList]];
+                    tapObjectArray = gallery.tapArray;
                     break;
                 default:
                     break;
@@ -236,9 +261,16 @@
                 
             }
             //gallery 可點擊的圖片
-            else if (obj.tag < 37 & obj.tag > 30)
+            else if (obj.tag < 36 & obj.tag > 29)
             {
+                fileMgr = [[[FileOps alloc] init] autorelease];
+                gallery.selectedImageName = [[fileMgr getDirList] objectAtIndex:(obj.tag -30)];
+                //NSLog(@"image name:%@",gallery.selectedImageName);
                 
+                imageShow = [[ShowImg alloc] initWithImage:gallery.selectedImageName];
+                imageShow.zOrder = 4;
+                [self addChild:imageShow];
+                tapObjectArray = imageShow.tapArray;
             }
             break;
         }
@@ -249,8 +281,6 @@
 -(void) dealloc {
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerLeft];
-    //[delegate.navController.view removeGestureRecognizer:swipegestureRecognizerRight];
     
     [super dealloc];
 }

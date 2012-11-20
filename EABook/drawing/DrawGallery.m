@@ -11,6 +11,7 @@
 
 @implementation DrawGallery
 @synthesize tapArray;
+@synthesize selectedImageName;
 
 - (id) init
 {
@@ -38,8 +39,9 @@
     [tapArray addObject:tempObject];
     //方格View
     CGRect ImageSize = CGRectMake(0, 0, 240, 155);
+    imagScal = 0.25;
     int gapX = 282;
-    int gapY = 180;
+    int gapY = 270;
     int startX = 107 + ImageSize.size.width * 0.5;
     int startYUp = 569 - ImageSize.size.height * 0.5;
     int startYDown = 569 - gapY;
@@ -53,6 +55,20 @@
     
     for (int i = 0; i<6; i++) {
         CCLOG(@"image %d 的位置 Ｘ:%f, Y:%f", i,imagePosition[i].x,imagePosition[i].y);
+    }
+}
+
+-(void) addObject:(NSArray*)fileList
+{
+    int i=0;
+    for (NSString *imageName in fileList) {
+        //NSLog(@"%@",imageName);
+        tempObject = [CCSprite spriteWithFile:[HOME_PATH stringByAppendingString:[NSString stringWithFormat:@"/%@",imageName]]];
+        tempObject.scale = imagScal;
+        tempObject.position = imagePosition[i];
+        tempObject.tag = 30 + i++;
+        [self addChild:tempObject];
+        [tapArray addObject:tempObject];
     }
 }
 

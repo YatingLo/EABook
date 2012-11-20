@@ -14,6 +14,7 @@
 #import "GamePoint.h"
 #endif
 
+#define HOME_PATH [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 #define EVENT_SOUND @"SoundEvent"
 #define EVENT_MOTION @"MotionEvent"
 #define WORD_STOP @"WordStop"
