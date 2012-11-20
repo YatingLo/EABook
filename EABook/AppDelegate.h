@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "cocos2d.h"
 #import "GamePoint.h"
-#import "SoundState.h"
 
 @interface AppController : NSObject <UIApplicationDelegate, CCDirectorDelegate>
 {
@@ -18,13 +17,11 @@
 
 	CCDirectorIOS	*director_;							// weak ref
     GamePoint *_EAGamePoint;
-    SoundState *_BookSoundState;
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (readonly) UINavigationController *navController;
 @property (readonly) CCDirectorIOS *director;
 @property (nonatomic, retain) GamePoint *EAGamePoint;
-@property (nonatomic, retain) SoundState *BookSoundState;
 
 @end

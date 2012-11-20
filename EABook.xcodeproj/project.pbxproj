@@ -182,7 +182,6 @@
 		B8373D38165611A300D56E67 /* P0-2_game-who_return-buttun.png in Resources */ = {isa = PBXBuildFile; fileRef = B8373D1D165611A300D56E67 /* P0-2_game-who_return-buttun.png */; };
 		B8373D39165611A300D56E67 /* P0-2_game-who_time-bar1.png in Resources */ = {isa = PBXBuildFile; fileRef = B8373D1E165611A300D56E67 /* P0-2_game-who_time-bar1.png */; };
 		B8373D3A165611A300D56E67 /* P0-2_game-who_time-bar2.png in Resources */ = {isa = PBXBuildFile; fileRef = B8373D1F165611A300D56E67 /* P0-2_game-who_time-bar2.png */; };
-		B8373D3D1656353500D56E67 /* SoundState.m in Sources */ = {isa = PBXBuildFile; fileRef = B8373D3C1656353500D56E67 /* SoundState.m */; };
 		B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B850B6EA16414CB100092CEB /* EAUpDownSprite.m */; };
 		B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */; };
 		B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B86279FF1649031F00034354 /* EASoundDectectSprite.m */; };
@@ -635,8 +634,6 @@
 		B8373D1D165611A300D56E67 /* P0-2_game-who_return-buttun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game-who_return-buttun.png"; sourceTree = "<group>"; };
 		B8373D1E165611A300D56E67 /* P0-2_game-who_time-bar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game-who_time-bar1.png"; sourceTree = "<group>"; };
 		B8373D1F165611A300D56E67 /* P0-2_game-who_time-bar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P0-2_game-who_time-bar2.png"; sourceTree = "<group>"; };
-		B8373D3B1656353400D56E67 /* SoundState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundState.h; sourceTree = "<group>"; };
-		B8373D3C1656353500D56E67 /* SoundState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundState.m; sourceTree = "<group>"; };
 		B850B6E916414CB100092CEB /* EAUpDownSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAUpDownSprite.h; sourceTree = "<group>"; };
 		B850B6EA16414CB100092CEB /* EAUpDownSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAUpDownSprite.m; sourceTree = "<group>"; };
 		B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_penguin.mp3"; sourceTree = "<group>"; };
@@ -1247,8 +1244,6 @@
 				B850B6EA16414CB100092CEB /* EAUpDownSprite.m */,
 				B86279FE1649031F00034354 /* EASoundDectectSprite.h */,
 				B86279FF1649031F00034354 /* EASoundDectectSprite.m */,
-				B8373D3B1656353400D56E67 /* SoundState.h */,
-				B8373D3C1656353500D56E67 /* SoundState.m */,
 			);
 			path = object;
 			sourceTree = "<group>";
@@ -2011,7 +2006,6 @@
 				B89E43841643D0F600B6F420 /* EALayerGame.m in Sources */,
 				B89E43871643E68200B6F420 /* GameOoverMenu.m in Sources */,
 				B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */,
-				B8373D3D1656353500D56E67 /* SoundState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

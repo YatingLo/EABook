@@ -78,11 +78,9 @@
 {
     if (endEnable) {
         endEnable = NO;
-        tapObjectArray = nil;
         [self unschedule:@selector(countDown)];
         CCSprite *endImage;
         if (differGame.answerNum == differGame.questNum) {
-            [soundMgr playSoundFile:@"gamesuccess.mp3"];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_win.png"];
         }
         else

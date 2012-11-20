@@ -144,7 +144,6 @@
                     isReturn = FALSE;
                     [animal stopAllActions];
                     [self removeChild:animal cleanup:YES];
-                    [soundMgr playSoundFile:@"gamesuccess.mp3"];
                     tempName =@"P0-2_game_win.png";
                     [self checkAnswer:tempName];
                     
