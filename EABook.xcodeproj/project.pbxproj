@@ -25,7 +25,6 @@
 		846049EF163AE2EA002A203B /* fps_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 846049EE163AE2EA002A203B /* fps_images.png */; };
 		846049F1163AE2EA002A203B /* fps_images-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 846049F0163AE2EA002A203B /* fps_images-hd.png */; };
 		846049F3163AE2EA002A203B /* fps_images-ipadhd.png in Resources */ = {isa = PBXBuildFile; fileRef = 846049F2163AE2EA002A203B /* fps_images-ipadhd.png */; };
-		846049F5163AE2EA002A203B /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 846049F4163AE2EA002A203B /* Icon-72.png */; };
 		846049F7163AE2EA002A203B /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 846049F6163AE2EA002A203B /* Icon-Small-50.png */; };
 		846049F9163AE2EA002A203B /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 846049F8163AE2EA002A203B /* Icon-Small.png */; };
 		846049FB163AE2EA002A203B /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 846049FA163AE2EA002A203B /* Icon-Small@2x.png */; };
@@ -1719,7 +1718,6 @@
 				846049EF163AE2EA002A203B /* fps_images.png in Resources */,
 				846049F1163AE2EA002A203B /* fps_images-hd.png in Resources */,
 				846049F3163AE2EA002A203B /* fps_images-ipadhd.png in Resources */,
-				846049F5163AE2EA002A203B /* Icon-72.png in Resources */,
 				846049F7163AE2EA002A203B /* Icon-Small-50.png in Resources */,
 				846049F9163AE2EA002A203B /* Icon-Small.png in Resources */,
 				846049FB163AE2EA002A203B /* Icon-Small@2x.png in Resources */,
