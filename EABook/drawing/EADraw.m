@@ -82,7 +82,12 @@
     tempObject = [CCSprite spriteWithFile:@"P0-1_game-drawcolor_clearbuttun.png"]; //清空
     tempObject.tag = tagNum++;
     tempObject.position = ccp(948, 340);
-    //tempObject.zOrder = 2;
+    [self addChild:tempObject];
+    [tapObjectArray addObject:tempObject];
+    
+    tempObject = [CCSprite spriteWithFile:@"P0-1_game-drawcolor_nextpicture.png"]; //下一張圖
+    tempObject.tag = 19;
+    tempObject.position = ccp(65, 65+108);
     [self addChild:tempObject];
     [tapObjectArray addObject:tempObject];
     
@@ -113,22 +118,22 @@
     Colors[8] = ccc4(254, 254, 254, 255);    //white
     
     //加入著色的圖
-    canvasImageNum = 7;
+    canvasImageNum = 0;
     [self addDrawCanvas:canvasImageNum];
 }
 
 -(void) addDrawCanvas:(int) canvasNum
 {
-        cavas = [NSArray arrayWithObjects:@"GAME_119car.png",
-                 @"GAME_cementtrunk.png",
-                 //@"GAME_helicopter.png",
-                 @"GAME_jeep.png",
-                 @"GAME_lect.png",
-                 @"GAME_sailboat.png",
-                 @"GAME_speedboat.png",
-                 @"GAME_taxi.png",
-                 @"GAME_train.png",
-                 @"GAME_watercar.png",nil];
+    cavas = [NSArray arrayWithObjects:@"GAME_119car.png",
+             @"GAME_cementtrunk.png",
+             //@"GAME_helicopter.png",
+             @"GAME_jeep.png",
+             @"GAME_lect.png",
+             @"GAME_sailboat.png",
+             @"GAME_speedboat.png",
+             @"GAME_taxi.png",
+             @"GAME_train.png",
+             @"GAME_watercar.png",nil];
     
     CGSize s = [[CCDirector sharedDirector] winSize];
     NSString *imageName = [cavas objectAtIndex:canvasNum];
@@ -207,6 +212,16 @@
                     [soundMgr playSoundFile:@"push.mp3"];
                     [self addDrawCanvas:canvasImageNum];
                     break;
+                case 19: //下一張圖
+                    [self removeChildByTag:50 cleanup:YES];
+                    [soundMgr playSoundFile:@"push.mp3"];
+                    if (canvasImageNum < 9) {
+                        canvasImageNum += 1;
+                    }
+                    else
+                        canvasImageNum = 0;
+                    [self addDrawCanvas:canvasImageNum];
+                    break;
                 case 50:
                     if (drawAble) {
                         if (SelectedCrayon!=-1) {
@@ -281,7 +296,6 @@
 -(void) dealloc {
     
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    
     [super dealloc];
 }
 

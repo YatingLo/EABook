@@ -27,8 +27,9 @@
         BOOL success = [fileMgr fileExistsAtPath:path isDirectory:&isDir];
         BOOL other = NO;
         
+        BOOL other2 = [file isEqualToString:@"Config.plist"];
         other = [file isEqualToString:@".DS_Store"];
-        if (success & !isDir & !other) {
+        if (success & !isDir & !other & !other2) {
             if (i++ < 7) {
                 [dirList addObject:file];
                 NSLog(@"%@",file);

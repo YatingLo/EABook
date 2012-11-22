@@ -21,7 +21,7 @@
     NSArray *cavas;
     
     BOOL drawAble;
-    NSInteger canvasImageNum;
+    int canvasImageNum;
     NSUInteger SelectedCrayon;
     
     DrawGallery *gallery;
