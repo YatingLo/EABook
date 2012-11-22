@@ -68,8 +68,9 @@
 
 -(void) gameStart
 {
-    endEnable = YES;
+    [soundMgr playTime];
     
+    endEnable = YES;
     differGame = [GameBoardDiffer node];
     [self addChild:differGame];
     
@@ -85,14 +86,21 @@
 -(void) gameOver
 {
     if (endEnable) {
+        [soundMgr stopTime];
+        
+        CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+        [self runAction:turnInteraction];
+        
         endEnable = NO;
         [self unschedule:@selector(countDown)];
         CCSprite *endImage;
         if (differGame.answerNum == differGame.questNum) {
+            [soundMgr playSoundFile:SOUND_GSUCES];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_win.png"];
         }
         else
         {
+            [soundMgr playSoundFile:SOUND_GFAIL];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_lose.png"];
         }
         endImage.tag = 2;
@@ -114,6 +122,9 @@
     [self addChild:overMenu];
     
     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
+    
+    CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+    [self runAction:turnInteraction];
 }
 
 -(void) countDown
@@ -163,23 +174,9 @@
             NSLog(@"Tap! %d", obj.tag);
             switch (obj.tag) {
                 case 20:
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [soundMgr playWordSoundFile:@"push.mp3"];
-                    /*
-                    switch ([gamepoint goToPageNum]) {
-                        case 1:
-                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
-                            break;
-                        case 2:
-                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene]]];
-                            break;
-                        case 3:
-                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene]]];
-                            break;
-                        default:
-                            break;
-                    }*/
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
+                    [soundMgr stopTime];
+                    [soundMgr playSoundFile:SOUND_PNEXT];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     break;
                 case 31:
                 case 32:
@@ -189,6 +186,7 @@
                 case 42:
                 case 43:
                 case 44:
+                    [soundMgr playSoundFile:SOUND_GCLICK];
                     [differGame removeGameObject:obj.tag];
                     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:differGame.tapObjectArray] mutableCopy];
                     if (differGame.answerNum == differGame.questNum) {
@@ -196,6 +194,7 @@
                     }
                     break;
                 case 23://下一關
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
                     if (stage < (DIFFER_STAGE_NUM-1)) {
@@ -204,16 +203,18 @@
                     }
                     break;
                 case 24://再來一次
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
                     
                     [self gameStart];
                     break;
                 case 25://離開
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
                     
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     break;
                 default:
                     break;

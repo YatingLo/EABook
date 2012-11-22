@@ -23,11 +23,9 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>Icon.png</string>
-				<string>Icon@2x.png</string>
-				<string>Icon-Small-50.png</string>
-				<string>Icon-Small.png</string>
-				<string>Icon-Small@2x.png</string>
+				<string>animal_icon_50x50.png</string>
+				<string>animal_icon_29x29.png</string>
+				<string>animal_icon_512x512.png</string>
 				<string>animal_icon_72x72.png</string>
 			</array>
 		</dict>

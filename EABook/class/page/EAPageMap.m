@@ -159,7 +159,7 @@
             switch (tempObject.tag) {
                 case 3:
                     goToPage = tempObject.tag;
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [tempObject runAction:turnPage];
                     break;
                 case 4:
@@ -168,12 +168,12 @@
                 case 7:
                 case 8:
                     goToPage = tempObject.tag;
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:SOUND_MCLICK];
                     [tempObject runAction:turnWithShining];
                     break;
                 case 20:
                     [soundMgr playSoundFile:tempObject.soundName];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
                     break;
                 default:
                     break;

@@ -27,3 +27,12 @@
 #define DIFFER_STAGE_NUM 5
 #define DIFFER_PLAY_TIME 30 //遊戲進行時間
 #define DIFFER_SUB_BAR 100/DIFFER_PLAY_TIME //prograssbar 地件數值
+
+#define SOUND_END @"end.mp3"
+#define SOUND_GCLICK @"gameclick.mp3"
+#define SOUND_GFAIL @"gamefail.mp3"
+#define SOUND_GSUCES @"gamesuccess.mp3"
+#define SOUND_MCLICK @"mapclick.mp3"
+#define SOUND_PNEXT @"nextpage2.mp3"
+#define SOUND_PUSH @"push.mp3"
+#define SOUND_GTIME @"time.mp3"

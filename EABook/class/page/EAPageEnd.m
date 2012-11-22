@@ -58,6 +58,7 @@
     tempObject.position = ccp(size.width * 0.5, size.height * 0.5);
     [self addChild:tempObject];
     [soundMgr playSoundFile:[NSString stringWithFormat:@"P5_end%d_word.mp3",endNum]];
+    [soundMgr playSoundFile:SOUND_END];
 }
 
 #pragma 手勢處理
@@ -72,8 +73,8 @@
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
     NSLog(@"tap");
-    [soundMgr playSoundFile:@"push.mp3"];
-    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+    [soundMgr playSoundFile:SOUND_PNEXT];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionZoomFlipY transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
 }
 
 -(void) dealloc {

@@ -42,6 +42,24 @@
         [audioPlayer play];
     }
 }
+
+-(void) playTime
+{
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],SOUND_GTIME]];
+    
+    timePlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    timePlayer.numberOfLoops = -1;
+    [timePlayer play];
+}
+
+-(void) stopTime
+{
+    if(timePlayer && [timePlayer isPlaying])
+    {
+        [timePlayer stop];
+    }
+}
+
 //會switch ON and OFF
 -(void) playWordSoundFile:(NSString*) soundName
 {
@@ -70,6 +88,10 @@
     //[audioPlayer stop];
     if (audioPlayer && audioPlayer.isPlaying) {
         [audioPlayer stop];
+    }
+    if(timePlayer && [timePlayer isPlaying])
+    {
+        [timePlayer stop];
     }
 }
 

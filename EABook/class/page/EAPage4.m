@@ -155,13 +155,26 @@
             switch (tempObject.tag) {
                 case 0:
                     //上一頁
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] backwards:YES]];
+                    [soundMgr playSoundFile:SOUND_PNEXT];
+                    //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene] backwards:YES]];
+                    switch ([gamepoint goToPageNum]) {
+                        case 1:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];
+                            break;
+                        case 2:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_2 scene]]];
+                            break;
+                        case 3:
+                            [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_3 scene]]];
+                            break;
+                        default:
+                            break;
+                    }
                     break;
                 case 1:
                     //下一頁
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGame2 scene]]];
+                    [soundMgr playSoundFile:SOUND_PNEXT];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame2 scene]]];
                     break;
                 case 3:
                 case 4:

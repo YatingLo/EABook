@@ -78,11 +78,16 @@
     spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3-2.png"];
     [self addChild:spriteSheet];
     
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"P3-2_lion.plist"];
+    spriteSheet = [CCSpriteBatchNode batchNodeWithFile:@"P3-2_lion.png"];
+    [self addChild:spriteSheet];
+    
     //加入互動物件
     NSString *tempName;
     
     tempName = @"P3-2_grass";//草五株
-    tempObject = [EAAnimSprite spriteWithName:tempName];//5
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];//5
     //tempObject.tag = 5;
     tempObject.imgNum = 2;
     tempObject.delayTime = 0.2f;
@@ -91,7 +96,7 @@
     [self addChild:tempObject];
     [moveObjectArray addObject:tempObject];
     
-    tempObject = [EAAnimSprite spriteWithName:tempName];//4
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];//4
     //tempObject.tag = 5;
     //tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
@@ -101,7 +106,7 @@
     [self addChild:tempObject];
     [moveObjectArray addObject:tempObject];
     
-    tempObject = [EAAnimSprite spriteWithName:tempName];//3
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];//3
     //tempObject.tag = 5;
     //tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
@@ -111,7 +116,7 @@
     [self addChild:tempObject];
     [moveObjectArray addObject:tempObject];
     
-    tempObject = [EAAnimSprite spriteWithName:tempName];//2
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];//2
     //tempObject.tag = 5;
     tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
@@ -121,7 +126,7 @@
     [self addChild:tempObject];
     [moveObjectArray addObject:tempObject];
     
-    tempObject = [EAAnimSprite spriteWithName:tempName];//1
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];//1
     //tempObject.tag = 5;
     tempObject.scale = 1.2f;
     tempObject.imgNum = 2;
@@ -132,7 +137,7 @@
     [moveObjectArray addObject:tempObject];
     
     tempName = @"P3-2_tree";//樹兩棵
-    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
     tempObject.delayTime = 0.25f;
     //tempObject.repeatTime = 2;
@@ -140,7 +145,7 @@
     [self addChild:tempObject];
     [moveObjectArray addObject:tempObject];
     
-    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject = [EASoundDectectSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
     tempObject.delayTime = 0.2f;
     //tempObject.repeatTime = 2;
@@ -184,6 +189,18 @@
     [tempObject setPosition:LOCATION(445, 260)];
     [self addChild:tempObject];
     
+    tempName = @"P3-2_lion";
+    tempObject = [EAAnimSprite spriteWithName:tempName];
+    tempObject.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
+    tempObject.wordimageName = [NSString stringWithFormat:@"%@_word.png",tempName];
+    tempObject.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    tempObject.tag = 5;
+    tempObject.imgNum = 2;
+    tempObject.delayTime = 0.2f;
+    tempObject.repeatTime = 2;
+    [tempObject setPosition:ccp(245, 295)];
+    [self addChild:tempObject];
+    
     //加入上下頁按鈕
     [self addPre];
     [self addNext];
@@ -193,7 +210,9 @@
     [tapObjectArray addObject:[self getChildByTag:1]];
     [tapObjectArray addObject:[self getChildByTag:4]];
     [tapObjectArray addObject:[self getChildByTag:3]];
+    [tapObjectArray addObject:[self getChildByTag:5]];
     
+    [swipeObjectArray addObject:[self getChildByTag:5]];
     [swipeObjectArray addObject:[self getChildByTag:4]];
     [swipeObjectArray addObject:[self getChildByTag:3]];
     
@@ -235,14 +254,14 @@
             switch (tempObject.tag) {
                 case 0:
                     //上一頁
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:SOUND_PNEXT];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage2 scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:SOUND_PNEXT];
                     //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
                     break;
                 case 3:
                 case 4:

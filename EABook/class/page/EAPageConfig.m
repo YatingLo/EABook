@@ -146,7 +146,7 @@ CCSpriteBatchNode *spriteSheet;
             [soundMgr playSoundFile:@"push.mp3"];
             switch (tapObject.tag) {
                 case 0:
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene] backwards:YES]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeTR transitionWithDuration:TURN_DELAY scene:[EAPageMenu scene]]];
                     break;
                 case 1:
                 case 2:

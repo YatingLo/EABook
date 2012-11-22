@@ -60,6 +60,7 @@
 
 -(void) gameStart
 {
+    [soundMgr playTime];
     endEnable = YES; //只執行一次gameover的flag
     
     differGame = [GameBoardDiffer node];
@@ -77,21 +78,28 @@
 -(void) gameOver
 {
     if (endEnable) {
+        [soundMgr stopTime];
+        
+        CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+        [self runAction:turnInteraction];
+        
         endEnable = NO;
         [self unschedule:@selector(countDown)];
         CCSprite *endImage;
         if (differGame.answerNum == differGame.questNum) {
+            [soundMgr playSoundFile:SOUND_GSUCES];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_win.png"];
         }
         else
         {
+            [soundMgr playSoundFile:SOUND_GFAIL];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_lose.png"];
         }
         endImage.tag = 2;
         endImage.position = ccp(512, 384);
         [self addChild:endImage];
         
-        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.0f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(addMenu)]]];
     }
 }
 
@@ -112,6 +120,9 @@
     
     //tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
     tapObjectArray = overMenu.tapArray;
+    
+    CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+    [self runAction:turnInteraction];
 }
 
 -(void) countDown
@@ -161,8 +172,9 @@
             NSLog(@"Tap! %d", obj.tag);
             switch (obj.tag) {
                 case 20:
-                    [soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];
+                    [soundMgr stopTime];
+                    [soundMgr playSoundFile:SOUND_PUSH];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
                     break;
                 case 31:
                 case 32:
@@ -172,6 +184,7 @@
                 case 42:
                 case 43:
                 case 44:
+                    [soundMgr playSoundFile:SOUND_GCLICK];
                     [differGame removeGameObject:obj.tag];
                     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:differGame.tapObjectArray] mutableCopy];
                     if (differGame.answerNum == differGame.questNum) {
@@ -179,7 +192,7 @@
                     }
                     break;
                 case 23://下一關
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
                     if (stage < (DIFFER_STAGE_NUM-1)) {
@@ -188,14 +201,14 @@
                     }
                     break;
                 case 24://再來一次
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [self removeChild:overMenu cleanup:NO];
                     tapObjectArray = layerButtons;
                     
                     [self gameStart];
                     break;
                 case 25://離開
-                    [soundMgr playSoundFile:@"push.mp3"];
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [self removeChild:overMenu cleanup:YES];
                     tapObjectArray = layerButtons;
                     

@@ -48,6 +48,7 @@
         [self addObjects];
         
         [self schedule:@selector(callEveryFrame:) interval:1];
+        [soundMgr playTime];
     }
     return self;
 }
@@ -128,17 +129,18 @@
 -(void) selectSpriteForTouch:(CGPoint)touchLocation{
     
     if (CGRectContainsPoint(ExitBtn.boundingBox, touchLocation)&&isEixt) {
-        [soundMgr playSoundFile:@"push.mp3"];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageEnd scene]]];
+        [soundMgr stopTime];
+        [soundMgr playSoundFile:SOUND_PUSH];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionRotoZoom transitionWithDuration:TURN_DELAY scene:[EAPageEnd scene]]];
     }
     else if (isWinImage){
         for (CCSprite *sprite in showanims) {
             
-            
+            [soundMgr stopTime];
             
             if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
                 NSLog(@"sprite tag -----%d",sprite.tag);
-                
+                [soundMgr stopTime];
                 //若出現在場景的圖片和選取圖片tag值相同則出現答對畫面，反之則否
                 if (sprite.tag ==showspritetag) {
                     isWinImage = FALSE;
@@ -146,7 +148,7 @@
                     [self removeChild:animal cleanup:YES];
                     tempName =@"P0-2_game_win.png";
                     [self checkAnswer:tempName];
-                    
+                    [soundMgr playSoundFile:SOUND_GSUCES];
                 }
                 else if(sprite.tag != showspritetag){
                     isWinImage = FALSE;
@@ -154,7 +156,7 @@
                     [self removeChild:animal cleanup:YES];
                     tempName =@"P0-2_game_lose.png";
                     [self checkAnswer:tempName];
-                    
+                    [soundMgr playSoundFile:SOUND_GFAIL];
                 }
                 
                 

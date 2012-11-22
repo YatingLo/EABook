@@ -182,13 +182,13 @@
                 case 0:
                     //上一頁
                     //delegate.EAGamePoint = gamepoint;
-                    [soundMgr playWordSoundFile:@"push.mp3"];
+                    [soundMgr playWordSoundFile:SOUND_PNEXT];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene] backwards:YES]];
                     break;
                 case 1:
                     //下一頁
                     //delegate.EAGamePoint = gamepoint;
-                    [soundMgr playWordSoundFile:@"push.mp3"];
+                    [soundMgr playWordSoundFile:SOUND_PNEXT];
                     switch ([gamepoint goToPageNum]) {
                         case 1:
                             [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage3_1 scene]]];

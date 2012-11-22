@@ -126,8 +126,8 @@
     if (CGRectContainsPoint(ReturnBtn.boundingBox, touchLocation)&&isReturn) {
         [self unschedule:@selector(callEveryFrame:)];
         
-        [soundMgr playSoundFile:@"push.mp3"];
-        [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene] backwards:YES]];
+        [soundMgr playSoundFile:SOUND_PUSH];
+        [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
         //[self removeAllChildrenWithCleanup:YES];
     }
     else if (isWinImage){
@@ -137,7 +137,7 @@
             
             if (CGRectContainsPoint(sprite.boundingBox, touchLocation)) {
                 NSLog(@"sprite tag -----%d",sprite.tag);
-                
+                [soundMgr stopTime];
                 //若出現在場景的圖片和選取圖片tag值相同則出現答對畫面，反之則否
                 if (sprite.tag ==showspritetag) {
                     isWinImage = FALSE;
@@ -146,7 +146,7 @@
                     [self removeChild:animal cleanup:YES];
                     tempName =@"P0-2_game_win.png";
                     [self checkAnswer:tempName];
-                    
+                    [soundMgr playSoundFile:SOUND_GSUCES];
                 }
                 else if(sprite.tag != showspritetag){
                     isWinImage = FALSE;
@@ -155,7 +155,7 @@
                     [self removeChild:animal cleanup:YES];
                     tempName =@"P0-2_game_lose.png";
                     [self checkAnswer:tempName];
-                    
+                    [soundMgr playSoundFile:SOUND_GFAIL];
                 }
                 
                 
@@ -194,7 +194,8 @@
 
 //隨機選擇動物圖片到場景中
 -(void) setImageFromAnims{
-    
+    [soundMgr stopTime];
+    [soundMgr playTime];
     NSUInteger index =arc4random()%anims.count;
     animal =[anims objectAtIndex:index];
     animal.position =ccp(300, 350);

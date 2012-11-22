@@ -107,7 +107,6 @@
             switch (obj.tag) {
                 case 0:
                     NSLog(@"開始");
-                    
                     delegate.EAGamePoint = gamepoint;
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage1 scene]]];
                     break;
@@ -115,17 +114,18 @@
                     NSLog(@"地圖");
                     //[soundMgr playSoundFile:@"push.mp3"];
                     delegate.EAGamePoint = gamepoint;
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageMap scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPageMap scene]]];
+                    
                     break;
                 case 2:
                     NSLog(@"遊戲");
                     //[soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
                     break;
                 case 3:
                     NSLog(@"設定");
                     //[soundMgr playSoundFile:@"push.mp3"];
-                    [[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene]]];
+                    [[CCDirector sharedDirector] replaceScene:[CCTransitionFadeBL transitionWithDuration:TURN_DELAY scene:[EAPageConfig scene]]];
                     break;
                 default:
                     break;
