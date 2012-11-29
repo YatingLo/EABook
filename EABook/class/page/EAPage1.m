@@ -198,6 +198,7 @@
                     break;
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
+                    [self removeWordImage];
                     break;
                 case 6: //蛋tap消失
                     [tapObjectArray removeObject:tempObject];

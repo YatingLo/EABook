@@ -57,6 +57,10 @@ CCSpriteBatchNode *spriteSheet;
             NSLog(@"有設定檔");
         }
         
+        [delegate.BookSoundState setSoundState:[[configContent objectForKey:KEY_WORD] boolValue]
+                                        effect:[[configContent objectForKey:KEY_VOLUME] boolValue]];
+        NSLog(@"effect:%d word:%d",[delegate.BookSoundState getEffectState], [delegate.BookSoundState getWordState]);
+        
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
@@ -164,6 +168,50 @@ CCSpriteBatchNode *spriteSheet;
     }
 
 }
+
+- (void) switchVolume
+{
+    if (configContent) {
+        bool state = [[configContent objectForKey:KEY_VOLUME] boolValue];
+        
+        CCSprite *on = (CCSprite*)[spriteSheet getChildByTag:1];
+        CCSprite *off = (CCSprite*)[spriteSheet getChildByTag:2];
+        
+        state = !state;
+        on.visible = state;
+        off.visible = !state;
+        [configContent setObject:[NSNumber numberWithBool:state] forKey:KEY_VOLUME];
+        
+        [delegate.BookSoundState setSoundState:[[configContent objectForKey:KEY_WORD] boolValue]
+                                        effect:[[configContent objectForKey:KEY_VOLUME] boolValue]];
+        NSLog(@"effect:%d word:%d",[delegate.BookSoundState getEffectState], [delegate.BookSoundState getWordState]);
+    }
+}
+
+- (void) switchWord
+{
+    if (configContent) {
+        bool state = [[configContent objectForKey:KEY_WORD] boolValue];
+        
+        CCSprite *on = (CCSprite*)[spriteSheet getChildByTag:3];
+        CCSprite *off = (CCSprite*)[spriteSheet getChildByTag:4];
+        
+        state = !state;
+        on.visible = state;
+        off.visible = !state;
+        [configContent setObject:[NSNumber numberWithBool:state] forKey:KEY_WORD];
+        
+        [delegate.BookSoundState setSoundState:[[configContent objectForKey:KEY_WORD] boolValue]
+                                        effect:[[configContent objectForKey:KEY_VOLUME] boolValue]];
+        NSLog(@"effect:%d word:%d",[delegate.BookSoundState getEffectState], [delegate.BookSoundState getWordState]);
+    }
+}
+
+-(void) onExit {
+    [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
+    [configContent writeToFile:HOME_PATH atomically:YES];
+}
+
 - (NSMutableDictionary*) readConfig
 {
     NSMutableDictionary *temp;
@@ -187,50 +235,5 @@ CCSpriteBatchNode *spriteSheet;
     
     //[fMgr release];
     return temp;
-}
-
-
-- (void) switchVolume
-{
-    if (configContent) {
-        
-        
-        bool state = [[configContent objectForKey:KEY_VOLUME] boolValue];
-        //bool state = YES;
-        CCSprite *on = (CCSprite*)[spriteSheet getChildByTag:1];
-        CCSprite *off = (CCSprite*)[spriteSheet getChildByTag:2];
-        
-        state = !state;
-        NSLog(@"有東西%@", configContent);
-        on.visible = state;
-        off.visible = !state;
-        [configContent setObject:[NSNumber numberWithBool:state] forKey:KEY_VOLUME];
-        
-    }
-}
-
-- (void) switchWord
-{
-    if (configContent) {
-        
-        
-        bool state = [[configContent objectForKey:KEY_WORD] boolValue];
-        //bool state = YES;
-        
-        CCSprite *on = (CCSprite*)[spriteSheet getChildByTag:3];
-        CCSprite *off = (CCSprite*)[spriteSheet getChildByTag:4];
-        
-        state = !state;
-        NSLog(@"有東西%@", configContent);
-        on.visible = state;
-        off.visible = !state;
-        [configContent setObject:[NSNumber numberWithBool:state] forKey:KEY_WORD];
-        
-    }
-}
-
--(void) onExit {
-    [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    [configContent writeToFile:HOME_PATH atomically:YES];
 }
 @end

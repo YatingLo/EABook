@@ -188,6 +188,7 @@
 		B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */; };
 		B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B86279FF1649031F00034354 /* EASoundDectectSprite.m */; };
 		B86ACAA4166750B5004DD6E7 /* closewordbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B86ACAA3166750B5004DD6E7 /* closewordbutton.png */; };
+		B86ACAB0166788E0004DD6E7 /* SoundState.m in Sources */ = {isa = PBXBuildFile; fileRef = B86ACAAF166788E0004DD6E7 /* SoundState.m */; };
 		B88D0145163FD754004106BC /* EAPage4.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0144163FD753004106BC /* EAPage4.m */; };
 		B88D0148163FFCB7004106BC /* EAPage3-2.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0147163FFCB6004106BC /* EAPage3-2.m */; };
 		B88D014B163FFCC4004106BC /* EAPage3-3.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D014A163FFCC3004106BC /* EAPage3-3.m */; };
@@ -656,6 +657,8 @@
 		B86279FE1649031F00034354 /* EASoundDectectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASoundDectectSprite.h; sourceTree = "<group>"; };
 		B86279FF1649031F00034354 /* EASoundDectectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASoundDectectSprite.m; sourceTree = "<group>"; };
 		B86ACAA3166750B5004DD6E7 /* closewordbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closewordbutton.png; sourceTree = "<group>"; };
+		B86ACAAE166788E0004DD6E7 /* SoundState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundState.h; sourceTree = "<group>"; };
+		B86ACAAF166788E0004DD6E7 /* SoundState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundState.m; sourceTree = "<group>"; };
 		B88D0143163FD753004106BC /* EAPage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage4.h; sourceTree = "<group>"; };
 		B88D0144163FD753004106BC /* EAPage4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage4.m; sourceTree = "<group>"; };
 		B88D0146163FFCB6004106BC /* EAPage3-2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-2.h"; sourceTree = "<group>"; };
@@ -1256,6 +1259,8 @@
 		84967020163EEDD4001F1A8E /* object */ = {
 			isa = PBXGroup;
 			children = (
+				B86ACAAE166788E0004DD6E7 /* SoundState.h */,
+				B86ACAAF166788E0004DD6E7 /* SoundState.m */,
 				84967023163EEDD4001F1A8E /* EALayer.h */,
 				84967024163EEDD4001F1A8E /* EALayer.m */,
 				B89E43821643D0F600B6F420 /* EALayerGame.h */,
@@ -2066,6 +2071,7 @@
 				B89E43841643D0F600B6F420 /* EALayerGame.m in Sources */,
 				B89E43871643E68200B6F420 /* GameOoverMenu.m in Sources */,
 				B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */,
+				B86ACAB0166788E0004DD6E7 /* SoundState.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

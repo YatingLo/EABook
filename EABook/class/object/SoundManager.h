@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import <AVFoundation/AVFoundation.h>
+#import "AppDelegate.h"
 
 @interface SoundManager : CCNode {
     //BOOL isPlay;
     AVAudioPlayer *audioPlayer;
     AVAudioPlayer *timePlayer;
+    AppController *delegate;
 }
 
 -(void) playLoopSound:(NSString*) soundName;
