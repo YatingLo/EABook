@@ -161,7 +161,7 @@
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable && (tapObjectArray.count > 0)) {
+    if (_tapEnable && (tapObjectArray.count > 0)) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -175,7 +175,7 @@
             switch (obj.tag) {
                 case 20:
                     [soundMgr stopTime];
-                    [soundMgr playSoundFile:SOUND_PNEXT];
+                    [soundMgr playSoundFile:SOUND_PUSH];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     break;
                 case 31:

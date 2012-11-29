@@ -187,6 +187,7 @@
 		B850B6EB16414CB100092CEB /* EAUpDownSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B850B6EA16414CB100092CEB /* EAUpDownSprite.m */; };
 		B850B6F316415C1F00092CEB /* P3-3_penguin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */; };
 		B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B86279FF1649031F00034354 /* EASoundDectectSprite.m */; };
+		B86ACAA4166750B5004DD6E7 /* closewordbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = B86ACAA3166750B5004DD6E7 /* closewordbutton.png */; };
 		B88D0145163FD754004106BC /* EAPage4.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0144163FD753004106BC /* EAPage4.m */; };
 		B88D0148163FFCB7004106BC /* EAPage3-2.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D0147163FFCB6004106BC /* EAPage3-2.m */; };
 		B88D014B163FFCC4004106BC /* EAPage3-3.m in Sources */ = {isa = PBXBuildFile; fileRef = B88D014A163FFCC3004106BC /* EAPage3-3.m */; };
@@ -276,7 +277,6 @@
 		B89D9A1E163EBC26007AABFB /* P3-2_elephant_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9992163EBC26007AABFB /* P3-2_elephant_word.mp3 */; };
 		B89D9A1F163EBC26007AABFB /* P3-2_giraffe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9993163EBC26007AABFB /* P3-2_giraffe.mp3 */; };
 		B89D9A20163EBC26007AABFB /* P3-2_giraffe_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9994163EBC26007AABFB /* P3-2_giraffe_word.mp3 */; };
-		B89D9A21163EBC26007AABFB /* p3-2_lion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9995163EBC26007AABFB /* p3-2_lion.mp3 */; };
 		B89D9A22163EBC26007AABFB /* P3-2_lion_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9996163EBC26007AABFB /* P3-2_lion_word.mp3 */; };
 		B89D9A23163EBC26007AABFB /* P3-3_Crab_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D9998163EBC26007AABFB /* P3-3_Crab_word.mp3 */; };
 		B89D9A26163EBC26007AABFB /* P3-3_penguin_word.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B89D999B163EBC26007AABFB /* P3-3_penguin_word.mp3 */; };
@@ -313,6 +313,7 @@
 		B8F2EA52165E1B3500F82F9B /* nextpage2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F2EA49165E1B3500F82F9B /* nextpage2.mp3 */; };
 		B8F2EA53165E1B3500F82F9B /* push.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F2EA4A165E1B3500F82F9B /* push.mp3 */; };
 		B8F2EA54165E1B3500F82F9B /* time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F2EA4B165E1B3500F82F9B /* time.mp3 */; };
+		B8F2EA85165E613700F82F9B /* P3-2_lion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F2EA84165E613700F82F9B /* P3-2_lion.mp3 */; };
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
 		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
 		B8F8518C164288AA00C15A6E /* pushbutton_return.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F8518B164288AA00C15A6E /* pushbutton_return.png */; };
@@ -654,6 +655,7 @@
 		B850B6F216415C1F00092CEB /* P3-3_penguin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_penguin.mp3"; sourceTree = "<group>"; };
 		B86279FE1649031F00034354 /* EASoundDectectSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASoundDectectSprite.h; sourceTree = "<group>"; };
 		B86279FF1649031F00034354 /* EASoundDectectSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASoundDectectSprite.m; sourceTree = "<group>"; };
+		B86ACAA3166750B5004DD6E7 /* closewordbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closewordbutton.png; sourceTree = "<group>"; };
 		B88D0143163FD753004106BC /* EAPage4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPage4.h; sourceTree = "<group>"; };
 		B88D0144163FD753004106BC /* EAPage4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPage4.m; sourceTree = "<group>"; };
 		B88D0146163FFCB6004106BC /* EAPage3-2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-2.h"; sourceTree = "<group>"; };
@@ -746,7 +748,6 @@
 		B89D9992163EBC26007AABFB /* P3-2_elephant_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-2_elephant_word.mp3"; sourceTree = "<group>"; };
 		B89D9993163EBC26007AABFB /* P3-2_giraffe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-2_giraffe.mp3"; sourceTree = "<group>"; };
 		B89D9994163EBC26007AABFB /* P3-2_giraffe_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-2_giraffe_word.mp3"; sourceTree = "<group>"; };
-		B89D9995163EBC26007AABFB /* p3-2_lion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "p3-2_lion.mp3"; sourceTree = "<group>"; };
 		B89D9996163EBC26007AABFB /* P3-2_lion_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-2_lion_word.mp3"; sourceTree = "<group>"; };
 		B89D9998163EBC26007AABFB /* P3-3_Crab_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_Crab_word.mp3"; sourceTree = "<group>"; };
 		B89D999B163EBC26007AABFB /* P3-3_penguin_word.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-3_penguin_word.mp3"; sourceTree = "<group>"; };
@@ -791,6 +792,7 @@
 		B8F2EA49165E1B3500F82F9B /* nextpage2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = nextpage2.mp3; sourceTree = "<group>"; };
 		B8F2EA4A165E1B3500F82F9B /* push.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = push.mp3; sourceTree = "<group>"; };
 		B8F2EA4B165E1B3500F82F9B /* time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time.mp3; sourceTree = "<group>"; };
+		B8F2EA84165E613700F82F9B /* P3-2_lion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-2_lion.mp3"; sourceTree = "<group>"; };
 		B8F8518316423A6400C15A6E /* MotionSensorIce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSensorIce.h; sourceTree = "<group>"; };
 		B8F8518416423A6400C15A6E /* MotionSensorIce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensorIce.m; sourceTree = "<group>"; };
 		B8F851861642833200C15A6E /* EAPageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageMap.h; sourceTree = "<group>"; };
@@ -1446,6 +1448,7 @@
 				B89D9967163EBC26007AABFB /* P3-2 */,
 				B89D996C163EBC26007AABFB /* P3-3 */,
 				B89D9971163EBC26007AABFB /* P4 */,
+				B86ACAA3166750B5004DD6E7 /* closewordbutton.png */,
 				B89D9976163EBC26007AABFB /* pushbutton_left.png */,
 				B8F8518B164288AA00C15A6E /* pushbutton_return.png */,
 				B89D9977163EBC26007AABFB /* pushbutton_right.png */,
@@ -1657,11 +1660,11 @@
 		B89D9990163EBC26007AABFB /* P3-2 */ = {
 			isa = PBXGroup;
 			children = (
+				B8F2EA84165E613700F82F9B /* P3-2_lion.mp3 */,
 				B89D9991163EBC26007AABFB /* P3-2_elephant.mp3 */,
 				B89D9992163EBC26007AABFB /* P3-2_elephant_word.mp3 */,
 				B89D9993163EBC26007AABFB /* P3-2_giraffe.mp3 */,
 				B89D9994163EBC26007AABFB /* P3-2_giraffe_word.mp3 */,
-				B89D9995163EBC26007AABFB /* p3-2_lion.mp3 */,
 				B89D9996163EBC26007AABFB /* P3-2_lion_word.mp3 */,
 			);
 			path = "P3-2";
@@ -1849,7 +1852,6 @@
 				B89D9A1E163EBC26007AABFB /* P3-2_elephant_word.mp3 in Resources */,
 				B89D9A1F163EBC26007AABFB /* P3-2_giraffe.mp3 in Resources */,
 				B89D9A20163EBC26007AABFB /* P3-2_giraffe_word.mp3 in Resources */,
-				B89D9A21163EBC26007AABFB /* p3-2_lion.mp3 in Resources */,
 				B89D9A22163EBC26007AABFB /* P3-2_lion_word.mp3 in Resources */,
 				B89D9A23163EBC26007AABFB /* P3-3_Crab_word.mp3 in Resources */,
 				B89D9A26163EBC26007AABFB /* P3-3_penguin_word.mp3 in Resources */,
@@ -1920,6 +1922,8 @@
 				B8F2EA52165E1B3500F82F9B /* nextpage2.mp3 in Resources */,
 				B8F2EA53165E1B3500F82F9B /* push.mp3 in Resources */,
 				B8F2EA54165E1B3500F82F9B /* time.mp3 in Resources */,
+				B8F2EA85165E613700F82F9B /* P3-2_lion.mp3 in Resources */,
+				B86ACAA4166750B5004DD6E7 /* closewordbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

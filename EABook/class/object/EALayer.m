@@ -8,7 +8,6 @@
 
 #import "EALayer.h"
 
-
 @implementation EALayer
 @synthesize gamepoint;
 //@synthesize tapObjectArray, swipeObjectArray;
@@ -26,8 +25,11 @@
         //[gamepoint addTypeB];
         NSLog(@"gamePoint %@", [gamepoint goToPage]);
         
-        touchEnable = NO;
-        soundEnable = NO;
+        _touchEnable = NO;
+        _soundEnable = NO;
+        _panEnable = NO;
+        _swipeEnable = NO;
+        _tapEnable = NO;
         
         [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];//打開互動鎖
         
@@ -41,35 +43,63 @@
 -(void) switchInteraction
 {
     
-    if (touchEnable) {
+    if (_touchEnable) {
         NSLog(@"witchInteraction OFF");
-        touchEnable = NO;
-        soundEnable = NO;
+        _touchEnable = NO;
+        _soundEnable = NO;
     }
     else{
         NSLog(@"witchInteraction ON");
-        [self removeWordImage];
-        touchEnable = YES;
-        soundEnable = YES;
+        _touchEnable = YES;
+        _soundEnable = YES;
         if (soundDetect.enable == NO) {
-            NSLog(@"soundDetect開啟");
+            //NSLog(@"soundDetect開啟");
             soundDetect.enable = YES;
         }
     }
-    //touchEnable = !touchEnable;
-    //soundEnable = !soundEnable;
+    _tapEnable = !_tapEnable;
+    _panEnable = !_panEnable;
+    _swipeEnable = !_swipeEnable;
 }
 
 -(void) switchTouchInteraction
 {
-    if (touchEnable) {
+    if (_tapEnable) {
         NSLog(@"switchTouchInteraction OFF");
     }
     else{
         NSLog(@"switchTouchInteraction ON");
     }
-    touchEnable = !touchEnable;
-    //soundEnable = !soundEnable;
+    _tapEnable = !_tapEnable;
+    _panEnable = !_panEnable;
+    _swipeEnable = !_swipeEnable;
+}
+
+-(void) switchInteractionElse:(id)sender data:(int) type
+{
+    NSLog(@"switch ELSE");
+    switch (type) {
+        case TAP:
+            NSLog(@"switchInteractionElse:tap");
+            _panEnable = !_panEnable;
+            _swipeEnable = !_swipeEnable;
+            _soundEnable = !_soundEnable;
+            break;
+        case SWIPE:
+            NSLog(@"switchInteractionElse:swipe");
+            _tapEnable = !_tapEnable;
+            _panEnable = !_panEnable;
+            _soundEnable = !_soundEnable;
+            break;
+        case PAN:
+            NSLog(@"switchInteractionElse:pan");
+            _tapEnable = !_tapEnable;
+            _swipeEnable = !_swipeEnable;
+            _soundEnable = !_soundEnable;
+            break;
+        default:
+            break;
+    }
 }
 
 -(void) stopSpriteMove
@@ -112,6 +142,26 @@
 {
     CGSize size = [[CCDirector sharedDirector] winSize];
     CCSprite *tt = [CCSprite spriteWithFile:imageName];
+    tt.position = ccp(size.width/2, size.height/2);
+    
+    CCSprite *spCloseButton = [[CCSprite spriteWithFile:@"closewordbutton.png"] retain];
+    spCloseButton.position = ccpSub(tt.position, ccp(tt.textureRect.size.width/2-5, -tt.textureRect.size.height/2+5));
+    spCloseButton.tag = 2;
+    
+    WordImageNode = [[CCNode alloc] init];
+    [WordImageNode addChild:tt];
+    [WordImageNode addChild:spCloseButton];
+    
+    if (WordImageNode.children.count == 2) {
+        [self addChild:WordImageNode];
+        tapButtons = tapObjectArray;
+        
+        tapObjectArray = [[NSMutableArray alloc] init];
+        [tapObjectArray addObject:spCloseButton];
+    }
+    else
+        NSLog(@"Word Image 創建不成功");
+    /*
     if (tt) {
         tt.tag = 2;
         tt.position = ccp(size.width/2, size.height/2);
@@ -120,13 +170,17 @@
     else
     {
         NSLog(@"Word Image 創建不成功");
-    }
+    }*/
 }
 -(void) removeWordImage
 {
-    CCNode *temp = [self getChildByTag:2];
-    if (temp) {
-        [self removeChildByTag:2 cleanup:YES];
+    if (WordImageNode != NULL)
+    {
+        [self removeChild:WordImageNode cleanup:YES];
+        WordImageNode = NULL;
+        [tapObjectArray dealloc];
+        
+        tapObjectArray = tapButtons;
     }
 }
 -(void) addPre
@@ -206,8 +260,9 @@
 -(void) onExitTransitionDidStart
 {
     delegate.EAGamePoint = gamepoint;
-    touchEnable = NO;
-    soundDetect = NO;
+    _tapEnable = NO;
+    _swipeEnable = NO;
+    _panEnable = NO;
     [self stopAllActions];
     //[self stopSpriteMove];
 }

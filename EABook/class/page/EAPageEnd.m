@@ -65,7 +65,7 @@
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }

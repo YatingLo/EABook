@@ -15,6 +15,10 @@
 #import "EAAnimSprite.h"
 #import "SoundManager.h"
 
+#define TAP 0
+#define SWIPE 1
+#define PAN 2
+
 @interface EALayer : CCLayer {
     @protected
     NSMutableArray *tapObjectArray;
@@ -22,11 +26,18 @@
     NSMutableArray *panObjectArray;
     NSMutableArray *moveObjectArray;
     
+    //word image 新增
+    NSMutableArray *tapButtons;
+    CCNode *WordImageNode;
+    
     GamePoint *gamepoint;
     AppController *delegate;
     
-    BOOL touchEnable;
-    BOOL soundEnable;
+    BOOL _touchEnable;
+    BOOL _tapEnable;
+    BOOL _swipeEnable;
+    BOOL _panEnable;
+    BOOL _soundEnable;
     
     SoundSensor *soundDetect;
     MotionSensor *motionDetect;
@@ -62,6 +73,8 @@
 
 -(void) switchInteraction;
 -(void) switchTouchInteraction;
+-(void) switchInteractionElse:(id)sender data:(int) type;
+
 -(void) stopSpriteMove;
 /*
 -(void) addSprite:(CCSprite*) obj spriteType:(int)type;

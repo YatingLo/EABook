@@ -64,7 +64,8 @@
 -(void) playWordSoundFile:(NSString*) soundName
 {
     //切換互動狀態
-    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
+    //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
+    [self runAction:[CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0]];
     
     NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
     
@@ -104,7 +105,8 @@
         
         //[[NSNotificationCenter defaultCenter] postNotificationName:WORD_STOP object:self];
         //切換互動狀態
-        [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
+        [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(removeWordImage)]];
+        [self runAction:[CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0]];
     }
 }
 

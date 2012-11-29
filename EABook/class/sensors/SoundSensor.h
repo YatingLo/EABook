@@ -19,7 +19,7 @@
     AVAudioRecorder *recorder;
     BOOL _enable;
     EAAnimSprite *sprite;
-    SoundManager *sManage;
+    //SoundManager *_sManage;
     
     NSMutableArray *_moveObjects;
 }

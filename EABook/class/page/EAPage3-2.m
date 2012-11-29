@@ -221,7 +221,7 @@
 
 -(void) draw
 {
-    if (soundEnable) {
+    if (_soundEnable) {
         [soundDetect update];
     }
 }
@@ -231,7 +231,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -240,7 +240,7 @@
 {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (touchEnable) {
+    if (_swipeEnable) {
         [self swipeSpriteMovement:touchLocation direction:recognizer.direction];
     }
 }
@@ -262,6 +262,9 @@
                     [soundMgr playSoundFile:SOUND_PNEXT];
                     //[[CCDirector sharedDirector] replaceScene:[CCTransitionPageTurn transitionWithDuration:TURN_DELAY scene:[EAPage4 scene]]];
                     [[CCDirector sharedDirector] replaceScene:[CCTransitionFlipAngular transitionWithDuration:TURN_DELAY scene:[EAPageGame1 scene]]];
+                    break;
+                case 2://Word image 的叉叉
+                    [soundMgr stopSound];
                     break;
                 case 3:
                 case 4:
