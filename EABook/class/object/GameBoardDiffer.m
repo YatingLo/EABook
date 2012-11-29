@@ -95,6 +95,22 @@
         [self removeChildByTag:34 cleanup:YES];
         [self removeChildByTag:44 cleanup:YES];
     }
+    else if (objTag == 35 || objTag == 45) {
+        
+        CCSprite *tempSprite = [CCSprite spriteWithTexture:circle];
+        tempSprite.position = [self getChildByTag:35].position;
+        tempSprite.scale = CIRCLE_SCALE;
+        [self addChild:tempSprite];
+        tempSprite = [CCSprite spriteWithTexture:circle];
+        tempSprite.position = [self getChildByTag:45].position;
+        tempSprite.scale = CIRCLE_SCALE;
+        [self addChild:tempSprite];
+        
+        [tapObjectArray removeObject:[self getChildByTag:35]];
+        [tapObjectArray removeObject:[self getChildByTag:45]];
+        [self removeChildByTag:35 cleanup:YES];
+        [self removeChildByTag:45 cleanup:YES];
+    }
 }
 
 -(NSArray*) setGameObecjts:(NSString*) stage
@@ -130,7 +146,7 @@
     //觸碰區設定
     objects = [[[temp objectAtIndex:1] componentsSeparatedByString:@"*"] mutableCopy];
     //刪除空白列
-    [objects removeObjectAtIndex:4];
+    //[objects removeObjectAtIndex:4];
     int i = 0;
     for (NSString *string in objects) {
         ++i;
@@ -163,7 +179,7 @@
 -(void) gameStart
 {
     //問題數目
-    questNum = 4;
+    questNum = 5;
     answerNum = 0;
     countDown = GAME_TIME;
     [self setGameObecjts:[stages objectAtIndex:stageNum]];

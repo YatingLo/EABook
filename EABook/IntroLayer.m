@@ -23,8 +23,9 @@
 #import "EAPageGame2.h"
 #import "EAPageGameZone.h"
 #import "EAPageGameDiffer.h"
+  */
 #import "EAPageGameWho.h"
- */
+
 
 #pragma mark - IntroLayer
 

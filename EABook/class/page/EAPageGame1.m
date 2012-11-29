@@ -182,10 +182,12 @@
                 case 32:
                 case 33:
                 case 34:
+                case 35:
                 case 41:
                 case 42:
                 case 43:
                 case 44:
+                case 45:
                     [soundMgr playSoundFile:SOUND_GCLICK];
                     [differGame removeGameObject:obj.tag];
                     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:differGame.tapObjectArray] mutableCopy];

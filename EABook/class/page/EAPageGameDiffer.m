@@ -31,10 +31,11 @@
         [delegate.navController.view addGestureRecognizer:tapgestureRecognizer];
         
         stages = [[NSMutableArray arrayWithObjects:[NSNumber numberWithInt:0], [NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:3],[NSNumber numberWithInt:4],nil] retain];
-        NSLog(@"%@",stages.description);
+        
+        //遊戲單元
         stage = 0;
+        //打亂順序
         [self swapStages];
-        NSLog(@"%@",stages.description);
         
         [self addChild:soundMgr];
         [self addObjects];
@@ -180,10 +181,12 @@
                 case 32:
                 case 33:
                 case 34:
+                case 35:
                 case 41:
                 case 42:
                 case 43:
                 case 44:
+                case 45:
                     [soundMgr playSoundFile:SOUND_GCLICK];
                     [differGame removeGameObject:obj.tag];
                     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:differGame.tapObjectArray] mutableCopy];
