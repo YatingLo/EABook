@@ -26,6 +26,5 @@
 -(void) playWordSoundFile:(NSString*) soundName;
 -(void) stopSound;
 -(void) playSound;
--(void) PlayWordSound:(ccTime)dt;
 
 @end

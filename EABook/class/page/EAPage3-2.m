@@ -139,7 +139,7 @@
     tempName = @"P3-2_tree";//樹兩棵
     tempObject = [EASoundDectectSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
-    tempObject.delayTime = 0.25f;
+    tempObject.delayTime = 0.2f;
     //tempObject.repeatTime = 2;
     [tempObject setPosition:LOCATION(260, 180)];
     [self addChild:tempObject];
@@ -147,7 +147,7 @@
     
     tempObject = [EASoundDectectSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
+    tempObject.delayTime = 0.3f;
     //tempObject.repeatTime = 2;
     [tempObject setFlipX:YES];
     [tempObject setPosition:LOCATION(640, 220)];
@@ -265,6 +265,8 @@
                     break;
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
+                    [self removeWordImage];
+                    [self switchInteractionElse:NULL data:TAP];
                     break;
                 case 3:
                 case 4:

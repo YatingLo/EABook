@@ -20,7 +20,7 @@
 #define ANIM_STOP @"AnimationStop"
 #define HORIZON_SWIPE_MIN  12
 #define VERTICAL_SWIPE_MAX 4
-#define LIMIT_DIFFER 0.4
+#define LIMIT_DIFFER 0.45 //偵測
 #define TURN_DELAY 0.8
 #define LOCATION(x,y) ccp(x,768-y)
 

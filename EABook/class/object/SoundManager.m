@@ -79,7 +79,7 @@
         if (audioPlayer) {
             audioPlayer.numberOfLoops = 0;
             [audioPlayer play];
-            [self schedule:@selector(PlayWordSound:) interval:1];
+            
         }
     }
    
@@ -107,20 +107,6 @@
     if(timePlayer && [timePlayer isPlaying])
     {
         [timePlayer stop];
-    }
-}
-
--(void) PlayWordSound:(ccTime)dt{
-    
-    if (![audioPlayer isPlaying]) {
-        printf("\nplaydone");
-        [self unschedule:@selector(PlayWordSound:)];
-        audioPlayer = Nil;
-        
-        //[[NSNotificationCenter defaultCenter] postNotificationName:WORD_STOP object:self];
-        //切換互動狀態
-        [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(removeWordImage)]];
-        [self runAction:[CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0]];
     }
 }
 

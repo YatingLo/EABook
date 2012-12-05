@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "846049D1163AE2EA002A203B"
-               BuildableName = "EABook.app"
-               BlueprintName = "EABook"
-               ReferencedContainer = "container:EABook.xcodeproj">
+               BuildableName = "Animal.app"
+               BlueprintName = "Animal"
+               ReferencedContainer = "container:Animal.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "846049D1163AE2EA002A203B"
-            BuildableName = "EABook.app"
-            BlueprintName = "EABook"
-            ReferencedContainer = "container:EABook.xcodeproj">
+            BuildableName = "Animal.app"
+            BlueprintName = "Animal"
+            ReferencedContainer = "container:Animal.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "846049D1163AE2EA002A203B"
-            BuildableName = "EABook.app"
-            BlueprintName = "EABook"
-            ReferencedContainer = "container:EABook.xcodeproj">
+            BuildableName = "Animal.app"
+            BlueprintName = "Animal"
+            ReferencedContainer = "container:Animal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "846049D1163AE2EA002A203B"
-            BuildableName = "EABook.app"
-            BlueprintName = "EABook"
-            ReferencedContainer = "container:EABook.xcodeproj">
+            BuildableName = "Animal.app"
+            BlueprintName = "Animal"
+            ReferencedContainer = "container:Animal.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

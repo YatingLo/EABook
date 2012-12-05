@@ -199,6 +199,7 @@
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
                     [self removeWordImage];
+                    [self switchInteractionElse:NULL data:TAP];
                     break;
                 case 6: //蛋tap消失
                     [tapObjectArray removeObject:tempObject];
@@ -223,13 +224,24 @@
 -(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection) direction
 {
     NSLog(@"swipe");
+    CGRect temp = tempObject.boundingBox;
     for (tempObject in swipeObjectArray) {
         
-        CGRect temp = tempObject.boundingBox;
-        temp.origin.x = tempObject.boundingBox.origin.x - 50;
-        temp.size.width = tempObject.boundingBox.size.width + 100;
+        if (tempObject.tag == 3) {
+            temp.origin.x = tempObject.boundingBox.origin.x - 100;
+            temp.origin.y = tempObject.boundingBox.origin.y;
+            temp.size.width = tempObject.boundingBox.size.width + 200;
+            temp.size.height = tempObject.boundingBox.size.height;
+        }
+        else
+        {
+            temp.origin.x = tempObject.boundingBox.origin.x - 50;
+            temp.size.width = tempObject.boundingBox.size.width + 100;
+            temp.origin.y = tempObject.boundingBox.origin.y;
+            temp.size.height = tempObject.boundingBox.size.height;
+        }
         
-        if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+        if (CGRectContainsPoint(temp, touchLocation)) {
             [soundMgr playSoundFile:tempObject.soundName];
             if (tempObject.tag == 3) {
                 if (moveObjectArray.count < 5) {

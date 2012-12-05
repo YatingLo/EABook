@@ -328,7 +328,7 @@
 		845491FD164031370036B09F /* EAPageGame2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageGame2.m; sourceTree = "<group>"; };
 		845491FF164034E90036B09F /* EAPageEnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageEnd.h; sourceTree = "<group>"; };
 		84549200164034EA0036B09F /* EAPageEnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAPageEnd.m; sourceTree = "<group>"; };
-		846049D2163AE2EA002A203B /* EABook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EABook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		846049D2163AE2EA002A203B /* Animal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846049D6163AE2EA002A203B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		846049D8163AE2EA002A203B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		846049DA163AE2EA002A203B /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -838,7 +838,7 @@
 		846049D3163AE2EA002A203B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				846049D2163AE2EA002A203B /* EABook.app */,
+				846049D2163AE2EA002A203B /* Animal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1714,9 +1714,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		846049D1163AE2EA002A203B /* EABook */ = {
+		846049D1163AE2EA002A203B /* Animal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84604B6B163AE2ED002A203B /* Build configuration list for PBXNativeTarget "EABook" */;
+			buildConfigurationList = 84604B6B163AE2ED002A203B /* Build configuration list for PBXNativeTarget "Animal" */;
 			buildPhases = (
 				846049CE163AE2EA002A203B /* Sources */,
 				846049CF163AE2EA002A203B /* Frameworks */,
@@ -1726,9 +1726,9 @@
 			);
 			dependencies = (
 			);
-			name = EABook;
+			name = Animal;
 			productName = EABook;
-			productReference = 846049D2163AE2EA002A203B /* EABook.app */;
+			productReference = 846049D2163AE2EA002A203B /* Animal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1739,7 +1739,7 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 			};
-			buildConfigurationList = 846049CC163AE2EA002A203B /* Build configuration list for PBXProject "EABook" */;
+			buildConfigurationList = 846049CC163AE2EA002A203B /* Build configuration list for PBXProject "Animal" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1751,7 +1751,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				846049D1163AE2EA002A203B /* EABook */,
+				846049D1163AE2EA002A203B /* Animal */,
 			);
 		};
 /* End PBXProject section */
@@ -2135,7 +2135,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Animal;
 				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				WRAPPER_EXTENSION = app;
@@ -2158,7 +2158,7 @@
 					"-lz",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Animal;
 				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				VALIDATE_PRODUCT = YES;
@@ -2169,7 +2169,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		846049CC163AE2EA002A203B /* Build configuration list for PBXProject "EABook" */ = {
+		846049CC163AE2EA002A203B /* Build configuration list for PBXProject "Animal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84604B69163AE2ED002A203B /* Debug */,
@@ -2178,7 +2178,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84604B6B163AE2ED002A203B /* Build configuration list for PBXNativeTarget "EABook" */ = {
+		84604B6B163AE2ED002A203B /* Build configuration list for PBXNativeTarget "Animal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84604B6C163AE2ED002A203B /* Debug */,
