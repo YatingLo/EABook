@@ -31,13 +31,18 @@
         _swipeEnable = NO;
         _tapEnable = NO;
         
-        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)]]];//打開互動鎖
+        [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(moveAtBegin)]]];//打開互動鎖
         
         soundMgr = [[SoundManager alloc] init];
         
         NSLog(@"Layer");
 	}
 	return self;
+}
+
+-(void) moveAtBegin
+{
+    [self switchInteraction];
 }
 
 -(void) switchInteraction
@@ -53,7 +58,6 @@
         _touchEnable = YES;
         _soundEnable = YES;
         if (soundDetect.enable == NO) {
-            //NSLog(@"soundDetect開啟");
             soundDetect.enable = YES;
         }
     }

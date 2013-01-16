@@ -92,4 +92,6 @@
 -(void) addPre;
 -(void) addNext;
 -(void) addReturn;
+
+-(void) moveAtBegin;
 @end

@@ -249,6 +249,16 @@
     }
 }
 
+-(void) stopSpriteMove
+{
+    NSLog(@"EAPage3-1 stopSpriteMove");
+    [self switchInteraction];
+    [soundMgr stopSound];
+    if (soundDetect.enable == NO) {
+        [soundDetect setEnable:YES];
+    }
+}
+
 -(void) dealloc {
     soundDetect = Nil;
     motionDetect = Nil;

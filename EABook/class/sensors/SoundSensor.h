@@ -15,8 +15,10 @@
 
 @interface SoundSensor : CCNode
 {
-    float soundLimit,lowPassResults;
+@private
     AVAudioRecorder *recorder;
+    NSTimer *levelTimer;
+    double lowPass;
     BOOL _enable;
     EAAnimSprite *sprite;
     //SoundManager *_sManage;
