@@ -141,6 +141,56 @@
     }
 }
 
+-(void) addWordImage:(NSString*)imageName music:(NSString*)musicName
+{
+    WordImageNode = [[CCNode alloc] init];
+    
+    CGSize size = [[CCDirector sharedDirector] winSize];
+    CCSprite *tt = [CCSprite spriteWithFile:imageName];
+    tt.position = ccp(size.width/2, size.height/2);
+    
+    CCSprite *spCloseButton = [[CCSprite spriteWithFile:@"closewordbutton.png"] retain];
+    spCloseButton.position = ccpSub(tt.position, ccp(tt.textureRect.size.width/2-5, -tt.textureRect.size.height/2+5));
+    spCloseButton.tag = 2;
+    [WordImageNode addChild:tt];
+    
+    if (musicName) {
+        MusicButton = [[MusicBtnSprite alloc]init];
+        //MusicButton = [[CCSprite spriteWithFile:@"closewordbutton.png"] retain];
+        MusicButton.position = ccpSub(tt.position, ccp(-tt.textureRect.size.width/2+5, -tt.textureRect.size.height/2+5));
+        MusicButton.tag = 20;
+        //[MusicButton setTextureRect:CGRectMake(0, 0, 70, 70)];
+        [WordImageNode addChild:MusicButton];
+    }
+    
+    [WordImageNode addChild:spCloseButton];
+    
+    if (WordImageNode.children.count > 1) {
+        [self addChild:WordImageNode];
+        tapButtons = tapObjectArray;
+        tapObjectArray = [[NSMutableArray alloc] init];
+        [tapObjectArray addObject:spCloseButton];
+        if (musicName) {
+            NSLog(@"%@",MusicButton.description);
+            [tapObjectArray addObject:MusicButton];
+            
+            //[self schedule:@selector(checkMusicPlay:) interval:0.5];
+        }
+    }    else
+        NSLog(@"Word Image 創建不成功");
+}
+
+-(void) checkMusicPlay:(ccTime)dt{
+    NSLog(@"music is play %d",soundMgr.musicPlayer.isPlaying);
+    if (soundMgr.musicPlayer && soundMgr.musicPlayer.isPlaying) {
+        [MusicButton startCircle];
+    }
+    else if (soundMgr.musicPlayer && !soundMgr.musicPlayer.isPlaying){
+        [MusicButton stopCircle];
+        [self unschedule:@selector(checkMusicPlay:)];
+    }
+}
+
 //等待實作！！
 -(void) addWordImage:(NSString*)imageName
 {
@@ -165,25 +215,19 @@
     }
     else
         NSLog(@"Word Image 創建不成功");
-    /*
-    if (tt) {
-        tt.tag = 2;
-        tt.position = ccp(size.width/2, size.height/2);
-        [self addChild:tt];
-    }
-    else
-    {
-        NSLog(@"Word Image 創建不成功");
-    }*/
 }
 -(void) removeWordImage
 {
     if (WordImageNode != NULL)
     {
+        if(soundMgr.musicPlayer.isPlaying)
+        {
+            [soundMgr.musicPlayer stop];
+        }
+        
         [self removeChild:WordImageNode cleanup:YES];
         WordImageNode = NULL;
         [tapObjectArray dealloc];
-        
         tapObjectArray = tapButtons;
     }
 }
@@ -220,47 +264,7 @@
     backGround.position = ccp(size.width/2, size.height/2);
     [self addChild:backGround];
 }
-/*
--(void) addSprite:(CCSprite*) obj spriteType:(int)type
-{
-    switch (type) {
-        case TAP:
-            if (!tapObjectArray) {
-                [tapObjectArray addObject:obj];
-                [self addChild:obj];
-            }
-            else
-                NSLog(@"tap array 沒有初始化");
-            break;
-        case SWIPE:
-            if (!swipeObjectArray) {
-                [swipeObjectArray addObject:obj];
-                [self addChild:obj];
-            }
-            else
-                NSLog(@"swipe array 沒有初始化");
-            break;
-        case PAN:
-            if (!panObjectArray) {
-                [panObjectArray addObject:obj];
-                [self addChild:obj];
-            }
-            else
-                NSLog(@"pan array 沒有初始化");
-            break;
-        case MOVE:
-            if (!moveObjectArray) {
-                [moveObjectArray addObject:obj];
-                [self addChild:obj];
-            }
-            else
-                NSLog(@"move array 沒有初始化");
-            break;
-        default:
-            break;
-    }
-}
-*/
+
 -(void) onExitTransitionDidStart
 {
     delegate.EAGamePoint = gamepoint;

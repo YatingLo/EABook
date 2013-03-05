@@ -9,6 +9,7 @@
 #import "SoundManager.h"
 
 @implementation SoundManager
+@synthesize musicPlayer;
 
 -(id) init
 {
@@ -64,6 +65,20 @@
     }
 }
 
+//播放兒歌音樂
+-(void) playMusicFile:(NSString*) soundName
+{
+    if ([delegate.BookSoundState getEffectState]) {
+        NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
+        musicPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        if (musicPlayer && !musicPlayer.isPlaying) {
+            NSLog(@"sound play");
+            musicPlayer.numberOfLoops = 0;
+            [musicPlayer play];
+        }
+    }
+}
+
 //會switch ON and OFF
 -(void) playWordSoundFile:(NSString*) soundName
 {
@@ -82,13 +97,6 @@
             
         }
     }
-   
-    /*
-    else
-    {
-        [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1.5f], [CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0], [CCCallFunc actionWithTarget:parent_ selector:@selector(removeWordImage)], nil]];
-    }
-     */
 }
 
 -(void) playSound

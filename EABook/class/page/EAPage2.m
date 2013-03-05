@@ -110,6 +110,7 @@
     sheep.wordsoundName = @"P2_goat_word.mp3";
     sheep.wordimageName = @"P2_goat_EN&CH.jpg";
     sheep.soundName = @"P2_goat.mp3";
+    sheep.wordmusicName = @"sheep.mp3";
     sheep.tag = 3;
     sheep.imgNum = 2;
     sheep.repeatTime = 2;
@@ -214,8 +215,28 @@
                 case 4:
                 case 5:
                 case 6:
-                    [self addWordImage:tempObject.wordimageName];
+                    //點擊加入字卡
+                    if (tempObject.wordmusicName) {
+                        [self addWordImage:tempObject.wordimageName music:tempObject.wordmusicName];
+                        wordMusicName = tempObject.wordmusicName;
+                    }
+                    else
+                    {
+                        [self addWordImage:tempObject.wordimageName];
+                    }
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
+                    break;
+                case 20:
+                    //停掉字卡語音，如果沒有在播音樂的話播放音樂
+                    [soundMgr stopSound];
+                    if (soundMgr.musicPlayer.isPlaying) {
+                        [soundMgr.musicPlayer stop];
+                    }
+                    else
+                    {
+                        [self schedule:@selector(checkMusicPlay:) interval:0.5];
+                        [soundMgr playMusicFile:wordMusicName];
+                    }
                     break;
                 default:
                     break;

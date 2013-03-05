@@ -16,6 +16,7 @@
     NSString *soundName;
     NSString *wordsoundName;
     NSString *wordimageName;
+    NSString *wordmusicName;
     NSInteger imgNum;
     NSInteger repeatTime;
     BOOL _isTouch;
@@ -25,7 +26,7 @@
     NSMutableArray *animImageFrames;
 }
 
-@property(nonatomic, retain) NSString *imageName, *soundName, *wordsoundName, *wordimageName;
+@property(nonatomic, retain) NSString *imageName, *soundName, *wordsoundName, *wordimageName, *wordmusicName;
 @property(nonatomic) BOOL isTouch;
 @property(nonatomic, readwrite) NSInteger imgNum, repeatTime;
 @property(nonatomic, readwrite) float delayTime;

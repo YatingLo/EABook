@@ -315,6 +315,13 @@
 		B8F2EA53165E1B3500F82F9B /* push.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F2EA4A165E1B3500F82F9B /* push.mp3 */; };
 		B8F2EA54165E1B3500F82F9B /* time.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F2EA4B165E1B3500F82F9B /* time.mp3 */; };
 		B8F2EA85165E613700F82F9B /* P3-2_lion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F2EA84165E613700F82F9B /* P3-2_lion.mp3 */; };
+		B8F8019E16E5DF1E00797D27 /* MusicBtnSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8019C16E5DF1E00797D27 /* MusicBtnSprite.m */; };
+		B8F801AD16E5E2F500797D27 /* butterfly.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F801A916E5E2F500797D27 /* butterfly.mp3 */; };
+		B8F801AE16E5E2F500797D27 /* eagle_chick.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F801AA16E5E2F500797D27 /* eagle_chick.mp3 */; };
+		B8F801AF16E5E2F500797D27 /* pig.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F801AB16E5E2F500797D27 /* pig.mp3 */; };
+		B8F801B016E5E2F500797D27 /* sheep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B8F801AC16E5E2F500797D27 /* sheep.mp3 */; };
+		B8F801B316E5E3BD00797D27 /* musicbutton_outcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F801B116E5E3BD00797D27 /* musicbutton_outcircle.png */; };
+		B8F801B416E5E3BD00797D27 /* musicbutton_inbasic.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F801B216E5E3BD00797D27 /* musicbutton_inbasic.png */; };
 		B8F8518516423A6400C15A6E /* MotionSensorIce.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F8518416423A6400C15A6E /* MotionSensorIce.m */; };
 		B8F851881642833300C15A6E /* EAPageMap.m in Sources */ = {isa = PBXBuildFile; fileRef = B8F851871642833300C15A6E /* EAPageMap.m */; };
 		B8F8518C164288AA00C15A6E /* pushbutton_return.png in Resources */ = {isa = PBXBuildFile; fileRef = B8F8518B164288AA00C15A6E /* pushbutton_return.png */; };
@@ -796,6 +803,14 @@
 		B8F2EA4A165E1B3500F82F9B /* push.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = push.mp3; sourceTree = "<group>"; };
 		B8F2EA4B165E1B3500F82F9B /* time.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = time.mp3; sourceTree = "<group>"; };
 		B8F2EA84165E613700F82F9B /* P3-2_lion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "P3-2_lion.mp3"; sourceTree = "<group>"; };
+		B8F8019C16E5DF1E00797D27 /* MusicBtnSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicBtnSprite.m; sourceTree = "<group>"; };
+		B8F8019D16E5DF1E00797D27 /* MusicBtnSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicBtnSprite.h; sourceTree = "<group>"; };
+		B8F801A916E5E2F500797D27 /* butterfly.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = butterfly.mp3; sourceTree = "<group>"; };
+		B8F801AA16E5E2F500797D27 /* eagle_chick.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = eagle_chick.mp3; sourceTree = "<group>"; };
+		B8F801AB16E5E2F500797D27 /* pig.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pig.mp3; sourceTree = "<group>"; };
+		B8F801AC16E5E2F500797D27 /* sheep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sheep.mp3; sourceTree = "<group>"; };
+		B8F801B116E5E3BD00797D27 /* musicbutton_outcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbutton_outcircle.png; sourceTree = "<group>"; };
+		B8F801B216E5E3BD00797D27 /* musicbutton_inbasic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = musicbutton_inbasic.png; sourceTree = "<group>"; };
 		B8F8518316423A6400C15A6E /* MotionSensorIce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionSensorIce.h; sourceTree = "<group>"; };
 		B8F8518416423A6400C15A6E /* MotionSensorIce.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionSensorIce.m; sourceTree = "<group>"; };
 		B8F851861642833200C15A6E /* EAPageMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPageMap.h; sourceTree = "<group>"; };
@@ -1259,6 +1274,8 @@
 		84967020163EEDD4001F1A8E /* object */ = {
 			isa = PBXGroup;
 			children = (
+				B8F8019C16E5DF1E00797D27 /* MusicBtnSprite.m */,
+				B8F8019D16E5DF1E00797D27 /* MusicBtnSprite.h */,
 				B86ACAAE166788E0004DD6E7 /* SoundState.h */,
 				B86ACAAF166788E0004DD6E7 /* SoundState.m */,
 				84967023163EEDD4001F1A8E /* EALayer.h */,
@@ -1408,6 +1425,7 @@
 		B89D9900163EBC26007AABFB /* BookResources */ = {
 			isa = PBXGroup;
 			children = (
+				B8F801A816E5E2F500797D27 /* song */,
 				B89D9901163EBC26007AABFB /* animation */,
 				B89D9910163EBC26007AABFB /* image */,
 				B89D9978163EBC26007AABFB /* sound */,
@@ -1442,6 +1460,8 @@
 		B89D9910163EBC26007AABFB /* image */ = {
 			isa = PBXGroup;
 			children = (
+				B8F801B116E5E3BD00797D27 /* musicbutton_outcircle.png */,
+				B8F801B216E5E3BD00797D27 /* musicbutton_inbasic.png */,
 				B8373CED16560C7300D56E67 /* P5 */,
 				B89D9911163EBC26007AABFB /* P0 */,
 				B89D9913163EBC26007AABFB /* P0-1 */,
@@ -1711,6 +1731,17 @@
 			path = globle;
 			sourceTree = "<group>";
 		};
+		B8F801A816E5E2F500797D27 /* song */ = {
+			isa = PBXGroup;
+			children = (
+				B8F801A916E5E2F500797D27 /* butterfly.mp3 */,
+				B8F801AA16E5E2F500797D27 /* eagle_chick.mp3 */,
+				B8F801AB16E5E2F500797D27 /* pig.mp3 */,
+				B8F801AC16E5E2F500797D27 /* sheep.mp3 */,
+			);
+			path = song;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1929,6 +1960,12 @@
 				B8F2EA54165E1B3500F82F9B /* time.mp3 in Resources */,
 				B8F2EA85165E613700F82F9B /* P3-2_lion.mp3 in Resources */,
 				B86ACAA4166750B5004DD6E7 /* closewordbutton.png in Resources */,
+				B8F801AD16E5E2F500797D27 /* butterfly.mp3 in Resources */,
+				B8F801AE16E5E2F500797D27 /* eagle_chick.mp3 in Resources */,
+				B8F801AF16E5E2F500797D27 /* pig.mp3 in Resources */,
+				B8F801B016E5E2F500797D27 /* sheep.mp3 in Resources */,
+				B8F801B316E5E3BD00797D27 /* musicbutton_outcircle.png in Resources */,
+				B8F801B416E5E3BD00797D27 /* musicbutton_inbasic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2072,6 +2109,7 @@
 				B89E43871643E68200B6F420 /* GameOoverMenu.m in Sources */,
 				B8627A001649031F00034354 /* EASoundDectectSprite.m in Sources */,
 				B86ACAB0166788E0004DD6E7 /* SoundState.m in Sources */,
+				B8F8019E16E5DF1E00797D27 /* MusicBtnSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2122,8 +2160,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yating lo (T3GD3KLT45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2136,8 +2174,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Animal;
-				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2146,8 +2184,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: yating lo (T3GD3KLT45)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hunag kiki (H4X28N2W4V)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = EABook/Prefix.pch;
@@ -2159,8 +2197,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Animal;
-				PROVISIONING_PROFILE = "74E60F9F-54B2-4501-947B-B4FFC03F44EA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

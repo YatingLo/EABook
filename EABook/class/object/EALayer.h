@@ -14,6 +14,7 @@
 #import "GamePoint.h"
 #import "EAAnimSprite.h"
 #import "SoundManager.h"
+#import "MusicBtnSprite.h"
 
 #define TAP 0
 #define SWIPE 1
@@ -56,6 +57,9 @@
     UISwipeGestureRecognizerDirection swipeDirection;
     
     SoundManager *soundMgr;
+    //兒歌新增
+    MusicBtnSprite *MusicButton;
+    NSString *wordMusicName;
 }
 @property (nonatomic,retain) GamePoint *gamepoint;
 @property BOOL touchEnable;
@@ -88,6 +92,7 @@
 */
 -(void) addBackGround:(NSString*)imageName;
 -(void) addWordImage:(NSString*)imageName;
+-(void) addWordImage:(NSString*)imageName music:(NSString*)musicName;
 -(void) removeWordImage;
 -(void) addPre;
 -(void) addNext;

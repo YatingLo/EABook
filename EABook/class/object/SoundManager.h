@@ -16,7 +16,11 @@
     AVAudioPlayer *audioPlayer;
     AVAudioPlayer *timePlayer;
     AppController *delegate;
+    //兒歌增加
+    AVAudioPlayer *musicPlayer;
 }
+
+@property (nonatomic,retain)AVAudioPlayer *musicPlayer;
 
 -(void) playLoopSound:(NSString*) soundName;
 -(void) playSoundFile:(NSString*) soundName;
@@ -26,5 +30,6 @@
 -(void) playWordSoundFile:(NSString*) soundName;
 -(void) stopSound;
 -(void) playSound;
-
+//兒歌增加
+-(void) playMusicFile:(NSString*) soundName;
 @end

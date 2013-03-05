@@ -113,6 +113,7 @@
     pig.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     pig.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
     pig.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    pig.wordmusicName = @"pig.mp3";
     pig.tag = 5;
     pig.imgNum = 4;
     pig.repeatTime = 3;
@@ -126,6 +127,7 @@
     chicken.soundName = [NSString stringWithFormat:@"%@.mp3",tempName];
     chicken.wordimageName = [NSString stringWithFormat:@"%@_EN&CH.jpg",tempName];
     chicken.wordsoundName = [NSString stringWithFormat:@"%@_word.mp3",tempName];
+    chicken.wordmusicName = @"eagle_chick.mp3";
     chicken.tag = 3;
     chicken.visible = NO;
     [chicken setPosition:LOCATION(450, 640)];
@@ -210,8 +212,27 @@
                 case 3:
                 case 4:
                 case 5:
-                    [self addWordImage:tempObject.wordimageName];
+                    if (tempObject.wordmusicName) {
+                        [self addWordImage:tempObject.wordimageName music:tempObject.wordmusicName];
+                        wordMusicName = tempObject.wordmusicName;
+                    }
+                    else
+                    {
+                        [self addWordImage:tempObject.wordimageName];
+                    }
                     [soundMgr playWordSoundFile:tempObject.wordsoundName];
+                    break;
+                case 20:
+                    //停掉字卡語音，如果沒有在播音樂的話播放音樂
+                    [soundMgr stopSound];
+                    if (soundMgr.musicPlayer.isPlaying) {
+                        [soundMgr.musicPlayer stop];
+                    }
+                    else
+                    {
+                        [self schedule:@selector(checkMusicPlay:) interval:0.5];
+                        [soundMgr playMusicFile:wordMusicName];
+                    }
                     break;
                 default:
                     break;
