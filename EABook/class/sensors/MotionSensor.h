@@ -11,6 +11,7 @@
 #import "cocos2d.h"
 #import "EAAnimSprite.h"
 #import "SoundManager.h"
+#import "EALayerProtocol.h"
 
 #define LIMIT 0.9
 
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) EAAnimSprite *sprite, *sprite2;
 @property (nonatomic, retain) NSMutableArray *moveObjects;
 @property (nonatomic, retain) SoundManager *sManage;
+@property (nonatomic, assign) id *switchDelegate;
 
 -(id) init;
 -(void) update;

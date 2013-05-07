@@ -88,8 +88,8 @@
     if (endEnable) {
         [soundMgr stopTime];
         
-        CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
-        [self runAction:turnInteraction];
+        //CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+        //[self runAction:turnInteraction];
         
         endEnable = NO;
         [self unschedule:@selector(countDown)];
@@ -123,8 +123,8 @@
     
     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
     
-    CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
-    [self runAction:turnInteraction];
+    //CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+    //[self runAction:turnInteraction];
 }
 
 -(void) countDown

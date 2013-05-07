@@ -9,11 +9,11 @@
 #import "MotionSensor.h"
 
 
-
 @implementation MotionSensor
 @synthesize sprite, sprite2;
 @synthesize moveObjects;
 @synthesize sManage;
+@synthesize switchDelegate;
 
 -(id) init
 {
@@ -46,7 +46,7 @@
             int i = 1;
             
             if (animAble) {
-                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
                 animAble = !animAble;
                 for (sprite in moveObjects) {
                     [sprite startLoopAnimation];
@@ -83,7 +83,7 @@
         {
             
             if (!animAble) {
-                [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
                 animAble = !animAble;
                 for (sprite in moveObjects) {
                     [sprite stopAllActions];

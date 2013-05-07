@@ -19,7 +19,7 @@
         {
             if (sprite) {
                 if (animAble) {
-                    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                    //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
                     [sprite startLoopAnimation];
                     animAble = !animAble;
                     if (sprite.soundName && sManage) {
@@ -51,7 +51,7 @@
             if (sprite) {
                 if (!animAble) {
                     [sprite firstFram];
-                    [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+                    //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
                     animAble = !animAble;
                     //[sprite stopAllActions];
                     if (sprite.soundName && sManage) {

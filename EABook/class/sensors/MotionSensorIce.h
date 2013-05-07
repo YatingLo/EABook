@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "MotionSensor.h"
+#import "EALayerProtocol.h"
 
 @interface MotionSensorIce: MotionSensor {
     
 }
+
+@property (nonatomic, assign) id *switchDelegate;
 
 @end
