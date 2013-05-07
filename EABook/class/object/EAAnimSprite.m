@@ -46,38 +46,42 @@
 
 -(void) startAnimation
 {
-    NSLog(@"start animation");
-    CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)];
-    CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
+    NSLog(@"start animation isRuning?%d",self.isTouch);
     
-    [self runAction:switchIneraction];
-    
-    CCAnimation *pAnim = [CCAnimation animation];
-    if (imgNum < 3) {
-        for(unsigned int i = 1; i < imgNum; i++)
-        {
-            NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+    if (!self.isTouch) {
+        
+        [self switchIsTouch];
+        
+        CCAnimation *pAnim = [CCAnimation animation];
+        if (imgNum < 3) {
+            for(unsigned int i = 1; i < imgNum; i++)
+            {
+                NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+                [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+            }
+            NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,0];
             [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
         }
-        NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,0];
-        [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
-    }
-    else
-    {
-        for(unsigned int i = 1; i < imgNum; i++)
+        else
         {
-            NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
-            [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+            for(unsigned int i = 1; i < imgNum; i++)
+            {
+                NSString *name = [NSString stringWithFormat:@"%@_%d.png",imageName,i];
+                [pAnim addSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:name]];
+            }
         }
+        [pAnim setDelayPerUnit:delayTime];
+        pAnim.restoreOriginalFrame = YES;
+        
+        
+        CCAnimate *action = [CCAnimate actionWithAnimation:pAnim];
+        [self runAction:[CCSequence actions:
+                         [CCDelayTime actionWithDuration:0.1f],
+                         [CCRepeat actionWithAction:action times:repeatTime],
+                         [CCCallFunc actionWithTarget:self selector:@selector(switchIsTouch)],
+                         NULL]];
     }
-    [pAnim setDelayPerUnit:delayTime];
-    pAnim.restoreOriginalFrame = YES;
     
-    CCAnimate *action = [CCAnimate actionWithAnimation:pAnim];
-    [self runAction:[CCSequence actions:
-                    [CCDelayTime actionWithDuration:0.1f],
-                    [CCRepeat actionWithAction:action times:repeatTime],
-                    stopSound , NULL]];
 }
     
 -(void) startLoopAnimation
@@ -104,13 +108,18 @@
     [pAnim setDelayPerUnit:delayTime];
     pAnim.restoreOriginalFrame = YES;
     
-    CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
+    //CCCallFunc *stopSound = [CCCallFunc actionWithTarget:parent_ selector:@selector(stopSpriteMove)];
     CCAnimate *action = [CCRepeat actionWithAction:[CCAnimate actionWithAnimation:pAnim] times:2];
     [self runAction:action];
     //[self runAction:[CCSequence actions:
      //                [CCDelayTime actionWithDuration:0.1f],
      //                [CCRepeat actionWithAction:action times:repeatTime],
      //                stopSound , NULL]];
+}
+
+-(void) switchIsTouch
+{
+    [self setIsTouch:!self.isTouch];
 }
 
 @end

@@ -73,6 +73,8 @@
 
 -(void) update
 {
+#if 0
+    //取低頻
     [recorder updateMeters];
     double peakPowerForChannel = pow(10, 0.05*[recorder peakPowerForChannel:0]);
     lowPass = 0.05 * peakPowerForChannel + (1-0.05)*lowPass;
@@ -82,9 +84,9 @@
         levelTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(audioLevelTimerCallback:) userInfo:nil repeats:NO];
         [self rotateObjectToAngle:(lowPass-0.05)/(1-0.05)];
     }
-    
-#if 0
-    //NSLog(@"sound update");
+#endif
+#if 1
+    //取分貝
     [recorder updateMeters];
     
 	//const double ALPHA = 0.05;
@@ -110,10 +112,9 @@
     }*/
     
     if (differ > LIMIT_DIFFER) {
-        NSLog(@"soundEventSend");
         if (_enable) {
             _enable = !_enable;
-            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+            //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
             NSLog(@"sound animation start");
             for (sprite in _moveObjects) {
                 [sprite startLoopAnimation];
@@ -123,23 +124,17 @@
             }
         }
     }
-    /*
-    else{
-        if (!enable)
-        {
-            
-            [self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
-            NSLog(@"sound animation end");
-            for (sprite in _moveObjects) {
-                [sprite stopAllActions];
-                if (sprite.soundName && sManage) {
-                    [sManage stopSound];
-                }
+    else if (!_enable && [(EAAnimSprite*)[_moveObjects objectAtIndex:0] isRunning]){
+        //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
+        NSLog(@"sound animation end");
+        _enable = YES;
+        for (sprite in _moveObjects) {
+            [sprite stopAllActions];
+            if (sprite.soundName && sManage) {
+                [sManage stopSound];
             }
-            
         }
     }
-     */
 #endif
 }
 

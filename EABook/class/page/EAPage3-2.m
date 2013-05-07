@@ -139,7 +139,7 @@
     tempName = @"P3-2_tree";//樹兩棵
     tempObject = [EASoundDectectSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
-    tempObject.delayTime = 0.2f;
+    tempObject.delayTime = 0.5f;
     //tempObject.repeatTime = 2;
     [tempObject setPosition:LOCATION(260, 180)];
     [self addChild:tempObject];
@@ -147,7 +147,7 @@
     
     tempObject = [EASoundDectectSprite spriteWithName:tempName];
     tempObject.imgNum = 4;
-    tempObject.delayTime = 0.3f;
+    tempObject.delayTime = 0.8f;
     //tempObject.repeatTime = 2;
     [tempObject setFlipX:YES];
     [tempObject setPosition:LOCATION(640, 220)];
@@ -266,7 +266,6 @@
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
                     [self removeWordImage];
-                    [self switchInteractionElse:NULL data:TAP];
                     break;
                 case 3:
                 case 4:
@@ -287,8 +286,10 @@
     NSLog(@"swipe");
     for (tempObject in swipeObjectArray) {
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+            if (!tempObject.isTouch) {
+                [soundMgr playSoundFile:tempObject.soundName];
+            }
             [tempObject startAnimation];
-            [soundMgr playSoundFile:tempObject.soundName];
             if (tempObject.tag == 3) {
                 tempObject = (EAAnimSprite*)[self getChildByTag:7];
                 [tempObject startAnimation];

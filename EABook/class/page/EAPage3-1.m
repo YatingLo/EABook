@@ -155,7 +155,7 @@
 
 -(void) draw
 {
-    if (_touchEnable) {
+    if (_soundEnable) {
         [soundDetect update];
     }
 }
@@ -202,7 +202,7 @@
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
                     [self removeWordImage];
-                    [self switchInteractionElse:NULL data:TAP];
+                    //[self switchInteractionElse:NULL data:TAP];
                     break;
                 case 3:
                 case 4:
@@ -244,8 +244,10 @@
     NSLog(@"swipe");
     for (tempObject in swipeObjectArray) {
         if (CGRectContainsPoint(tempObject.boundingBox, touchLocation)) {
+            if (!tempObject.isTouch) {
+                [soundMgr playSoundFile:tempObject.soundName];
+            }
             [tempObject startAnimation];
-            [soundMgr playSoundFile:tempObject.soundName];
             /*swipe 來回兩次
              //當前一次與本次同一物件進入
              if (tempObject == touchedSprite) {

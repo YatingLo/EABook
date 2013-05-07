@@ -98,9 +98,9 @@
         [anims addObject:sprite];
     }
     
+    //時間倒數條狀顯示設定：條狀框和填滿的圖分別設定
     CCSprite *progressBackGround = [CCSprite spriteWithFile:@"P0-2_game-different_time-bar1.png"];
     [progressBackGround setPosition:ccp(512, 690)];
-    //[progressBackGround setZOrder:1];
     [self addChild:progressBackGround];
     
     CCSprite *progressBarSprite = [CCSprite spriteWithFile:@"P0-2_game-different_time-bar2.png"];
@@ -108,9 +108,8 @@
     [progressBar setPosition:ccp(564, 687)];
     [progressBar setType:kCCProgressTimerTypeBar];
     [progressBar setMidpoint:ccp(0, 0)];
-    [progressBar setBarChangeRate:ccp(1, 0)];
+    [progressBar setBarChangeRate:ccp(1, 0)]; //水平方向縮小
     [progressBar setPercentage:100];
-    //[progressBar setZOrder:2];
     [self addChild:progressBar];
 }
 
@@ -121,6 +120,7 @@
     [self selectSpriteForTouch:touchLocation];
 }
 
+//每次出現點擊事件時，進入此函式中判斷點擊的物件
 -(void) selectSpriteForTouch:(CGPoint)touchLocation{
     
     if (CGRectContainsPoint(ReturnBtn.boundingBox, touchLocation)&&isReturn) {
@@ -128,7 +128,6 @@
         
         [soundMgr playSoundFile:SOUND_PUSH];
         [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:TURN_DELAY scene:[EAPageGameZone scene]]];
-        //[self removeAllChildrenWithCleanup:YES];
     }
     else if (isWinImage){
         for (CCSprite *sprite in showanims) {
@@ -145,8 +144,8 @@
                     [animal stopAllActions];
                     [self removeChild:animal cleanup:YES];
                     tempName =@"P0-2_game_win.png";
-                    [self checkAnswer:tempName];
-                    [soundMgr playSoundFile:SOUND_GSUCES];
+                    [self checkAnswer:tempName]; //顯示答對畫面
+                    [soundMgr playSoundFile:SOUND_GSUCES];//播放答對音效
                 }
                 else if(sprite.tag != showspritetag){
                     isWinImage = FALSE;
@@ -154,8 +153,8 @@
                     [animal stopAllActions];
                     [self removeChild:animal cleanup:YES];
                     tempName =@"P0-2_game_lose.png";
-                    [self checkAnswer:tempName];
-                    [soundMgr playSoundFile:SOUND_GFAIL];
+                    [self checkAnswer:tempName];//顯示答錯畫面
+                    [soundMgr playSoundFile:SOUND_GFAIL];//播放答錯音效
                 }
                 
                 

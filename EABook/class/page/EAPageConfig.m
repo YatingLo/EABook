@@ -49,8 +49,6 @@ CCSpriteBatchNode *spriteSheet;
 {
     if (self = [super init])
     {
-        _touchEnable = NO;
-        
         tapObjectArray = [[NSMutableArray alloc] init];
         configContent = [self readConfig];//讀取原本的設定
         if (configContent) {
@@ -133,7 +131,7 @@ CCSpriteBatchNode *spriteSheet;
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (_touchEnable) {
+    if (_tapEnable) {
         [self tapSpriteMovement:touchLocation];
     }
     NSLog(@"tap");

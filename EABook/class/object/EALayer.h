@@ -16,11 +16,7 @@
 #import "SoundManager.h"
 #import "MusicBtnSprite.h"
 
-#define TAP 0
-#define SWIPE 1
-#define PAN 2
-
-@interface EALayer : CCLayer {
+@interface EALayer : CCLayer<EALayerProtocol> {
     @protected
     NSMutableArray *tapObjectArray;
     NSMutableArray *swipeObjectArray;
@@ -34,7 +30,6 @@
     GamePoint *gamepoint;
     AppController *delegate;
     
-    BOOL _touchEnable;
     BOOL _tapEnable;
     BOOL _swipeEnable;
     BOOL _panEnable;
@@ -74,10 +69,6 @@
 -(void) swipeSpriteMovement:(CGPoint)touchLocation direction:(UISwipeGestureRecognizerDirection)dir;
 -(void) tapSpriteMovement:(CGPoint)touchLocation;
 -(void) panSpriteMovement:(CGPoint)touchLocation;
-
--(void) switchInteraction;
--(void) switchTouchInteraction;
--(void) switchInteractionElse:(id)sender data:(int) type;
 
 -(void) stopSpriteMove;
 /*

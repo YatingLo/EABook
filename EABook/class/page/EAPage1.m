@@ -34,10 +34,6 @@
         
         eggEnable = YES;
         
-        //手勢
-        //pangestureRecognizer = [[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)] autorelease];
-        //[delegate.navController.view addGestureRecognizer:pangestureRecognizer];
-        
         delegate = (AppController*) [[UIApplication sharedApplication] delegate];
         tapgestureRecognizer = [[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)] autorelease];
         tapgestureRecognizer.numberOfTapsRequired = 1; //new add
@@ -201,12 +197,12 @@
                 case 2://Word image 的叉叉
                     [soundMgr stopSound];
                     [self removeWordImage];
-                    [self switchInteractionElse:NULL data:TAP];
                     break;
-                case 6: //蛋tap消失
+                case 6: //蛋tap消失 有問題！！
                     [tapObjectArray removeObject:tempObject];
                     [moveObjectArray removeObject:tempObject];
-                    [self removeChild:tempObject cleanup:NO];
+                    [self removeChild:tempObject cleanup:YES];
+                    [motionDetect.moveObjects release];
                     motionDetect.moveObjects = moveObjectArray;
                     break;
                 case 3:
@@ -263,7 +259,10 @@
         }
         
         if (CGRectContainsPoint(temp, touchLocation)) {
-            [soundMgr playSoundFile:tempObject.soundName];
+            if (!tempObject.isTouch) {
+                [soundMgr playSoundFile:tempObject.soundName];
+            }
+            
             if (tempObject.tag == 3) {
                 if (moveObjectArray.count < 5) {
                     [gamepoint addTypeA];

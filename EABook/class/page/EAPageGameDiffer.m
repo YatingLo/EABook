@@ -41,7 +41,6 @@
         [self addObjects];
         
         [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(gameStart)]]];
-        //[self gameStart];
     }
     return self;
 }
@@ -75,7 +74,7 @@
     progressBar.percentage = 100;
     [self schedule:@selector(countDown) interval:1.0f];
 }
-
+//遊戲結束判斷，當時間到或不同處都找到時呼叫此function。用endEnable來確保只被呼叫一次。
 -(void) gameOver
 {
     if (endEnable) {
@@ -87,11 +86,11 @@
         endEnable = NO;
         [self unschedule:@selector(countDown)];
         CCSprite *endImage;
-        if (differGame.answerNum == differGame.questNum) {
+        if (differGame.answerNum == differGame.questNum) { //都找到了
             [soundMgr playSoundFile:SOUND_GSUCES];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_win.png"];
         }
-        else
+        else //有些沒找到
         {
             [soundMgr playSoundFile:SOUND_GFAIL];
             endImage = [CCSprite spriteWithFile:@"P0-2_game_lose.png"];
@@ -104,6 +103,7 @@
     }
 }
 
+//設定遊戲選單
 -(void) addMenu
 {
     [self removeChildByTag:2 cleanup:YES];//清結果圖片
@@ -119,7 +119,6 @@
     }
     [self addChild:overMenu];
     
-    //tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:overMenu.tapArray] mutableCopy];
     tapObjectArray = overMenu.tapArray;
     
     CCCallFunc *turnInteraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
@@ -160,7 +159,7 @@
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
     CGPoint touchLocation = [recognizer locationInView:recognizer.view];
     touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
-    if (_touchEnable && (tapObjectArray.count > 0)) {
+    if (_tapEnable && (tapObjectArray.count > 0)) {
         [self tapSpriteMovement:touchLocation];
     }
 }
@@ -187,6 +186,7 @@
                 case 43:
                 case 44:
                 case 45:
+                    //點到不同處時將點到的答案自可點擊區移除。當找到數量到達題目數時，呼叫遊戲結束設定
                     [soundMgr playSoundFile:SOUND_GCLICK];
                     [differGame removeGameObject:obj.tag];
                     tapObjectArray = [[layerButtons arrayByAddingObjectsFromArray:differGame.tapObjectArray] mutableCopy];
@@ -227,7 +227,6 @@
 
 -(void) dealloc {
     [delegate.navController.view removeGestureRecognizer:tapgestureRecognizer];
-    
     [super dealloc];
 }
 @end

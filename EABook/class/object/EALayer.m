@@ -25,7 +25,6 @@
         //[gamepoint addTypeB];
         NSLog(@"gamePoint %@", [gamepoint goToPage]);
         
-        _touchEnable = NO;
         _soundEnable = NO;
         _panEnable = NO;
         _swipeEnable = NO;
@@ -34,6 +33,7 @@
         [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:1.5f] two:[CCCallFunc actionWithTarget:self selector:@selector(moveAtBegin)]]];//打開互動鎖
         
         soundMgr = [[SoundManager alloc] init];
+        soundMgr.switchDelegate = self;
         
         NSLog(@"Layer");
 	}
@@ -42,44 +42,39 @@
 
 -(void) moveAtBegin
 {
-    [self switchInteraction];
+    [self switchInteraction:ALL];
 }
 
--(void) switchInteraction
+-(void) switchInteraction:(int)type
 {
-    
-    if (_touchEnable) {
-        NSLog(@"witchInteraction OFF");
-        _touchEnable = NO;
-        _soundEnable = NO;
+    switch (type) {
+        case TAP:
+            NSLog(@"switchInteraction:tap");
+            _tapEnable = !_tapEnable;
+            break;
+        case SWIPE:
+            NSLog(@"switchInteraction:swipe");
+            _swipeEnable = !_swipeEnable;
+            break;
+        case PAN:
+            NSLog(@"switchInteraction:pan");
+            _panEnable = !_panEnable;
+            break;
+        case SOUND:
+            NSLog(@"switchInteraction:sound");
+            _soundEnable = !_soundEnable;
+            break;
+        default:
+            NSLog(@"switchInteraction:ALL");
+            _tapEnable = !_tapEnable;
+            _swipeEnable = !_swipeEnable;
+            _panEnable = !_panEnable;
+            _soundEnable = !_soundEnable;
+        break;
     }
-    else{
-        NSLog(@"witchInteraction ON");
-        _touchEnable = YES;
-        _soundEnable = YES;
-        if (soundDetect.enable == NO) {
-            soundDetect.enable = YES;
-        }
-    }
-    _tapEnable = !_tapEnable;
-    _panEnable = !_panEnable;
-    _swipeEnable = !_swipeEnable;
 }
 
--(void) switchTouchInteraction
-{
-    if (_tapEnable) {
-        NSLog(@"switchTouchInteraction OFF");
-    }
-    else{
-        NSLog(@"switchTouchInteraction ON");
-    }
-    _tapEnable = !_tapEnable;
-    _panEnable = !_panEnable;
-    _swipeEnable = !_swipeEnable;
-}
-
--(void) switchInteractionElse:(id)sender data:(int) type
+-(void) switchInteractionElse:(int) type
 {
     NSLog(@"switch ELSE");
     switch (type) {
@@ -101,6 +96,12 @@
             _swipeEnable = !_swipeEnable;
             _soundEnable = !_soundEnable;
             break;
+        case SOUND:
+            NSLog(@"switchInteractionElse:sound");
+            _tapEnable = !_tapEnable;
+            _swipeEnable = !_swipeEnable;
+            _panEnable = !_panEnable;
+            break;
         default:
             break;
     }
@@ -109,7 +110,7 @@
 -(void) stopSpriteMove
 {
     NSLog(@"EALayer stopSpriteMove");
-    [self switchInteraction];
+    //[self switchInteraction];
     [soundMgr stopSound];
 }
 
@@ -229,6 +230,7 @@
         WordImageNode = NULL;
         [tapObjectArray dealloc];
         tapObjectArray = tapButtons;
+        [self switchInteractionElse:TAP];
     }
 }
 -(void) addPre

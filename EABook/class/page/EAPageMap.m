@@ -134,7 +134,7 @@
 
 #pragma 手勢處理
 -(void) handleTap:(UITapGestureRecognizer *)recognizer {
-    if (_touchEnable && (tapObjectArray.count > 0)) {
+    if (_tapEnable && (tapObjectArray.count > 0)) {
         CGPoint touchLocation = [recognizer locationInView:recognizer.view];
         touchLocation = [[CCDirector sharedDirector] convertToGL:touchLocation];
     
@@ -145,7 +145,7 @@
 -(void) tapSpriteMovement:(CGPoint)touchLocation
 {
     //tap後的執行動作
-    CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:self selector:@selector(switchInteraction)];
+    CCCallFunc *switchIneraction = [CCCallFunc actionWithTarget:self selector:@selector(closeInteraction)];
     CCAction *turnPage = [CCCallFunc actionWithTarget:self selector:@selector(goToPage)];
     CCAction *turnWithShining = [CCSequence actions:switchIneraction,
                                  [CCFadeIn actionWithDuration:0.3],
@@ -181,6 +181,10 @@
             break;
         }
     }
+}
+
+-(void) closeInteraction{
+    [self switchInteraction:ALL];
 }
 
 -(void) dealloc {

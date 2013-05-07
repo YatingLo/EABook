@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import <AVFoundation/AVFoundation.h>
 #import "AppDelegate.h"
+#import "EALayerProtocol.h"
 
 @interface SoundManager : CCNode {
     //BOOL isPlay;
@@ -21,6 +22,7 @@
 }
 
 @property (nonatomic,retain)AVAudioPlayer *musicPlayer;
+@property (nonatomic, assign) id switchDelegate;
 
 -(void) playLoopSound:(NSString*) soundName;
 -(void) playSoundFile:(NSString*) soundName;

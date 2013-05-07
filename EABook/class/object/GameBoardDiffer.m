@@ -15,6 +15,7 @@
 {
     if (self = [super init])
     {
+        //從colider.txt取出遊戲設定，包含背景圖片名稱與答案位置
         tapObjectArray = [[NSMutableArray alloc] init];
         NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],@"colider.txt"]];
         stages = [[NSString stringWithContentsOfURL:url encoding:NSUnicodeStringEncoding error:nil] componentsSeparatedByString:@"\n"];
@@ -25,6 +26,7 @@
     return self;
 }
 
+//找到不同同時移除左有兩邊的觸碰區，並將作答計數加一
 -(void) removeGameObject:(int) objTag
 {
     answerNum ++;
@@ -113,6 +115,7 @@
     }
 }
 
+//依據題組編號來設定遊戲觸碰區，並在下方顯示不同數目與答題數目
 -(NSArray*) setGameObecjts:(NSString*) stage
 {
     NSArray *temp;
@@ -145,23 +148,26 @@
     
     //觸碰區設定
     objects = [[[temp objectAtIndex:1] componentsSeparatedByString:@"*"] mutableCopy];
-    //刪除空白列
-    //[objects removeObjectAtIndex:4];
+    
     int i = 0;
     for (NSString *string in objects) {
         ++i;
-        CCSprite *ob = [CCSprite node]; //左邊的觸碰區
+        
+        //左邊的觸碰區，位置值由txt檔中取得
+        CCSprite *ob = [CCSprite node]; 
         NSArray *des = [string componentsSeparatedByString:@","];
         [ob setTextureRect:CGRectMake(0, 0, [des[0] integerValue], [des[1] integerValue])];
         ob.position = ccp([des[2] integerValue], [des[3] integerValue]);
         ob.tag = 30 + i;
+        //DEBUG_BLACK YES的時候顯示黑色的觸碰區
         if (!DEBUG_BLACK) {
             ob.visible = NO;
         }
         [self addChild:ob];
         [tapObjectArray addObject:ob];
         
-        CCSprite *ob2 = [CCSprite node]; //右邊的觸碰區
+        //右邊的觸碰區，觸碰區位置是左邊再加447
+        CCSprite *ob2 = [CCSprite node]; 
         ob2.textureRect = ob.textureRect;
         ob2.position = ccpAdd(ccp(447, 0), ob.position);
         ob2.tag = 40 + i;
@@ -170,7 +176,6 @@
         }
         [self addChild:ob2];
         [tapObjectArray addObject:ob2];
-        //NSLog(@"%@",des.description);
     }
     
     return temp;

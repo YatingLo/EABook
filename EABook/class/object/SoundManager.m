@@ -10,6 +10,7 @@
 
 @implementation SoundManager
 @synthesize musicPlayer;
+@synthesize switchDelegate;
 
 -(id) init
 {
@@ -79,15 +80,14 @@
     }
 }
 
+
 //會switch ON and OFF
 -(void) playWordSoundFile:(NSString*) soundName
 {
     if ([delegate.BookSoundState getWordState]) {
-    //切換互動狀態
-    //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchInteraction)]];
-    [self runAction:[CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0]];
-    
-    
+    //[self runAction:[CCCallFuncND actionWithTarget:parent_ selector:@selector(switchInteractionElse:data:) data:0]];
+        [switchDelegate switchInteractionElse:TAP];
+        
         NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", [[NSBundle mainBundle] resourcePath],soundName]];
         
         audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];

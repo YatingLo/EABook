@@ -792,6 +792,7 @@
 		B89E43921643FF9500B6F420 /* GAME_different_map05B.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GAME_different_map05B.jpg; sourceTree = "<group>"; };
 		B8ADB9B0163FA1A900B4B9AC /* EAPage3-1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EAPage3-1.h"; sourceTree = "<group>"; };
 		B8ADB9B1163FA1A900B4B9AC /* EAPage3-1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "EAPage3-1.m"; sourceTree = "<group>"; };
+		B8CA4CBC17392FE700C76BE0 /* EALayerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayerProtocol.h; sourceTree = "<group>"; };
 		B8F2EA3D165E158B00F82F9B /* P3-2_lion.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "P3-2_lion.plist"; sourceTree = "<group>"; };
 		B8F2EA3E165E158B00F82F9B /* P3-2_lion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "P3-2_lion.png"; sourceTree = "<group>"; };
 		B8F2EA43165E1B3500F82F9B /* end.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = end.mp3; sourceTree = "<group>"; };
@@ -1298,6 +1299,7 @@
 				B850B6EA16414CB100092CEB /* EAUpDownSprite.m */,
 				B86279FE1649031F00034354 /* EASoundDectectSprite.h */,
 				B86279FF1649031F00034354 /* EASoundDectectSprite.m */,
+				B8CA4CBC17392FE700C76BE0 /* EALayerProtocol.h */,
 			);
 			path = object;
 			sourceTree = "<group>";
@@ -2174,8 +2176,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Animal;
-				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				PROVISIONING_PROFILE = "0EE9DE6E-93D0-41F0-A886-8E819BFE9C8E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0EE9DE6E-93D0-41F0-A886-8E819BFE9C8E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2197,8 +2199,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = Animal;
-				PROVISIONING_PROFILE = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9CF38C7-9945-4EAB-BDF2-CA311BD60FDA";
+				PROVISIONING_PROFILE = "0EE9DE6E-93D0-41F0-A886-8E819BFE9C8E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0EE9DE6E-93D0-41F0-A886-8E819BFE9C8E";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
