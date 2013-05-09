@@ -275,7 +275,7 @@
 -(void) stopSpriteMove
 {
     NSLog(@"EAPage3-1 stopSpriteMove");
-    [self switchInteraction];
+    //[self switchInteraction];
     [soundMgr stopSound];
     if (soundDetect.enable == NO) {
         [soundDetect setEnable:YES];

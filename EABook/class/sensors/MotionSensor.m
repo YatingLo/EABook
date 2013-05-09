@@ -83,7 +83,6 @@
         {
             
             if (!animAble) {
-                //[self runAction:[CCCallFunc actionWithTarget:parent_ selector:@selector(switchTouchInteraction)]];
                 animAble = !animAble;
                 for (sprite in moveObjects) {
                     [sprite stopAllActions];

@@ -13,7 +13,13 @@
 #import "SoundManager.h"
 #import "EALayerProtocol.h"
 
-#define LIMIT 0.9
+#define LIMIT 0.8
+
+@protocol MotionProtocol <NSObject>
+
+-(void) motionMove;
+
+@end
 
 @interface MotionSensor : CCNode
 {
@@ -34,6 +40,7 @@
 @property (nonatomic, retain) NSMutableArray *moveObjects;
 @property (nonatomic, retain) SoundManager *sManage;
 @property (nonatomic, assign) id *switchDelegate;
+@property (nonatomic, assign) id *moveDelegate;
 
 -(id) init;
 -(void) update;

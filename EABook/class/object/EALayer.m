@@ -144,6 +144,8 @@
 
 -(void) addWordImage:(NSString*)imageName music:(NSString*)musicName
 {
+    [soundMgr stopSound];
+    
     WordImageNode = [[CCNode alloc] init];
     
     CGSize size = [[CCDirector sharedDirector] winSize];

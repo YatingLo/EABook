@@ -199,10 +199,10 @@
                     [self removeWordImage];
                     break;
                 case 6: //蛋tap消失 有問題！！
-                    [tapObjectArray removeObject:tempObject];
+                    //[tapObjectArray removeObject:tempObject];
                     [moveObjectArray removeObject:tempObject];
                     [self removeChild:tempObject cleanup:YES];
-                    [motionDetect.moveObjects release];
+                    motionDetect.moveObjects = NULL;
                     motionDetect.moveObjects = moveObjectArray;
                     break;
                 case 3:
@@ -299,26 +299,6 @@
                 }
                 [tempObject startAnimation];
             }
-            /*swipe 來回兩次
-             //當前一次與本次同一物件進入
-             if (tempObject == touchedSprite) {
-             //當前一次與本次方向不同時進入
-             if (swipeDirection != direction) {
-             NSLog(@"swipe twice");
-             touchedSprite = Nil;
-             //動畫播放
-             [tempObject startAnimation];
-             }
-             else
-             {
-             swipeDirection = direction;
-             }
-             }
-             else
-             {
-             touchedSprite = tempObject;
-             swipeDirection = direction;
-             }*/
         }
     }
 }
